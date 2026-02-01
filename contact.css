@@ -1,0 +1,363 @@
+/* ================================================
+   ASTAURIA — Contact Page Specific Styles
+   ================================================ */
+
+/* ========== HERO CONTACT VARIANT ========== */
+.hero--contact {
+    min-height: 55vh;
+}
+
+.hero--contact .hero__content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* ========== CONTACT INTRO ========== */
+.contact-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-intro__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+    border-radius: 50%;
+    margin-bottom: var(--space-xl);
+}
+
+.contact-intro__icon svg {
+    width: 36px;
+    height: 36px;
+    color: var(--color-gold);
+}
+
+.contact-intro__text {
+    font-size: var(--font-size-lg);
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-xl);
+}
+
+.contact-intro__highlight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: var(--color-light-grey);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    color: var(--color-navy);
+    margin-bottom: var(--space-xl);
+}
+
+.contact-intro__highlight svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-gold);
+    flex-shrink: 0;
+}
+
+/* ========== CONTACT FORM ========== */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-2xl);
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-form__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.form-group--full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--color-navy);
+    font-size: var(--font-size-sm);
+}
+
+.form-group .optional {
+    font-weight: 400;
+    color: var(--color-dark-grey);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--color-medium-grey);
+    border-radius: var(--radius-md);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background: var(--color-white);
+    transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(201, 162, 77, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-dark-grey);
+    opacity: 0.6;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    width: 100%;
+}
+
+/* ========== SECTION SUBTITLE ========== */
+.section__subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-dark-grey);
+    margin-top: var(--space-sm);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========== LOCATIONS GRID ========== */
+.locations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.location-card {
+    background: var(--color-light-grey);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.location-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-xl);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+}
+
+.location-card__flag {
+    font-size: var(--font-size-3xl);
+}
+
+.location-card__country {
+    font-size: var(--font-size-xl);
+    color: var(--color-white);
+    margin: 0;
+}
+
+.location-card__body {
+    padding: var(--space-xl);
+}
+
+.location-card__intro {
+    font-weight: 600;
+    color: var(--color-navy);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-medium-grey);
+}
+
+/* ========== PARTNER BLOCK ========== */
+.partner-block {
+    padding: var(--space-lg);
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+}
+
+.partner-block:last-child {
+    margin-bottom: 0;
+}
+
+.partner-block--main {
+    border: 2px solid rgba(201, 162, 77, 0.3);
+}
+
+.partner-block h4 {
+    font-size: var(--font-size-lg);
+    color: var(--color-navy);
+    margin-bottom: var(--space-md);
+}
+
+.partner-block__tag {
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: var(--space-md);
+}
+
+.partner-block__label {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-sm);
+}
+
+.partner-block ul {
+    margin-bottom: var(--space-md);
+}
+
+.partner-block ul li {
+    position: relative;
+    padding-left: var(--space-lg);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.partner-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background: var(--color-gold);
+    border-radius: 50%;
+}
+
+.partner-block__note {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-light-grey);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-navy);
+}
+
+.partner-block--main .partner-block__note {
+    background: rgba(201, 162, 77, 0.1);
+}
+
+.partner-block__note svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-gold);
+    flex-shrink: 0;
+}
+
+/* ========== COORDINATION SECTION ========== */
+.coordination-section {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.coordination-section__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin-bottom: var(--space-xl);
+}
+
+.coordination-section__icon svg {
+    width: 36px;
+    height: 36px;
+    color: var(--color-gold);
+}
+
+.coordination-points {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: var(--space-2xl) 0;
+}
+
+.coordination-point {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--color-white);
+    font-weight: 500;
+}
+
+.coordination-point svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-gold);
+    flex-shrink: 0;
+}
+
+.coordination-note {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: rgba(201, 162, 77, 0.15);
+    border: 1px solid rgba(201, 162, 77, 0.3);
+    border-radius: var(--radius-full);
+    color: var(--color-gold);
+    font-weight: 600;
+}
+
+.coordination-note svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ========== RESPONSIVE — TABLET ========== */
+@media (min-width: 768px) {
+    .contact-form__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .coordination-points {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .coordination-point {
+        flex: 1;
+        flex-direction: column;
+        text-align: center;
+    }
+}

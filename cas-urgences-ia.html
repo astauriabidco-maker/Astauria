@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZF5RYSS4V');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Comment un service d'urgences a réduit de 25% les délais de prise en charge des cas critiques grâce au tri intelligent par IA.">
+    <title>Cas d'usage : Tri intelligent des urgences par IA — Astauria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="cas-usage.html" class="nav__link">Cas d'usage</a></li>
+                    <li><a href="pourquoi-astauria.html" class="nav__link">Pourquoi Astauria</a></li>
+                    <li><a href="blog.html" class="nav__link nav__link--active">Ressources</a></li>
+                    <li><a href="audit-ia.html" class="nav__link">Audit IA</a></li>
+                </ul>
+            </nav>
+            <a href="audit-ia.html" class="btn btn--primary header__cta">Audit IA &amp; Automatisation</a>
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="article-hero">
+            <div class="container">
+                <a href="blog.html" class="article-back">
+                    <i data-lucide="arrow-left"></i>
+                    Retour aux ressources
+                </a>
+                <div class="article-hero__meta">
+                    <span class="article-hero__tag">Cas d'usage • Santé</span>
+                    <span class="article-hero__date">28 janvier 2026</span>
+                </div>
+                <h1 class="article-hero__title">Tri intelligent des urgences : quand l'IA sauve des vies</h1>
+                <p class="article-hero__excerpt">
+                    Un centre hospitalier a déployé un système de tri assisté par IA qui analyse les symptômes en temps
+                    réel. Résultat : -25% de délai pour les cas critiques.
+                </p>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="article-content__inner">
+
+                <h2>Le défi : des urgences saturées, des priorités difficiles à établir</h2>
+
+                <p>
+                    Chaque jour, les services d'urgences font face à un afflux de patients aux profils très variés : de
+                    la simple entorse à l'infarctus silencieux. L'enjeu du tri (ou "triage") est crucial : identifier
+                    rapidement les cas graves qui ne peuvent pas attendre.
+                </p>
+
+                <p>
+                    Le Centre Hospitalier Régional de l'Est* accueille 180 patients par jour aux urgences. Malgré
+                    l'expérience des infirmiers d'accueil et d'orientation (IAO), certains cas passaient entre les
+                    mailles du filet :
+                </p>
+
+                <ul>
+                    <li>Patients minimisant leurs symptômes ("juste une douleur thoracique légère")</li>
+                    <li>Présentations atypiques (infarctus sans douleur chez les diabétiques)</li>
+                    <li>Surcharge cognitive en période de forte affluence</li>
+                </ul>
+
+                <p><em>* Nom modifié pour préserver la confidentialité</em></p>
+
+                <div class="stats-box">
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">180</span>
+                        <span class="stats-box__label">Patients/jour aux urgences</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">45 min</span>
+                        <span class="stats-box__label">Délai moyen avant prise en charge</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">8%</span>
+                        <span class="stats-box__label">Cas sous-triés (gravité sous-estimée)</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">3</span>
+                        <span class="stats-box__label">Incidents graves évitables/an</span>
+                    </div>
+                </div>
+
+                <h2>La solution : un assistant IA pour le tri initial</h2>
+
+                <p>
+                    Le système déployé ne remplace pas l'IAO — il l'augmente. Voici comment fonctionne le processus :
+                </p>
+
+                <ol class="number-list">
+                    <li>
+                        <strong>Collecte structurée :</strong> Le patient décrit ses symptômes sur une tablette (ou
+                        l'IAO saisit pour lui). L'IA pose des questions complémentaires adaptatives.
+                    </li>
+                    <li>
+                        <strong>Analyse NLP :</strong> L'algorithme analyse le texte libre pour détecter des signaux
+                        d'alerte : "douleur irradiant dans le bras", "essoufflement au repos", "sueurs froides"...
+                    </li>
+                    <li>
+                        <strong>Score de gravité prédictif :</strong> En croisant symptômes, constantes vitales et
+                        antécédents, l'IA calcule un score de risque sur 100.
+                    </li>
+                    <li>
+                        <strong>Alerte intelligente :</strong> Si le score dépasse un seuil, une alerte visuelle et
+                        sonore informe immédiatement l'équipe.
+                    </li>
+                </ol>
+
+                <blockquote>
+                    <p>"L'IA a détecté un AVC chez un patient venu pour 'vertiges et fatigue'. Il minimisait ses
+                        symptômes, mais l'algorithme a repéré la combinaison atypique. On a pu agir dans la fenêtre
+                        thérapeutique."</p>
+                </blockquote>
+
+                <h2>Ce que l'IA fait que l'humain seul ne peut pas faire</h2>
+
+                <div class="highlight-box">
+                    <h4>La valeur ajoutée unique de l'IA</h4>
+                    <ul>
+                        <li><strong>Analyse du langage naturel :</strong> Comprendre le sens derrière des descriptions
+                            vagues ou maladroites</li>
+                        <li><strong>Patterns invisibles :</strong> Détecter des combinaisons de symptômes rares mais
+                            critiques, apprises sur des millions de cas</li>
+                        <li><strong>Vigilance constante :</strong> Pas de fatigue, pas de distraction, même à 3h du
+                            matin après 10h de garde</li>
+                        <li><strong>Mise à jour continue :</strong> L'algorithme s'améliore avec chaque nouveau cas
+                            analysé</li>
+                    </ul>
+                </div>
+
+                <p>
+                    L'IAO reste maître de la décision finale. L'IA est un "filet de sécurité" qui signale les cas à ne
+                    pas manquer.
+                </p>
+
+                <h2>Les résultats après 12 mois</h2>
+
+                <div class="stats-box">
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">-25%</span>
+                        <span class="stats-box__label">Délai pour les cas critiques</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">-60%</span>
+                        <span class="stats-box__label">Cas sous-triés</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">0</span>
+                        <span class="stats-box__label">Incident grave évitable</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">92%</span>
+                        <span class="stats-box__label">Satisfaction équipe soignante</span>
+                    </div>
+                </div>
+
+                <p>
+                    Au-delà des chiffres, l'équipe rapporte une baisse du stress lié à la "peur de passer à côté" d'un
+                    cas grave. L'IA sert de second regard rassurant.
+                </p>
+
+                <h2>Les facteurs clés de succès</h2>
+
+                <ol class="number-list">
+                    <li>
+                        <strong>Implication des soignants dès la conception :</strong> Les IAO ont participé à la
+                        définition des alertes et validé la pertinence clinique.
+                    </li>
+                    <li>
+                        <strong>Transparence de l'algorithme :</strong> Chaque alerte est accompagnée d'une explication
+                        ("Alerte déclenchée car : douleur thoracique + diabète + âge > 60").
+                    </li>
+                    <li>
+                        <strong>Phase pilote de 3 mois :</strong> Le système a d'abord fonctionné en "mode observation"
+                        sans alertes, pour valider sa pertinence.
+                    </li>
+                    <li>
+                        <strong>L'humain garde le contrôle :</strong> L'IA suggère, le soignant décide. Aucune action
+                        automatique.
+                    </li>
+                </ol>
+
+                <h2>Les limites et précautions</h2>
+
+                <p>
+                    Ce type de projet n'est pas sans défis :
+                </p>
+
+                <ul>
+                    <li><strong>Données d'entraînement :</strong> L'algorithme doit être entraîné sur des données
+                        locales, pas seulement américaines</li>
+                    <li><strong>Faux positifs :</strong> Trop d'alertes = "fatigue d'alerte" et désensibilisation</li>
+                    <li><strong>Cadre réglementaire :</strong> Marquage CE, RGPD, validation par les instances médicales
+                    </li>
+                    <li><strong>Responsabilité :</strong> Le médecin reste responsable, l'IA est un outil d'aide</li>
+                </ul>
+
+                <blockquote>
+                    <p>"L'IA ne remplace pas le jugement clinique. Elle nous donne un filet de sécurité pour les cas
+                        atypiques que notre expérience seule pourrait manquer."</p>
+                </blockquote>
+
+                <div class="article-cta">
+                    <h3>Votre établissement souhaite explorer l'IA ?</h3>
+                    <p>Nous accompagnons les structures de santé dans l'identification des cas d'usage pertinents et la
+                        mise en œuvre de solutions conformes aux exigences du secteur.</p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large">
+                        <span>Demander un diagnostic</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="related-articles">
+            <div class="container">
+                <h2>Articles connexes</h2>
+                <div class="related-articles__grid">
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="assets/usecase-healthcare.png" alt="IA Hospitalier">
+                            <span class="article-card__tag">Cas d'usage</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">10 décembre 2025</span>
+                            <h2 class="article-card__title">IA et milieu hospitalier : opportunités et limites</h2>
+                            <a href="article-ia-hospitalier.html" class="article-card__link">
+                                Lire l'article <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="assets/blog-ai-strategy.png" alt="Questions IA">
+                            <span class="article-card__tag">IA &amp; Stratégie</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">15 janvier 2026</span>
+                            <h2 class="article-card__title">5 questions à se poser avant d'investir dans l'IA</h2>
+                            <a href="article-questions-ia.html" class="article-card__link">
+                                Lire l'article <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__main">
+                <div class="footer__column footer__identity">
+                    <a href="index.html"><img src="assets/logo-astauria.png" alt="Astauria"
+                            class="logo-img logo-img--footer"></a>
+                    <p class="footer__brand-name">Astauria</p>
+                    <p class="footer__brand-tagline">IA &amp; automatisation au service des entreprises</p>
+                </div>
+                <div class="footer__column">
+                    <h4>Navigation</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="cas-usage.html">Cas d'usage</a></li>
+                        <li><a href="pourquoi-astauria.html">Pourquoi Astauria</a></li>
+                        <li><a href="audit-ia.html">Audit IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4>Contact</h4>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item"><i data-lucide="mail"></i><a
+                                href="mailto:contact@astauria.com">contact@astauria.com</a></div>
+                        <div class="footer__contact-item"><i data-lucide="globe"></i><a
+                                href="https://www.astauria.com">www.astauria.com</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© Astauria – Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-popup__overlay"></div>
+        <div class="newsletter-popup__modal">
+            <button class="newsletter-popup__close" id="newsletter-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="newsletter-popup__content">
+                <div class="newsletter-popup__badge">
+                    <i data-lucide="gift"></i>
+                    <span>GUIDE GRATUIT</span>
+                </div>
+                <h3 class="newsletter-popup__title">Les 7 questions clés avant d'investir dans l'IA</h3>
+                <p class="newsletter-popup__subtitle">Téléchargez notre guide exclusif et évitez les erreurs coûteuses de 80% des projets IA.</p>
+                <ul class="newsletter-popup__benefits">
+                    <li><i data-lucide="check-circle"></i> Checklist ROI complète</li>
+                    <li><i data-lucide="check-circle"></i> Exemples de cas réels</li>
+                    <li><i data-lucide="check-circle"></i> Template d'évaluation</li>
+                </ul>
+                <form class="newsletter-popup__form" id="newsletter-form">
+                    <div class="newsletter-popup__input-group">
+                        <input type="email" name="email" placeholder="votre@email.com" required class="newsletter-popup__input">
+                        <button type="submit" class="btn btn--primary newsletter-popup__btn"><span>Recevoir le guide</span><i data-lucide="download"></i></button>
+                    </div>
+                    <p class="newsletter-popup__privacy"><i data-lucide="shield-check"></i> Vos données sont protégées. Désinscription en 1 clic.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOATING CONTACT BUTTON ========== -->
+    <div class="floating-contact" id="floating-contact">
+        <div class="floating-contact__panel">
+            <div class="floating-contact__header">
+                <span>💬 Comment pouvons-nous vous aider ?</span>
+            </div>
+            <div class="floating-contact__options">
+                <a href="mailto:contact@astauria.com" class="floating-contact__option">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@astauria.com</span>
+                    </div>
+                </a>
+                <a href="tel:+33123456789" class="floating-contact__option">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                </a>
+                <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>Audit IA gratuit</strong>
+                        <span>Réservez un créneau</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="floating-contact__btn" id="floating-contact-btn" aria-label="Nous contacter">
+            <i data-lucide="message-circle" class="floating-contact__icon-open"></i>
+            <i data-lucide="x" class="floating-contact__icon-close"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="newsletter.js"></script>
+    <script src="cookies.js"></script>
+</body>
+
+</html>

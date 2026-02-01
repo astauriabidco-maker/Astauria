@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZF5RYSS4V');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Études de cas IA concrètes : santé, industrie, juridique, e-commerce. Découvrez comment l'IA résout des problèmes que l'automatisation classique ne peut pas résoudre.">
+    <title>Cas d'usage IA — Astauria</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cas-usage.css">
+</head>
+
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="cas-usage.html" class="nav__link nav__link--active">Cas d'usage</a></li>
+                    <li><a href="pourquoi-astauria.html" class="nav__link">Pourquoi Astauria</a></li>
+                    <li><a href="blog.html" class="nav__link">Ressources</a></li>
+                    <li><a href="audit-ia.html" class="nav__link">Audit IA</a></li>
+                </ul>
+            </nav>
+            <a href="audit-ia.html" class="btn btn--primary header__cta">Audit IA & Automatisation</a>
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO ========== -->
+        <section class="hero hero--cases">
+            <div class="hero__bg"></div>
+            <div class="container">
+                <div class="hero__content" data-animate>
+                    <span class="hero__badge">Études de cas</span>
+                    <h1 class="hero__title">L'IA en action : des résultats mesurables</h1>
+                    <p class="hero__subtitle">
+                        Découvrez comment l'IA résout des problèmes que l'automatisation classique ne peut pas résoudre.
+                    </p>
+                </div>
+                <div class="hero__stats" data-animate>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">6</span>
+                        <span class="hero__stat-label">Secteurs couverts</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">15+</span>
+                        <span class="hero__stat-label">Projets déployés</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">100%</span>
+                        <span class="hero__stat-label">Résultats mesurés</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTOR FILTERS ========== -->
+        <section class="section section--white filters-section">
+            <div class="container">
+                <div class="sector-filters" data-animate>
+                    <button class="sector-filter sector-filter--active" data-filter="all">
+                        <i data-lucide="layers"></i>
+                        Tous
+                    </button>
+                    <button class="sector-filter" data-filter="sante">
+                        <i data-lucide="hospital"></i>
+                        Santé
+                    </button>
+                    <button class="sector-filter" data-filter="industrie">
+                        <i data-lucide="factory"></i>
+                        Industrie
+                    </button>
+                    <button class="sector-filter" data-filter="juridique">
+                        <i data-lucide="scale"></i>
+                        Juridique
+                    </button>
+                    <button class="sector-filter" data-filter="commerce">
+                        <i data-lucide="shopping-cart"></i>
+                        Commerce
+                    </button>
+                    <button class="sector-filter" data-filter="service">
+                        <i data-lucide="headphones"></i>
+                        Service Client
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CASE STUDIES GRID ========== -->
+        <section class="section section--grey" id="cases">
+            <div class="container">
+                <div class="cases-grid" data-animate>
+
+                    <!-- Case 1: Tri urgences -->
+                    <a href="cas-urgences-ia.html" class="case-card" data-sector="sante">
+                        <div class="case-card__header">
+                            <div class="case-card__sector">
+                                <i data-lucide="hospital"></i>
+                                Santé
+                            </div>
+                            <span class="case-card__tech">NLP + ML</span>
+                        </div>
+                        <h3 class="case-card__title">Tri intelligent des urgences</h3>
+                        <p class="case-card__desc">L'IA analyse les symptômes en temps réel pour prioriser les cas
+                            critiques.</p>
+                        <div class="case-card__result">
+                            <span class="case-card__metric">-25%</span>
+                            <span class="case-card__metric-label">Délai cas critiques</span>
+                        </div>
+                        <span class="case-card__cta">Lire l'étude <i data-lucide="arrow-right"></i></span>
+                    </a>
+
+                    <!-- Case 2: Réadmissions -->
+                    <a href="cas-readmissions-ia.html" class="case-card" data-sector="sante">
+                        <div class="case-card__header">
+                            <div class="case-card__sector">
+                                <i data-lucide="hospital"></i>
+                                Santé
+                            </div>
+                            <span class="case-card__tech">ML prédictif</span>
+                        </div>
+                        <h3 class="case-card__title">Prédiction des réadmissions</h3>
+                        <p class="case-card__desc">Identifier les patients à risque AVANT leur sortie pour renforcer le
+                            suivi.</p>
+                        <div class="case-card__result">
+                            <span class="case-card__metric">-30%</span>
+                            <span class="case-card__metric-label">Réadmissions évitables</span>
+                        </div>
+                        <span class="case-card__cta">Lire l'étude <i data-lucide="arrow-right"></i></span>
+                    </a>
+
+                    <!-- Case 3: Vision industrie -->
+                    <a href="cas-vision-industrie.html" class="case-card" data-sector="industrie">
+                        <div class="case-card__header">
+                            <div class="case-card__sector">
+                                <i data-lucide="factory"></i>
+                                Industrie
+                            </div>
+                            <span class="case-card__tech">Vision IA</span>
+                        </div>
+                        <h3 class="case-card__title">Détection de défauts invisibles</h3>
+                        <p class="case-card__desc">La vision par ordinateur repère les micro-anomalies que l'œil humain
+                            ne voit pas.</p>
+                        <div class="case-card__result">
+                            <span class="case-card__metric">-92%</span>
+                            <span class="case-card__metric-label">Défauts livrés</span>
+                        </div>
+                        <span class="case-card__cta">Lire l'étude <i data-lucide="arrow-right"></i></span>
+                    </a>
+
+                    <!-- Case 4: NLP juridique -->
+                    <a href="cas-nlp-juridique.html" class="case-card" data-sector="juridique">
+                        <div class="case-card__header">
+                            <div class="case-card__sector">
+                                <i data-lucide="scale"></i>
+                                Juridique
+                            </div>
+                            <span class="case-card__tech">NLP / LLM</span>
+                        </div>
+                        <h3 class="case-card__title">Analyse de contrats par NLP</h3>
+                        <p class="case-card__desc">500 pages analysées en 10 minutes, clauses à risque détectées
+                            automatiquement.</p>
+                        <div class="case-card__result">
+                            <span class="case-card__metric">-70%</span>
+                            <span class="case-card__metric-label">Temps d'analyse</span>
+                        </div>
+                        <span class="case-card__cta">Lire l'étude <i data-lucide="arrow-right"></i></span>
+                    </a>
+
+                    <!-- Case 5: Churn -->
+                    <a href="cas-churn-ecommerce.html" class="case-card" data-sector="commerce">
+                        <div class="case-card__header">
+                            <div class="case-card__sector">
+                                <i data-lucide="shopping-cart"></i>
+                                E-commerce
+                            </div>
+                            <span class="case-card__tech">ML comportemental</span>
+                        </div>
+                        <h3 class="case-card__title">Prédiction de churn</h3>
+                        <p class="case-card__desc">Détecter les signaux faibles de départ client avant qu'il ne soit
+                            trop tard.</p>
+                        <div class="case-card__result">
+                            <span class="case-card__metric">-35%</span>
+                            <span class="case-card__metric-label">Taux de churn</span>
+                        </div>
+                        <span class="case-card__cta">Lire l'étude <i data-lucide="arrow-right"></i></span>
+                    </a>
+
+                    <!-- Case 6: Sentiment -->
+                    <a href="cas-sentiment-service.html" class="case-card" data-sector="service">
+                        <div class="case-card__header">
+                            <div class="case-card__sector">
+                                <i data-lucide="headphones"></i>
+                                Service Client
+                            </div>
+                            <span class="case-card__tech">Sentiment Analysis</span>
+                        </div>
+                        <h3 class="case-card__title">Analyse émotionnelle temps réel</h3>
+                        <p class="case-card__desc">L'IA détecte l'émotion du client et guide le conseiller en direct.
+                        </p>
+                        <div class="case-card__result">
+                            <span class="case-card__metric">+40%</span>
+                            <span class="case-card__metric-label">Satisfaction client</span>
+                        </div>
+                        <span class="case-card__cta">Lire l'étude <i data-lucide="arrow-right"></i></span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== APPROACH ========== -->
+        <section class="section section--white" id="approach">
+            <div class="container">
+                <div class="approach" data-animate>
+                    <h2 class="approach__title">Notre approche</h2>
+                    <div class="approach__steps">
+                        <div class="approach__step">
+                            <div class="approach__step-number">1</div>
+                            <h3>Audit</h3>
+                            <p>Analyse de vos processus et identification des opportunités IA</p>
+                        </div>
+                        <div class="approach__step">
+                            <div class="approach__step-number">2</div>
+                            <h3>POC</h3>
+                            <p>Preuve de concept sur un périmètre limité pour valider la valeur</p>
+                        </div>
+                        <div class="approach__step">
+                            <div class="approach__step-number">3</div>
+                            <h3>Déploiement</h3>
+                            <p>Mise en production avec formation des équipes</p>
+                        </div>
+                        <div class="approach__step">
+                            <div class="approach__step-number">4</div>
+                            <h3>Mesure</h3>
+                            <p>Suivi des KPIs et optimisation continue</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CTA ========== -->
+        <section class="section section--navy" id="cta">
+            <div class="container">
+                <div class="cta-block" data-animate>
+                    <h2 class="cta-block__title">Vous avez un cas d'usage en tête ?</h2>
+                    <p class="cta-block__text">
+                        Discutons de votre projet. Nous analysons gratuitement vos opportunités d'IA lors de l'audit
+                        initial.
+                    </p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large">
+                        <span>Demander mon audit IA</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer CTA -->
+            <div class="footer__cta">
+                <p class="footer__cta-text">Prêt à explorer le potentiel de l'IA dans votre organisation ?</p>
+                <a href="audit-ia.html" class="btn btn--primary">Demander un audit IA</a>
+            </div>
+
+            <!-- Footer Main Grid -->
+            <div class="footer__main">
+                <!-- Column 1 — Identity -->
+                <div class="footer__column footer__identity">
+                    <a href="index.html">
+                        <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img logo-img--footer">
+                    </a>
+                    <p class="footer__brand-name">Astauria</p>
+                    <p class="footer__brand-tagline">IA & automatisation au service des entreprises</p>
+                    <p class="footer__brand-description">
+                        Cabinet de conseil spécialisé en intelligence artificielle et automatisation des processus
+                        métiers.
+                    </p>
+                </div>
+
+                <!-- Column 2 — Navigation -->
+                <div class="footer__column">
+                    <h4>Navigation</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="cas-usage.html">Cas d'usage</a></li>
+                        <li><a href="pourquoi-astauria.html">Pourquoi Astauria</a></li>
+                        <li><a href="blog.html">Ressources</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 — Expertises -->
+                <div class="footer__column">
+                    <h4>Expertises</h4>
+                    <ul class="footer__expertise-list">
+                        <li>NLP & Analyse de texte</li>
+                        <li>Machine Learning prédictif</li>
+                        <li>Vision par ordinateur</li>
+                        <li>Automatisation intelligente</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 — Contact -->
+                <div class="footer__column">
+                    <h4>Contact</h4>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item">
+                            <i data-lucide="mail"></i>
+                            <a href="mailto:contact@astauria.com">contact@astauria.com</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i data-lucide="globe"></i>
+                            <a href="https://www.astauria.com">www.astauria.com</a>
+                        </div>
+                    </div>
+                    <div class="footer__presence">
+                        <p class="footer__presence-label">Présence</p>
+                        <div class="footer__presence-tags">
+                            <span class="footer__presence-tag">France</span>
+                            <span class="footer__presence-tag">Cameroun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Astauria — Tous droits réservés</p>
+                <nav class="footer__legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-popup__overlay"></div>
+        <div class="newsletter-popup__modal">
+            <button class="newsletter-popup__close" id="newsletter-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="newsletter-popup__content">
+                <div class="newsletter-popup__badge">
+                    <i data-lucide="gift"></i>
+                    <span>GUIDE GRATUIT</span>
+                </div>
+                <h3 class="newsletter-popup__title">Les 7 questions clés avant d'investir dans l'IA</h3>
+                <p class="newsletter-popup__subtitle">Téléchargez notre guide exclusif et évitez les erreurs coûteuses de 80% des projets IA.</p>
+                <ul class="newsletter-popup__benefits">
+                    <li><i data-lucide="check-circle"></i> Checklist ROI complète</li>
+                    <li><i data-lucide="check-circle"></i> Exemples de cas réels</li>
+                    <li><i data-lucide="check-circle"></i> Template d'évaluation</li>
+                </ul>
+                <form class="newsletter-popup__form" id="newsletter-form">
+                    <div class="newsletter-popup__input-group">
+                        <input type="email" name="email" placeholder="votre@email.com" required class="newsletter-popup__input">
+                        <button type="submit" class="btn btn--primary newsletter-popup__btn"><span>Recevoir le guide</span><i data-lucide="download"></i></button>
+                    </div>
+                    <p class="newsletter-popup__privacy"><i data-lucide="shield-check"></i> Vos données sont protégées. Désinscription en 1 clic.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOATING CONTACT BUTTON ========== -->
+    <div class="floating-contact" id="floating-contact">
+        <div class="floating-contact__panel">
+            <div class="floating-contact__header">
+                <span>💬 Comment pouvons-nous vous aider ?</span>
+            </div>
+            <div class="floating-contact__options">
+                <a href="mailto:contact@astauria.com" class="floating-contact__option">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@astauria.com</span>
+                    </div>
+                </a>
+                <a href="tel:+33123456789" class="floating-contact__option">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                </a>
+                <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>Audit IA gratuit</strong>
+                        <span>Réservez un créneau</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="floating-contact__btn" id="floating-contact-btn" aria-label="Nous contacter">
+            <i data-lucide="message-circle" class="floating-contact__icon-open"></i>
+            <i data-lucide="x" class="floating-contact__icon-close"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="newsletter.js"></script>
+    <script src="cookies.js"></script>
+    <script>
+        // Sector filter functionality
+        document.querySelectorAll('.sector-filter').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.sector-filter').forEach(b => b.classList.remove('sector-filter--active'));
+                btn.classList.add('sector-filter--active');
+
+                const filter = btn.dataset.filter;
+                const cards = document.querySelectorAll('.case-card');
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.sector === filter) {
+                        card.style.display = 'flex';
+                        card.style.animation = 'fadeIn 0.3s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

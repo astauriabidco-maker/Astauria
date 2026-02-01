@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZF5RYSS4V');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contactez Astauria pour discuter de vos projets IA et automatisation. Présence en France et au Cameroun avec des partenaires locaux de confiance.">
+    <title>Contact — Astauria</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="cas-usage.html" class="nav__link">Cas d'usage</a></li>
+                    <li><a href="pourquoi-astauria.html" class="nav__link">Pourquoi Astauria</a></li>
+                    <li><a href="blog.html" class="nav__link">Ressources</a></li>
+                    <li><a href="audit-ia.html" class="nav__link">Audit IA</a></li>
+                    <li><a href="contact.html" class="nav__link nav__link--active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="audit-ia.html" class="btn btn--primary header__cta">
+                Audit IA & Automatisation
+            </a>
+
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO ========== -->
+        <section class="hero hero--contact">
+            <div class="hero__bg"></div>
+            <div class="container hero__container">
+                <div class="hero__content" data-animate>
+                    <h1 class="hero__title">
+                        Contactez Astauria
+                    </h1>
+                    <p class="hero__subtitle">
+                        Échangeons sur vos enjeux et voyons comment l'IA et l'automatisation peuvent générer des
+                        résultats concrets dans votre organisation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== NOUS CONTACTER ========== -->
+        <section class="section section--white" id="intro">
+            <div class="container">
+                <div class="contact-intro" data-animate>
+                    <div class="contact-intro__icon">
+                        <i data-lucide="phone"></i>
+                    </div>
+                    <h2 class="section__title">Parlons de votre projet</h2>
+                    <p class="contact-intro__text">
+                        Que vous soyez au début de votre réflexion ou déjà engagé dans un projet, nos équipes sont à
+                        votre écoute pour vous orienter de manière claire et pragmatique.
+                    </p>
+                    <div class="contact-intro__highlight">
+                        <i data-lucide="arrow-right"></i>
+                        <span>Pour toute démarche structurée, nous recommandons de démarrer par un Audit IA &
+                            Automatisation.</span>
+                    </div>
+                    <a href="audit-ia.html" class="btn btn--primary">
+                        <span>Audit IA & Automatisation</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FORMULAIRE DE CONTACT ========== -->
+        <section class="section section--grey" id="form">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <h2 class="section__title">Envoyez-nous un message</h2>
+                </div>
+
+                <form class="contact-form" data-animate>
+                    <div class="contact-form__grid">
+                        <div class="form-group">
+                            <label for="name">Nom & prénom *</label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom complet">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email professionnel *</label>
+                            <input type="email" id="email" name="email" required
+                                placeholder="prenom.nom@entreprise.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Entreprise *</label>
+                            <input type="text" id="company" name="company" required
+                                placeholder="Nom de votre entreprise">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">Pays *</label>
+                            <select id="country" name="country" required>
+                                <option value="">Sélectionnez votre pays</option>
+                                <option value="FR">France</option>
+                                <option value="CM">Cameroun</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group form-group--full">
+                            <label for="subject">Sujet de la demande *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="audit">Demande d'audit IA</option>
+                                <option value="projet">Projet IA / Automatisation</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="info">Demande d'information</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group form-group--full">
+                            <label for="message">Message <span class="optional">(facultatif)</span></label>
+                            <textarea id="message" name="message" rows="5"
+                                placeholder="Décrivez brièvement votre projet ou votre demande..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--large">
+                        Envoyer ma demande
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ========== NOS IMPLANTATIONS ========== -->
+        <section class="section section--white" id="locations">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <h2 class="section__title">Une présence locale, des partenaires de confiance</h2>
+                    <p class="section__subtitle">Astauria s'appuie sur des partenaires locaux solides afin d'assurer
+                        proximité, compréhension terrain et accompagnement de qualité.</p>
+                </div>
+
+                <div class="locations-grid" data-animate>
+                    <!-- FRANCE -->
+                    <div class="location-card">
+                        <div class="location-card__header">
+                            <span class="location-card__flag">🇫🇷</span>
+                            <h3 class="location-card__country">France</h3>
+                        </div>
+                        <div class="location-card__body">
+                            <div class="partner-block partner-block--main">
+                                <h4>Astauria – France</h4>
+                                <p class="partner-block__label">Activités :</p>
+                                <ul>
+                                    <li>Conseil IA & automatisation</li>
+                                    <li>Intégration de systèmes</li>
+                                    <li>Accompagnement stratégique PME</li>
+                                </ul>
+                                <div class="partner-block__note">
+                                    <i data-lucide="arrow-right"></i>
+                                    <span>Interventions à distance ou sur site selon projet.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CAMEROUN -->
+                    <div class="location-card">
+                        <div class="location-card__header">
+                            <span class="location-card__flag">🇨🇲</span>
+                            <h3 class="location-card__country">Cameroun</h3>
+                        </div>
+                        <div class="location-card__body">
+                            <p class="location-card__intro">Partenaires locaux Astauria</p>
+
+                            <div class="partner-block">
+                                <div class="partner-block__tag">🔹 NET2S SARL</div>
+                                <p class="partner-block__label">Spécialisée en :</p>
+                                <ul>
+                                    <li>Intégration de systèmes</li>
+                                    <li>ERP & solutions métiers</li>
+                                    <li>Support et accompagnement local</li>
+                                </ul>
+                                <div class="partner-block__note">
+                                    <i data-lucide="arrow-right"></i>
+                                    <span>Partenaire opérationnel d'Astauria au Cameroun.</span>
+                                </div>
+                            </div>
+
+                            <div class="partner-block">
+                                <div class="partner-block__tag">🔹 CABINET KRINCH & PARTNERS</div>
+                                <p class="partner-block__label">Spécialisé en :</p>
+                                <ul>
+                                    <li>Conseil stratégique</li>
+                                    <li>Accompagnement organisationnel</li>
+                                    <li>Structuration et gouvernance</li>
+                                </ul>
+                                <div class="partner-block__note">
+                                    <i data-lucide="arrow-right"></i>
+                                    <span>Partenaire conseil pour les projets au Cameroun.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== COORDINATION UNIQUE ========== -->
+        <section class="section section--navy" id="coordination">
+            <div class="container">
+                <div class="coordination-section" data-animate>
+                    <div class="coordination-section__icon">
+                        <i data-lucide="handshake"></i>
+                    </div>
+                    <h2 class="section__title section__title--light">Un interlocuteur unique, une expertise coordonnée
+                    </h2>
+
+                    <div class="coordination-points">
+                        <div class="coordination-point">
+                            <i data-lucide="user"></i>
+                            <span>Astauria reste votre point de contact principal</span>
+                        </div>
+                        <div class="coordination-point">
+                            <i data-lucide="users"></i>
+                            <span>Les partenaires locaux interviennent selon les besoins</span>
+                        </div>
+                        <div class="coordination-point">
+                            <i data-lucide="check-circle"></i>
+                            <span>La méthodologie et l'exigence restent identiques</span>
+                        </div>
+                    </div>
+
+                    <div class="coordination-note">
+                        <i data-lucide="arrow-right"></i>
+                        <span>Une organisation claire, sans complexité inutile.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer CTA -->
+            <div class="footer__cta">
+                <p class="footer__cta-text">Prêt à explorer le potentiel de l'IA dans votre organisation ?</p>
+                <a href="audit-ia.html" class="btn btn--primary">Demander un audit IA</a>
+            </div>
+
+            <!-- Footer Main Grid -->
+            <div class="footer__main">
+                <!-- Column 1 — Identity -->
+                <div class="footer__column footer__identity">
+                    <a href="index.html">
+                        <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img logo-img--footer">
+                    </a>
+                    <p class="footer__brand-name">Astauria</p>
+                    <p class="footer__brand-tagline">IA & automatisation au service des entreprises</p>
+                    <p class="footer__brand-description">
+                        Cabinet de conseil spécialisé en intelligence artificielle et automatisation des processus
+                        métiers.
+                    </p>
+                </div>
+
+                <!-- Column 2 — Navigation -->
+                <div class="footer__column">
+                    <h4>Navigation</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="cas-usage.html">Cas d'usage</a></li>
+                        <li><a href="pourquoi-astauria.html">Pourquoi Astauria</a></li>
+                        <li><a href="blog.html">Ressources</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 — Expertises -->
+                <div class="footer__column">
+                    <h4>Expertises</h4>
+                    <ul class="footer__expertise-list">
+                        <li>NLP & Analyse de texte</li>
+                        <li>Machine Learning prédictif</li>
+                        <li>Vision par ordinateur</li>
+                        <li>Automatisation intelligente</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 — Contact -->
+                <div class="footer__column">
+                    <h4>Contact</h4>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item">
+                            <i data-lucide="mail"></i>
+                            <a href="mailto:contact@astauria.com">contact@astauria.com</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i data-lucide="globe"></i>
+                            <a href="https://www.astauria.com">www.astauria.com</a>
+                        </div>
+                    </div>
+                    <div class="footer__presence">
+                        <p class="footer__presence-label">Présence</p>
+                        <div class="footer__presence-tags">
+                            <span class="footer__presence-tag">France</span>
+                            <span class="footer__presence-tag">Cameroun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Astauria — Tous droits réservés</p>
+                <nav class="footer__legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-popup__overlay"></div>
+        <div class="newsletter-popup__modal">
+            <button class="newsletter-popup__close" id="newsletter-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="newsletter-popup__content">
+                <div class="newsletter-popup__badge">
+                    <i data-lucide="gift"></i>
+                    <span>GUIDE GRATUIT</span>
+                </div>
+                <h3 class="newsletter-popup__title">Les 7 questions clés avant d'investir dans l'IA</h3>
+                <p class="newsletter-popup__subtitle">Téléchargez notre guide exclusif et évitez les erreurs coûteuses de 80% des projets IA.</p>
+                <ul class="newsletter-popup__benefits">
+                    <li><i data-lucide="check-circle"></i> Checklist ROI complète</li>
+                    <li><i data-lucide="check-circle"></i> Exemples de cas réels</li>
+                    <li><i data-lucide="check-circle"></i> Template d'évaluation</li>
+                </ul>
+                <form class="newsletter-popup__form" id="newsletter-form">
+                    <div class="newsletter-popup__input-group">
+                        <input type="email" name="email" placeholder="votre@email.com" required class="newsletter-popup__input">
+                        <button type="submit" class="btn btn--primary newsletter-popup__btn"><span>Recevoir le guide</span><i data-lucide="download"></i></button>
+                    </div>
+                    <p class="newsletter-popup__privacy"><i data-lucide="shield-check"></i> Vos données sont protégées. Désinscription en 1 clic.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOATING CONTACT BUTTON ========== -->
+    <div class="floating-contact" id="floating-contact">
+        <div class="floating-contact__panel">
+            <div class="floating-contact__header">
+                <span>💬 Comment pouvons-nous vous aider ?</span>
+            </div>
+            <div class="floating-contact__options">
+                <a href="mailto:contact@astauria.com" class="floating-contact__option">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@astauria.com</span>
+                    </div>
+                </a>
+                <a href="tel:+33123456789" class="floating-contact__option">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                </a>
+                <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>Audit IA gratuit</strong>
+                        <span>Réservez un créneau</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="floating-contact__btn" id="floating-contact-btn" aria-label="Nous contacter">
+            <i data-lucide="message-circle" class="floating-contact__icon-open"></i>
+            <i data-lucide="x" class="floating-contact__icon-close"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="newsletter.js"></script>
+    <script src="cookies.js"></script>
+</body>
+
+</html>

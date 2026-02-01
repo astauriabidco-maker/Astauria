@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZF5RYSS4V');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Étude de cas : comment une PME de services a automatisé son reporting et réduit le temps de consolidation de 60%. Méthode et résultats détaillés.">
+    <title>Comment une PME a réduit son temps de reporting de 60% — Astauria</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="cas-usage.html" class="nav__link">Cas d'usage</a></li>
+                    <li><a href="pourquoi-astauria.html" class="nav__link">Pourquoi Astauria</a></li>
+                    <li><a href="blog.html" class="nav__link nav__link--active">Ressources</a></li>
+                    <li><a href="audit-ia.html" class="nav__link">Audit IA</a></li>
+                </ul>
+            </nav>
+
+            <a href="audit-ia.html" class="btn btn--primary header__cta">
+                Audit IA & Automatisation
+            </a>
+
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== ARTICLE HERO ========== -->
+        <section class="article-hero">
+            <div class="container">
+                <a href="blog.html" class="article-back">
+                    <i data-lucide="arrow-left"></i>
+                    Retour aux ressources
+                </a>
+                <div class="article-hero__meta">
+                    <span class="article-hero__tag">Cas d'usage</span>
+                    <span class="article-hero__date">2 janvier 2026</span>
+                </div>
+                <h1 class="article-hero__title">Comment une PME a réduit son temps de reporting de 60%</h1>
+                <p class="article-hero__excerpt">
+                    Étude de cas détaillée : une entreprise de services B2B a automatisé la consolidation de ses données
+                    et la génération de ses rapports. Retour sur ce projet de 4 mois.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========== ARTICLE CONTENT ========== -->
+        <section class="article-content">
+            <div class="article-content__inner">
+
+                <h2>Le contexte : une PME noyée sous les tableaux Excel</h2>
+
+                <p>
+                    Valoris Consulting* est une société de conseil en organisation basée à Lyon, spécialisée dans
+                    l'accompagnement des PME industrielles. Avec 45 collaborateurs et un chiffre d'affaires de 6M€,
+                    l'entreprise connaît une croissance régulière mais se heurte à un problème récurrent : la production
+                    des reportings mensuels.
+                </p>
+
+                <p>
+                    <em>* Nom modifié pour préserver la confidentialité du client</em>
+                </p>
+
+                <div class="stats-box">
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">45</span>
+                        <span class="stats-box__label">Collaborateurs</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">6M€</span>
+                        <span class="stats-box__label">CA annuel</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">12</span>
+                        <span class="stats-box__label">Rapports / mois</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">3j</span>
+                        <span class="stats-box__label">Temps de production</span>
+                    </div>
+                </div>
+
+                <h2>Le problème : 3 jours par mois perdus en consolidation</h2>
+
+                <p>
+                    Chaque fin de mois, la responsable administrative et son assistante passaient près de 3 jours à
+                    produire les rapports de gestion. Le processus impliquait :
+                </p>
+
+                <ul>
+                    <li>Extraction des données de 4 systèmes différents (CRM, facturation, gestion des temps, RH)</li>
+                    <li>Copier-coller manuel dans un fichier Excel "maître"</li>
+                    <li>Réconciliation des écarts (clients présents dans un système mais pas dans l'autre)</li>
+                    <li>Création des graphiques et mise en forme</li>
+                    <li>Envoi par email aux 5 associés et aux chefs de projet</li>
+                </ul>
+
+                <blockquote>
+                    <p>
+                        "Je passais mon temps à vérifier que les chiffres étaient cohérents entre les sources. Et malgré
+                        ça, on trouvait régulièrement des erreurs après l'envoi."
+                    </p>
+                </blockquote>
+
+                <p>
+                    Au-delà du temps perdu, le problème était aussi la fiabilité. Les erreurs de copier-coller
+                    généraient des discussions stériles en CODIR et érodaient la confiance dans les chiffres présentés.
+                </p>
+
+                <h2>La solution : automatisation en 3 phases</h2>
+
+                <h3>Phase 1 : Audit et diagnostic (2 semaines)</h3>
+
+                <p>
+                    Nous avons commencé par cartographier précisément le processus existant. L'objectif n'était pas de
+                    tout automatiser, mais d'identifier les points de friction les plus coûteux.
+                </p>
+
+                <div class="highlight-box">
+                    <h4>Résultats de l'audit</h4>
+                    <ul>
+                        <li><strong>70%</strong> du temps passé sur l'extraction et la consolidation</li>
+                        <li><strong>20%</strong> sur la vérification et correction d'erreurs</li>
+                        <li><strong>10%</strong> seulement sur l'analyse et les commentaires</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Le diagnostic était clair : la valeur ajoutée humaine (l'analyse) était écrasée par des tâches
+                    répétitives mécanisables.
+                </p>
+
+                <h3>Phase 2 : Construction de la solution (8 semaines)</h3>
+
+                <p>
+                    Nous avons mis en place une architecture simple mais robuste :
+                </p>
+
+                <ol class="number-list">
+                    <li>
+                        <strong>Connecteurs automatiques :</strong> Des scripts programmés récupèrent chaque nuit les
+                        données des 4 systèmes sources et les centralisent dans une base intermédiaire
+                    </li>
+                    <li>
+                        <strong>Règles de réconciliation :</strong> Un module de "matching" identifie automatiquement
+                        les clients présents dans plusieurs sources et signale les anomalies
+                    </li>
+                    <li>
+                        <strong>Tableaux de bord dynamiques :</strong> Les rapports sont générés automatiquement avec
+                        les données du mois, prêts à être analysés
+                    </li>
+                    <li>
+                        <strong>Distribution automatique :</strong> Les rapports sont envoyés par email aux bons
+                        destinataires selon un calendrier défini
+                    </li>
+                </ol>
+
+                <p>
+                    Technologies utilisées : Python pour les connecteurs, PostgreSQL pour la base intermédiaire, et
+                    Metabase pour les tableaux de bord. Coût total : moins de 500€/mois en infrastructure cloud.
+                </p>
+
+                <h3>Phase 3 : Déploiement et formation (4 semaines)</h3>
+
+                <p>
+                    Le déploiement a été progressif :
+                </p>
+
+                <ul>
+                    <li><strong>Semaine 1 :</strong> Exécution en parallèle (ancien et nouveau processus)</li>
+                    <li><strong>Semaine 2-3 :</strong> Ajustements selon les retours utilisateurs</li>
+                    <li><strong>Semaine 4 :</strong> Bascule définitive et formation des utilisateurs</li>
+                </ul>
+
+                <p>
+                    Point clé : nous avons impliqué la responsable administrative dès le départ. Elle a validé chaque
+                    étape et a pu signaler des cas particuliers que nous n'aurions pas anticipés.
+                </p>
+
+                <h2>Les résultats : au-delà des attentes</h2>
+
+                <div class="stats-box">
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">-60%</span>
+                        <span class="stats-box__label">Temps de production</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">-95%</span>
+                        <span class="stats-box__label">Erreurs de saisie</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">J+2</span>
+                        <span class="stats-box__label">Disponibilité des rapports</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">18 mois</span>
+                        <span class="stats-box__label">ROI complet</span>
+                    </div>
+                </div>
+
+                <p>
+                    Les bénéfices quantifiables :
+                </p>
+
+                <ul>
+                    <li><strong>Temps :</strong> De 3 jours à 1 journée par mois (et principalement de l'analyse, plus
+                        de la saisie)</li>
+                    <li><strong>Fiabilité :</strong> Quasi-élimination des erreurs de consolidation</li>
+                    <li><strong>Rapidité :</strong> Rapports disponibles le 2 du mois au lieu du 5</li>
+                    <li><strong>Évolutivité :</strong> Ajout simple de nouveaux indicateurs sans refaire le système
+                    </li>
+                </ul>
+
+                <h3>Les bénéfices inattendus</h3>
+
+                <p>
+                    Au-delà des gains directs, le projet a généré des effets de bord positifs :
+                </p>
+
+                <ul>
+                    <li><strong>Meilleure gouvernance des données :</strong> Le projet a révélé des incohérences entre
+                        systèmes, corrigées à cette occasion</li>
+                    <li><strong>Montée en compétences :</strong> La responsable administrative a développé des
+                        compétences en analyse de données</li>
+                    <li><strong>Effet d'entraînement :</strong> Deux autres processus ont depuis été automatisés selon
+                        la même approche</li>
+                </ul>
+
+                <blockquote>
+                    <p>
+                        "Maintenant je peux vraiment faire mon métier : analyser les chiffres et proposer des actions.
+                        Avant, je n'avais pas le temps."
+                    </p>
+                </blockquote>
+
+                <h2>Les enseignements clés</h2>
+
+                <p>
+                    Si vous envisagez un projet similaire, voici les leçons que nous en tirons :
+                </p>
+
+                <ol class="number-list">
+                    <li>
+                        <strong>Commencez par un audit :</strong> Ne présumez pas savoir où est le problème. Mesurez
+                        avant de proposer
+                    </li>
+                    <li>
+                        <strong>Impliquez les utilisateurs :</strong> Ils connaissent les subtilités que vous ne voyez
+                        pas
+                    </li>
+                    <li>
+                        <strong>Visez l'augmentation, pas le remplacement :</strong> L'objectif est de libérer du temps
+                        pour des tâches à valeur ajoutée
+                    </li>
+                    <li>
+                        <strong>Prévoyez une phase de rodage :</strong> Les premiers mois révéleront des ajustements
+                        nécessaires
+                    </li>
+                    <li>
+                        <strong>Mesurez les résultats :</strong> C'est le seul moyen de prouver la valeur et de
+                        justifier
+                        des projets futurs
+                    </li>
+                </ol>
+
+                <div class="article-cta">
+                    <h3>Vous vous reconnaissez dans cette situation ?</h3>
+                    <p>
+                        Nous pouvons réaliser un diagnostic similaire pour identifier vos opportunités d'automatisation
+                        et chiffrer les gains potentiels.
+                    </p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large">
+                        <span>Demander mon audit IA</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========== RELATED ARTICLES ========== -->
+        <section class="related-articles">
+            <div class="container">
+                <h2>Articles connexes</h2>
+                <div class="related-articles__grid">
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="assets/blog-automation.png" alt="Automatisation">
+                            <span class="article-card__tag">Automatisation</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">8 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                Automatiser sans tout casser : les bonnes pratiques
+                            </h2>
+                            <a href="article-automatisation.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="assets/blog-ai-strategy.png" alt="IA Stratégie">
+                            <span class="article-card__tag">IA & Stratégie</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">15 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                5 questions à se poser avant d'investir dans l'IA
+                            </h2>
+                            <a href="article-questions-ia.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__main">
+                <div class="footer__column footer__identity">
+                    <a href="index.html">
+                        <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img logo-img--footer">
+                    </a>
+                    <p class="footer__brand-name">Astauria</p>
+                    <p class="footer__brand-tagline">IA & automatisation au service des entreprises</p>
+                    <p class="footer__brand-description">
+                        Des solutions pragmatiques pour automatiser, analyser et mieux piloter les organisations.
+                    </p>
+                </div>
+                <div class="footer__column">
+                    <h4>Navigation</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="cas-usage.html">Cas d'usage</a></li>
+                        <li><a href="pourquoi-astauria.html">Pourquoi Astauria</a></li>
+                        <li><a href="audit-ia.html">Audit IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4>Expertises</h4>
+                    <ul class="footer__expertise-list">
+                        <li>Audit IA & Automatisation</li>
+                        <li>Automatisation des processus</li>
+                        <li>Intégration de systèmes</li>
+                        <li>Aide à la décision</li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4>Contact</h4>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item">
+                            <i data-lucide="mail"></i>
+                            <a href="mailto:contact@astauria.com">contact@astauria.com</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i data-lucide="globe"></i>
+                            <a href="https://www.astauria.com">www.astauria.com</a>
+                        </div>
+                    </div>
+                    <div class="footer__presence">
+                        <h5>Présence & partenaires</h5>
+                        <ul class="footer__presence-list">
+                            <li>France</li>
+                            <li>Cameroun</li>
+                            <li>NET2S SARL</li>
+                            <li>Cabinet Krinch & Partners</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© Astauria – Tous droits réservés</p>
+                <nav class="footer__legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-popup__overlay"></div>
+        <div class="newsletter-popup__modal">
+            <button class="newsletter-popup__close" id="newsletter-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="newsletter-popup__content">
+                <div class="newsletter-popup__badge">
+                    <i data-lucide="gift"></i>
+                    <span>GUIDE GRATUIT</span>
+                </div>
+                <h3 class="newsletter-popup__title">Les 7 questions clés avant d'investir dans l'IA</h3>
+                <p class="newsletter-popup__subtitle">Téléchargez notre guide exclusif et évitez les erreurs coûteuses de 80% des projets IA.</p>
+                <ul class="newsletter-popup__benefits">
+                    <li><i data-lucide="check-circle"></i> Checklist ROI complète</li>
+                    <li><i data-lucide="check-circle"></i> Exemples de cas réels</li>
+                    <li><i data-lucide="check-circle"></i> Template d'évaluation</li>
+                </ul>
+                <form class="newsletter-popup__form" id="newsletter-form">
+                    <div class="newsletter-popup__input-group">
+                        <input type="email" name="email" placeholder="votre@email.com" required class="newsletter-popup__input">
+                        <button type="submit" class="btn btn--primary newsletter-popup__btn"><span>Recevoir le guide</span><i data-lucide="download"></i></button>
+                    </div>
+                    <p class="newsletter-popup__privacy"><i data-lucide="shield-check"></i> Vos données sont protégées. Désinscription en 1 clic.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOATING CONTACT BUTTON ========== -->
+    <div class="floating-contact" id="floating-contact">
+        <div class="floating-contact__panel">
+            <div class="floating-contact__header">
+                <span>💬 Comment pouvons-nous vous aider ?</span>
+            </div>
+            <div class="floating-contact__options">
+                <a href="mailto:contact@astauria.com" class="floating-contact__option">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@astauria.com</span>
+                    </div>
+                </a>
+                <a href="tel:+33123456789" class="floating-contact__option">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                </a>
+                <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>Audit IA gratuit</strong>
+                        <span>Réservez un créneau</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="floating-contact__btn" id="floating-contact-btn" aria-label="Nous contacter">
+            <i data-lucide="message-circle" class="floating-contact__icon-open"></i>
+            <i data-lucide="x" class="floating-contact__icon-close"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="newsletter.js"></script>
+    <script src="cookies.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZF5RYSS4V');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Comment un cabinet juridique analyse 500 pages de contrat en 10 minutes grâce au NLP et identifie automatiquement les clauses à risque.">
+    <title>Cas d'usage : Analyse de contrats par IA — Astauria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="cas-usage.html" class="nav__link">Cas d'usage</a></li>
+                    <li><a href="pourquoi-astauria.html" class="nav__link">Pourquoi Astauria</a></li>
+                    <li><a href="blog.html" class="nav__link nav__link--active">Ressources</a></li>
+                    <li><a href="audit-ia.html" class="nav__link">Audit IA</a></li>
+                </ul>
+            </nav>
+            <a href="audit-ia.html" class="btn btn--primary header__cta">Audit IA &amp; Automatisation</a>
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="article-hero">
+            <div class="container">
+                <a href="blog.html" class="article-back">
+                    <i data-lucide="arrow-left"></i>
+                    Retour aux ressources
+                </a>
+                <div class="article-hero__meta">
+                    <span class="article-hero__tag">Cas d'usage • Juridique</span>
+                    <span class="article-hero__date">18 janvier 2026</span>
+                </div>
+                <h1 class="article-hero__title">NLP juridique : lire 500 pages de contrat en 10 minutes</h1>
+                <p class="article-hero__excerpt">
+                    Un cabinet d'avocats spécialisé M&A utilise l'IA pour analyser les data rooms et identifier les
+                    clauses à risque. Gain : 70% de temps sur la due diligence.
+                </p>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="article-content__inner">
+
+                <h2>Le contexte : des montagnes de documents à analyser</h2>
+
+                <p>
+                    Dans une opération de fusion-acquisition, la phase de "due diligence" implique d'examiner des
+                    centaines de contrats : baux commerciaux, contrats clients, accords fournisseurs, licences, contrats
+                    de travail...
+                </p>
+
+                <p>
+                    Le cabinet Mercier & Associés* (40 avocats, spécialisé en droit des affaires) gérait 15 à 20
+                    opérations M&A par an. Chaque data room contenait entre 200 et 2000 documents à analyser.
+                </p>
+
+                <p><em>* Nom modifié pour préserver la confidentialité</em></p>
+
+                <div class="stats-box">
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">800</span>
+                        <span class="stats-box__label">Documents/opération (moyenne)</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">120h</span>
+                        <span class="stats-box__label">Temps d'analyse manuelle</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">3</span>
+                        <span class="stats-box__label">Associés juniors mobilisés</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">15%</span>
+                        <span class="stats-box__label">Clauses critiques manquées</span>
+                    </div>
+                </div>
+
+                <p>
+                    Le problème : sous pression du calendrier M&A, des clauses importantes passaient inaperçues. Un
+                    changement de contrôle non détecté, une clause de non-concurrence oubliée, et c'est la transaction
+                    qui déraille des mois plus tard.
+                </p>
+
+                <blockquote>
+                    <p>"On lisait en diagonale. Pas par négligence, par nécessité. 800 documents en 2 semaines, c'est
+                        humainement impossible de tout lire en détail."</p>
+                </blockquote>
+
+                <h2>La solution : analyse sémantique par NLP</h2>
+
+                <p>
+                    Le système déployé utilise des modèles de langage (LLM) entraînés spécifiquement sur le corpus
+                    juridique français pour :
+                </p>
+
+                <ol class="number-list">
+                    <li>
+                        <strong>Ingérer la data room :</strong> Import automatique de tous les documents (PDF, Word,
+                        scans OCRisés)
+                    </li>
+                    <li>
+                        <strong>Classifier :</strong> L'IA identifie le type de chaque document (bail, contrat client,
+                        NDA, CGV...)
+                    </li>
+                    <li>
+                        <strong>Extraire :</strong> Pour chaque type, extraction des informations clés (parties, durée,
+                        montants, clauses spécifiques)
+                    </li>
+                    <li>
+                        <strong>Alerter :</strong> Identification automatique des clauses "sensibles" (changement de
+                        contrôle, résiliation, pénalités, exclusivité...)
+                    </li>
+                </ol>
+
+                <h2>Ce que l'IA comprend que l'humain ne peut pas traiter</h2>
+
+                <div class="highlight-box">
+                    <h4>Capacités du NLP juridique</h4>
+                    <ul>
+                        <li><strong>Lecture exhaustive :</strong> 100% des documents analysés, pas d'échantillonnage
+                        </li>
+                        <li><strong>Compréhension sémantique :</strong> L'IA comprend le SENS, pas juste les mots-clés
+                        </li>
+                        <li><strong>Détection de patterns :</strong> Repère les formulations inhabituelles qui cachent
+                            des pièges</li>
+                        <li><strong>Cross-référence :</strong> Identifie les contradictions entre plusieurs contrats
+                        </li>
+                        <li><strong>Historisation :</strong> Compare avec les clauses "standards" du marché</li>
+                    </ul>
+                </div>
+
+                <h3>Exemple concret : la clause "dormante"</h3>
+
+                <p>
+                    Lors d'une acquisition, l'IA a détecté dans un contrat fournisseur une clause inhabituelle :
+                </p>
+
+                <blockquote>
+                    <p>"En cas de modification substantielle de l'actionnariat de l'une des parties, le présent contrat
+                        pourra être résilié de plein droit moyennant un préavis de 30 jours."</p>
+                </blockquote>
+
+                <p>
+                    Ce fournisseur représentait 40% du chiffre d'affaires de la cible. Sans cette détection, l'acquéreur
+                    aurait pu perdre son principal fournisseur dans le mois suivant la transaction.
+                </p>
+
+                <p>
+                    L'IA a classé cette clause en <strong>"risque critique"</strong> car elle a reconnu le pattern
+                    "changement de contrôle + résiliation" même si les termes exacts n'étaient pas utilisés.
+                </p>
+
+                <h2>Le workflow opérationnel</h2>
+
+                <p>
+                    L'outil ne remplace pas l'avocat — il réorganise son travail :
+                </p>
+
+                <ul>
+                    <li><strong>Phase 1 (automatisée) :</strong> L'IA analyse tous les documents et génère un rapport
+                        structuré par catégorie de risque</li>
+                    <li><strong>Phase 2 (humaine ciblée) :</strong> L'avocat se concentre sur les alertes "rouge" et
+                        "orange", avec accès direct au passage concerné</li>
+                    <li><strong>Phase 3 (validation) :</strong> L'avocat valide ou corrige les analyses, ce qui améliore
+                        le modèle pour les prochaines opérations</li>
+                </ul>
+
+                <p>
+                    Le temps économisé est réalloué à l'analyse fine des clauses critiques et à la négociation.
+                </p>
+
+                <h2>Les résultats après 24 mois</h2>
+
+                <div class="stats-box">
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">-70%</span>
+                        <span class="stats-box__label">Temps d'analyse</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">35h</span>
+                        <span class="stats-box__label">Nouveau temps moyen</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">2%</span>
+                        <span class="stats-box__label">Clauses critiques manquées</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">+25%</span>
+                        <span class="stats-box__label">Opérations traitées/an</span>
+                    </div>
+                </div>
+
+                <p>
+                    Le cabinet traite désormais 25% d'opérations supplémentaires avec les mêmes effectifs. Les associés
+                    juniors passent moins de temps sur l'analyse brute et plus sur le conseil à valeur ajoutée.
+                </p>
+
+                <h2>Les facteurs clés de succès</h2>
+
+                <ol class="number-list">
+                    <li>
+                        <strong>Modèle entraîné sur le droit français :</strong> Un LLM généraliste ne suffit pas, il
+                        faut un fine-tuning sur le corpus juridique local
+                    </li>
+                    <li>
+                        <strong>Liste de clauses "sensibles" personnalisée :</strong> Chaque cabinet a ses priorités
+                        selon sa spécialité
+                    </li>
+                    <li>
+                        <strong>Intégration au workflow existant :</strong> Export vers les outils habituels (Word,
+                        Excel, logiciel de gestion de dossier)
+                    </li>
+                    <li>
+                        <strong>Confidentialité garantie :</strong> Déploiement on-premise ou cloud souverain, pas de
+                        données envoyées à l'étranger
+                    </li>
+                </ol>
+
+                <h2>Les limites à connaître</h2>
+
+                <ul>
+                    <li><strong>Qualité des documents sources :</strong> Les scans de mauvaise qualité réduisent la
+                        précision de l'OCR</li>
+                    <li><strong>Langues multiples :</strong> Les data rooms internationales nécessitent des modèles
+                        multilingues</li>
+                    <li><strong>Interprétation juridique :</strong> L'IA détecte les clauses, l'humain les interprète
+                        dans le contexte de l'opération</li>
+                    <li><strong>Responsabilité :</strong> L'avocat reste responsable de son analyse, l'IA est un outil
+                        d'aide</li>
+                </ul>
+
+                <blockquote>
+                    <p>"L'IA nous permet de passer de la lecture à l'analyse. On ne cherche plus l'aiguille dans la
+                        botte de foin, on sait exactement où regarder."</p>
+                </blockquote>
+
+                <div class="article-cta">
+                    <h3>Vous traitez des volumes documentaires importants ?</h3>
+                    <p>L'analyse NLP s'applique au-delà du juridique : contrats commerciaux, documentation technique,
+                        rapports d'audit... Nous identifions les cas d'usage pertinents pour votre contexte.</p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large">
+                        <span>Demander un diagnostic</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="related-articles">
+            <div class="container">
+                <h2>Articles connexes</h2>
+                <div class="related-articles__grid">
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="assets/blog-data-analytics.png" alt="Données IA">
+                            <span class="article-card__tag">IA &amp; Stratégie</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">15 décembre 2025</span>
+                            <h2 class="article-card__title">Vos données sont-elles prêtes pour l'IA ?</h2>
+                            <a href="article-donnees-ia.html" class="article-card__link">
+                                Lire l'article <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="assets/blog-ai-strategy.png" alt="Questions IA">
+                            <span class="article-card__tag">IA &amp; Stratégie</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">15 janvier 2026</span>
+                            <h2 class="article-card__title">5 questions à se poser avant d'investir dans l'IA</h2>
+                            <a href="article-questions-ia.html" class="article-card__link">
+                                Lire l'article <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__main">
+                <div class="footer__column footer__identity">
+                    <a href="index.html"><img src="assets/logo-astauria.png" alt="Astauria"
+                            class="logo-img logo-img--footer"></a>
+                    <p class="footer__brand-name">Astauria</p>
+                    <p class="footer__brand-tagline">IA &amp; automatisation au service des entreprises</p>
+                </div>
+                <div class="footer__column">
+                    <h4>Navigation</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="cas-usage.html">Cas d'usage</a></li>
+                        <li><a href="pourquoi-astauria.html">Pourquoi Astauria</a></li>
+                        <li><a href="audit-ia.html">Audit IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4>Contact</h4>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item"><i data-lucide="mail"></i><a
+                                href="mailto:contact@astauria.com">contact@astauria.com</a></div>
+                        <div class="footer__contact-item"><i data-lucide="globe"></i><a
+                                href="https://www.astauria.com">www.astauria.com</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© Astauria – Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-popup__overlay"></div>
+        <div class="newsletter-popup__modal">
+            <button class="newsletter-popup__close" id="newsletter-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="newsletter-popup__content">
+                <div class="newsletter-popup__badge">
+                    <i data-lucide="gift"></i>
+                    <span>GUIDE GRATUIT</span>
+                </div>
+                <h3 class="newsletter-popup__title">Les 7 questions clés avant d'investir dans l'IA</h3>
+                <p class="newsletter-popup__subtitle">Téléchargez notre guide exclusif et évitez les erreurs coûteuses de 80% des projets IA.</p>
+                <ul class="newsletter-popup__benefits">
+                    <li><i data-lucide="check-circle"></i> Checklist ROI complète</li>
+                    <li><i data-lucide="check-circle"></i> Exemples de cas réels</li>
+                    <li><i data-lucide="check-circle"></i> Template d'évaluation</li>
+                </ul>
+                <form class="newsletter-popup__form" id="newsletter-form">
+                    <div class="newsletter-popup__input-group">
+                        <input type="email" name="email" placeholder="votre@email.com" required class="newsletter-popup__input">
+                        <button type="submit" class="btn btn--primary newsletter-popup__btn"><span>Recevoir le guide</span><i data-lucide="download"></i></button>
+                    </div>
+                    <p class="newsletter-popup__privacy"><i data-lucide="shield-check"></i> Vos données sont protégées. Désinscription en 1 clic.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOATING CONTACT BUTTON ========== -->
+    <div class="floating-contact" id="floating-contact">
+        <div class="floating-contact__panel">
+            <div class="floating-contact__header">
+                <span>💬 Comment pouvons-nous vous aider ?</span>
+            </div>
+            <div class="floating-contact__options">
+                <a href="mailto:contact@astauria.com" class="floating-contact__option">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@astauria.com</span>
+                    </div>
+                </a>
+                <a href="tel:+33123456789" class="floating-contact__option">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                </a>
+                <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>Audit IA gratuit</strong>
+                        <span>Réservez un créneau</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="floating-contact__btn" id="floating-contact-btn" aria-label="Nous contacter">
+            <i data-lucide="message-circle" class="floating-contact__icon-open"></i>
+            <i data-lucide="x" class="floating-contact__icon-close"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="newsletter.js"></script>
+    <script src="cookies.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZF5RYSS4V');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Comment un hôpital a réduit de 30% les réadmissions à 30 jours grâce à l'IA prédictive qui identifie les patients à risque avant leur sortie.">
+    <title>Cas d'usage : Prédiction des réadmissions hospitalières par IA — Astauria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="cas-usage.html" class="nav__link">Cas d'usage</a></li>
+                    <li><a href="pourquoi-astauria.html" class="nav__link">Pourquoi Astauria</a></li>
+                    <li><a href="blog.html" class="nav__link nav__link--active">Ressources</a></li>
+                    <li><a href="audit-ia.html" class="nav__link">Audit IA</a></li>
+                </ul>
+            </nav>
+            <a href="audit-ia.html" class="btn btn--primary header__cta">Audit IA &amp; Automatisation</a>
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="article-hero">
+            <div class="container">
+                <a href="blog.html" class="article-back">
+                    <i data-lucide="arrow-left"></i>
+                    Retour aux ressources
+                </a>
+                <div class="article-hero__meta">
+                    <span class="article-hero__tag">Cas d'usage • Santé</span>
+                    <span class="article-hero__date">25 janvier 2026</span>
+                </div>
+                <h1 class="article-hero__title">Prédire les réadmissions : l'IA au service du suivi patient</h1>
+                <p class="article-hero__excerpt">
+                    Un établissement de santé utilise le machine learning pour identifier les patients à risque de
+                    réadmission AVANT leur sortie. Résultat : -30% de réadmissions évitables.
+                </p>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="article-content__inner">
+
+                <h2>Le problème : des réadmissions coûteuses et évitables</h2>
+
+                <p>
+                    Les réadmissions hospitalières à 30 jours sont un indicateur clé de qualité des soins. Au-delà du
+                    coût financier (estimé à 5 000-15 000€ par réadmission), elles traduisent souvent un défaut dans la
+                    préparation de la sortie ou le suivi post-hospitalisation.
+                </p>
+
+                <p>
+                    La Clinique Saint-André* (350 lits, spécialisée en cardiologie et pneumologie) affichait un taux de
+                    réadmission de 14% — au-dessus de la moyenne nationale. L'analyse révélait que 40% de ces
+                    réadmissions auraient pu être évitées avec un suivi adapté.
+                </p>
+
+                <p><em>* Nom modifié pour préserver la confidentialité</em></p>
+
+                <div class="stats-box">
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">14%</span>
+                        <span class="stats-box__label">Taux de réadmission à 30j</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">40%</span>
+                        <span class="stats-box__label">Réadmissions évitables</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">12 000€</span>
+                        <span class="stats-box__label">Coût moyen par réadmission</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">2,1M€</span>
+                        <span class="stats-box__label">Coût annuel estimé</span>
+                    </div>
+                </div>
+
+                <h2>Pourquoi l'approche traditionnelle ne suffit pas</h2>
+
+                <p>
+                    Jusqu'ici, l'identification des patients "à risque" reposait sur des critères simples : âge avancé,
+                    pathologie lourde, isolement social. Mais ces règles statiques passaient à côté de nombreux cas :
+                </p>
+
+                <ul>
+                    <li>Le patient de 55 ans "apparemment stable" qui fait une décompensation cardiaque une semaine
+                        après sa sortie</li>
+                    <li>Le patient polymédiqué dont les interactions médicamenteuses créent des effets secondaires</li>
+                    <li>Le patient qui ne comprend pas vraiment ses consignes de sortie mais n'ose pas le dire</li>
+                </ul>
+
+                <blockquote>
+                    <p>"Nos critères de risque étaient trop grossiers. On sur-surveillait des patients stables et on en
+                        laissait partir d'autres qui allaient revenir 15 jours plus tard."</p>
+                </blockquote>
+
+                <h2>La solution : un modèle prédictif multicritères</h2>
+
+                <p>
+                    L'IA déployée analyse plus de 150 variables pour calculer un score de risque de réadmission
+                    individualisé :
+                </p>
+
+                <div class="highlight-box">
+                    <h4>Variables analysées par l'algorithme</h4>
+                    <ul>
+                        <li><strong>Données cliniques :</strong> Diagnostics, comorbidités, résultats biologiques, durée
+                            de séjour</li>
+                        <li><strong>Historique patient :</strong> Hospitalisations précédentes, compliance aux
+                            traitements</li>
+                        <li><strong>Facteurs sociaux :</strong> Isolement, aidants, accès aux soins de ville</li>
+                        <li><strong>Données textuelles :</strong> Notes infirmières analysées par NLP (signaux faibles :
+                            "patient anxieux", "difficultés de compréhension")</li>
+                    </ul>
+                </div>
+
+                <h3>Ce que l'IA détecte que l'humain ne voit pas</h3>
+
+                <p>
+                    La force du machine learning est d'identifier des <strong>combinaisons de facteurs</strong> non
+                    évidentes. Exemples de patterns découverts :
+                </p>
+
+                <ol class="number-list">
+                    <li>
+                        <strong>Le "patient silencieux" :</strong> Peu de questions posées + notes mentionnant "patient
+                        très autonome" = risque accru (le patient ne sollicite pas d'aide même quand il en a besoin)
+                    </li>
+                    <li>
+                        <strong>L'effet "weekend" :</strong> Sortie le vendredi + médecin traitant non informé = risque
+                        de décompensation sans recours
+                    </li>
+                    <li>
+                        <strong>L'accumulation médicamenteuse :</strong> Plus de 8 médicaments + modification récente du
+                        traitement + âge > 70 = risque d'erreur d'observance
+                    </li>
+                </ol>
+
+                <h2>Le processus opérationnel</h2>
+
+                <p>
+                    Chaque matin, l'équipe médicale reçoit une liste des patients hospitalisés avec leur score de risque
+                    de réadmission :
+                </p>
+
+                <ul>
+                    <li><strong>Score vert (0-30) :</strong> Sortie standard, suivi classique</li>
+                    <li><strong>Score orange (30-60) :</strong> Attention renforcée : appel J+3, coordination avec le
+                        médecin traitant</li>
+                    <li><strong>Score rouge (60-100) :</strong> Protocole renforcé : HAD, passage infirmier quotidien,
+                        télésurveillance si besoin</li>
+                </ul>
+
+                <p>
+                    L'IA ne décide pas — elle alerte et priorise. Le médecin valide le niveau de suivi approprié.
+                </p>
+
+                <h2>Les résultats après 18 mois</h2>
+
+                <div class="stats-box">
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">9,8%</span>
+                        <span class="stats-box__label">Nouveau taux de réadmission</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">-30%</span>
+                        <span class="stats-box__label">Réduction des réadmissions</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">630K€</span>
+                        <span class="stats-box__label">Économies annuelles</span>
+                    </div>
+                    <div class="stats-box__item">
+                        <span class="stats-box__number">85%</span>
+                        <span class="stats-box__label">Précision du modèle</span>
+                    </div>
+                </div>
+
+                <p>
+                    Le modèle a une précision de 85% : sur 100 patients identifiés "à haut risque", 85 auraient
+                    effectivement été réadmis sans intervention. Cela permet de concentrer les ressources de suivi sur
+                    les cas qui en ont vraiment besoin.
+                </p>
+
+                <h2>Les enseignements clés</h2>
+
+                <ol class="number-list">
+                    <li>
+                        <strong>Les données textuelles sont cruciales :</strong> 30% du pouvoir prédictif vient de
+                        l'analyse NLP des notes infirmières
+                    </li>
+                    <li>
+                        <strong>Le modèle doit être local :</strong> Un algorithme américain ne fonctionne pas en France
+                        (pratiques différentes)
+                    </li>
+                    <li>
+                        <strong>L'explicabilité rassure :</strong> Les médecins acceptent l'outil car il explique
+                        POURQUOI un patient est à risque
+                    </li>
+                    <li>
+                        <strong>Le ROI est rapide :</strong> Investissement amorti en 8 mois grâce aux économies sur les
+                        réadmissions
+                    </li>
+                </ol>
+
+                <blockquote>
+                    <p>"On ne cherche pas à remplacer le jugement médical. On donne aux équipes un outil pour mieux
+                        cibler leurs efforts de suivi."</p>
+                </blockquote>
+
+                <div class="article-cta">
+                    <h3>Vous souhaitez explorer ce type de solution ?</h3>
+                    <p>Nous accompagnons les établissements de santé dans l'identification et le déploiement de cas
+                        d'usage IA à fort impact, dans le respect des contraintes réglementaires.</p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large">
+                        <span>Demander un diagnostic</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="related-articles">
+            <div class="container">
+                <h2>Articles connexes</h2>
+                <div class="related-articles__grid">
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="assets/usecase-healthcare.png" alt="Tri urgences">
+                            <span class="article-card__tag">Cas d'usage</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">28 janvier 2026</span>
+                            <h2 class="article-card__title">Tri intelligent des urgences : quand l'IA sauve des vies
+                            </h2>
+                            <a href="cas-urgences-ia.html" class="article-card__link">
+                                Lire l'article <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="assets/usecase-healthcare.png" alt="IA Hospitalier">
+                            <span class="article-card__tag">Cas d'usage</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">10 décembre 2025</span>
+                            <h2 class="article-card__title">IA et milieu hospitalier : opportunités et limites</h2>
+                            <a href="article-ia-hospitalier.html" class="article-card__link">
+                                Lire l'article <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__main">
+                <div class="footer__column footer__identity">
+                    <a href="index.html"><img src="assets/logo-astauria.png" alt="Astauria"
+                            class="logo-img logo-img--footer"></a>
+                    <p class="footer__brand-name">Astauria</p>
+                    <p class="footer__brand-tagline">IA &amp; automatisation au service des entreprises</p>
+                </div>
+                <div class="footer__column">
+                    <h4>Navigation</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="cas-usage.html">Cas d'usage</a></li>
+                        <li><a href="pourquoi-astauria.html">Pourquoi Astauria</a></li>
+                        <li><a href="audit-ia.html">Audit IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h4>Contact</h4>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item"><i data-lucide="mail"></i><a
+                                href="mailto:contact@astauria.com">contact@astauria.com</a></div>
+                        <div class="footer__contact-item"><i data-lucide="globe"></i><a
+                                href="https://www.astauria.com">www.astauria.com</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© Astauria – Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-popup__overlay"></div>
+        <div class="newsletter-popup__modal">
+            <button class="newsletter-popup__close" id="newsletter-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="newsletter-popup__content">
+                <div class="newsletter-popup__badge">
+                    <i data-lucide="gift"></i>
+                    <span>GUIDE GRATUIT</span>
+                </div>
+                <h3 class="newsletter-popup__title">Les 7 questions clés avant d'investir dans l'IA</h3>
+                <p class="newsletter-popup__subtitle">Téléchargez notre guide exclusif et évitez les erreurs coûteuses de 80% des projets IA.</p>
+                <ul class="newsletter-popup__benefits">
+                    <li><i data-lucide="check-circle"></i> Checklist ROI complète</li>
+                    <li><i data-lucide="check-circle"></i> Exemples de cas réels</li>
+                    <li><i data-lucide="check-circle"></i> Template d'évaluation</li>
+                </ul>
+                <form class="newsletter-popup__form" id="newsletter-form">
+                    <div class="newsletter-popup__input-group">
+                        <input type="email" name="email" placeholder="votre@email.com" required class="newsletter-popup__input">
+                        <button type="submit" class="btn btn--primary newsletter-popup__btn"><span>Recevoir le guide</span><i data-lucide="download"></i></button>
+                    </div>
+                    <p class="newsletter-popup__privacy"><i data-lucide="shield-check"></i> Vos données sont protégées. Désinscription en 1 clic.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOATING CONTACT BUTTON ========== -->
+    <div class="floating-contact" id="floating-contact">
+        <div class="floating-contact__panel">
+            <div class="floating-contact__header">
+                <span>💬 Comment pouvons-nous vous aider ?</span>
+            </div>
+            <div class="floating-contact__options">
+                <a href="mailto:contact@astauria.com" class="floating-contact__option">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@astauria.com</span>
+                    </div>
+                </a>
+                <a href="tel:+33123456789" class="floating-contact__option">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                </a>
+                <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>Audit IA gratuit</strong>
+                        <span>Réservez un créneau</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="floating-contact__btn" id="floating-contact-btn" aria-label="Nous contacter">
+            <i data-lucide="message-circle" class="floating-contact__icon-open"></i>
+            <i data-lucide="x" class="floating-contact__icon-close"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="newsletter.js"></script>
+    <script src="cookies.js"></script>
+</body>
+
+</html>

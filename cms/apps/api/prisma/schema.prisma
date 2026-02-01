@@ -1,0 +1,235 @@
+// Prisma Schema - Astauria CMS
+// All models for the complete backoffice
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ========== AUTHENTICATION ==========
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("EDITOR") // ADMIN or EDITOR
+  avatar    String?
+  lastLogin DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  articles  Article[]
+  sessions  Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+// Role: ADMIN, EDITOR (stored as String)
+
+// ========== NAVIGATION ==========
+
+model MenuItem {
+  id        String     @id @default(cuid())
+  label     String
+  url       String
+  icon      String?
+  order     Int        @default(0)
+  isActive  Boolean    @default(true)
+  location  String   @default("HEADER") // HEADER or FOOTER
+  parentId  String?
+  parent    MenuItem?  @relation("MenuChildren", fields: [parentId], references: [id])
+  children  MenuItem[] @relation("MenuChildren")
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+// MenuLocation: HEADER, FOOTER (stored as String)
+
+// ========== PAGES ==========
+
+model Page {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  template    String    @default("default")
+  status      String    @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  publishedAt DateTime?
+  sections    Section[]
+  seo         Seo?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Section {
+  id       String @id @default(cuid())
+  type     String // hero, text, cta, stats, image-text
+  content  String
+  order    Int    @default(0)
+  pageId   String
+  page     Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+}
+
+// ========== BLOG ==========
+
+model Article {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String
+  content     String
+  coverImage  String?
+  readTime    Int?
+  status      String    @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  publishedAt DateTime?
+  authorId    String
+  author      User      @relation(fields: [authorId], references: [id])
+  categoryId  String
+  category    Category  @relation(fields: [categoryId], references: [id])
+  tags        Tag[]
+  seo         Seo?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  color       String?
+  articles    Article[]
+  createdAt   DateTime  @default(now())
+}
+
+model Tag {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  slug     String    @unique
+  articles Article[]
+}
+
+// Status: DRAFT, PUBLISHED, ARCHIVED (stored as String)
+
+// ========== FAQ ==========
+
+model FaqItem {
+  id         String   @id @default(cuid())
+  question   String
+  answer     String
+  order      Int      @default(0)
+  isActive   Boolean  @default(true)
+  categoryId String?
+  category   FaqCategory? @relation(fields: [categoryId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model FaqCategory {
+  id    String    @id @default(cuid())
+  name  String    @unique
+  order Int       @default(0)
+  items FaqItem[]
+}
+
+// ========== TESTIMONIALS ==========
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  author      String
+  role        String
+  company     String
+  content     String
+  avatar      String?
+  companyLogo String?
+  rating      Int      @default(5)
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ========== CASE STUDIES ==========
+
+model CaseStudy {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  sector      String
+  sectorIcon  String?
+  timeline    String
+  challenge   String
+  solution    String
+  metrics     String   // JSON string: Array of { value, label, isHighlight }
+  fullContent String?
+  coverImage  String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ========== MEDIA ==========
+
+model Media {
+  id         String   @id @default(cuid())
+  filename   String
+  originalName String
+  mimeType   String
+  size       Int
+  url        String
+  thumbnailUrl String?
+  alt        String?
+  folderId   String?
+  folder     MediaFolder? @relation(fields: [folderId], references: [id])
+  createdAt  DateTime @default(now())
+}
+
+model MediaFolder {
+  id     String  @id @default(cuid())
+  name   String
+  media  Media[]
+}
+
+// ========== SEO ==========
+
+model Seo {
+  id          String  @id @default(cuid())
+  metaTitle   String?
+  metaDesc    String?
+  ogImage     String?
+  canonical   String?
+  noIndex     Boolean @default(false)
+  pageId      String? @unique
+  page        Page?   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  articleId   String? @unique
+  article     Article? @relation(fields: [articleId], references: [id], onDelete: Cascade)
+}
+
+model Redirect {
+  id        String   @id @default(cuid())
+  from      String   @unique
+  to        String
+  isPermanent Boolean @default(true)
+  createdAt DateTime @default(now())
+}
+
+// ========== SETTINGS ==========
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+  type  String @default("string") // string, json, boolean
+}

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZF5RYSS4V');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Astauria - IA & automatisation au service des entreprises. Accompagnement pour automatiser vos processus et exploiter intelligemment vos données.">
+    <title>Astauria — IA & Automatisation au service des entreprises</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="cas-usage.html" class="nav__link">Cas d'usage</a></li>
+                    <li><a href="pourquoi-astauria.html" class="nav__link">Pourquoi Astauria</a></li>
+                    <li><a href="blog.html" class="nav__link">Ressources</a></li>
+                    <li><a href="audit-ia.html" class="nav__link">Audit IA</a></li>
+                </ul>
+            </nav>
+            <a href="audit-ia.html" class="btn btn--primary header__cta">Audit IA & Automatisation</a>
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO AVEC STATS ========== -->
+        <section class="hero">
+            <div class="hero__bg"></div>
+            <div class="container hero__container">
+                <div class="hero__content" data-animate>
+                    <span class="hero__badge">Cabinet IA & Automatisation</span>
+                    <h1 class="hero__title">
+                        L'IA qui résout vos vrais problèmes métiers
+                    </h1>
+                    <p class="hero__subtitle">
+                        Nous déployons des solutions d'intelligence artificielle concrètes : prédiction, analyse
+                        automatique, détection d'anomalies. Pas de la tech pour la tech, mais des résultats mesurables.
+                    </p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large hero__cta">
+                        <span>Demander un audit IA gratuit</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+                <div class="hero__stats" data-animate>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">15+</span>
+                        <span class="hero__stat-label">Projets IA déployés</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">6</span>
+                        <span class="hero__stat-label">Secteurs d'expertise</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">40%</span>
+                        <span class="hero__stat-label">Gain de temps moyen</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== LES ENJEUX ========== -->
+        <section class="section section--white" id="challenges">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <h2 class="section__title">L'IA peut résoudre ces problèmes</h2>
+                    <p class="section__subtitle">Si vous reconnaissez ces situations, l'IA peut vous aider.</p>
+                </div>
+
+                <div class="challenges__grid">
+                    <div class="challenge-card" data-animate>
+                        <div class="challenge-card__icon">
+                            <i data-lucide="search"></i>
+                        </div>
+                        <h3 class="challenge-card__title">Trop de données à analyser</h3>
+                        <p class="challenge-card__text">Des milliers de documents, contrats, tickets... impossibles à
+                            traiter manuellement.</p>
+                        <span class="challenge-card__solution">→ NLP & analyse automatique</span>
+                    </div>
+
+                    <div class="challenge-card" data-animate>
+                        <div class="challenge-card__icon">
+                            <i data-lucide="trending-up"></i>
+                        </div>
+                        <h3 class="challenge-card__title">Prédire l'avenir</h3>
+                        <p class="challenge-card__text">Anticiper les ventes, le churn, les pannes, les réadmissions...
+                        </p>
+                        <span class="challenge-card__solution">→ Machine Learning prédictif</span>
+                    </div>
+
+                    <div class="challenge-card" data-animate>
+                        <div class="challenge-card__icon">
+                            <i data-lucide="eye"></i>
+                        </div>
+                        <h3 class="challenge-card__title">Détecter l'invisible</h3>
+                        <p class="challenge-card__text">Anomalies, défauts, fraudes... que l'œil humain ne voit pas.</p>
+                        <span class="challenge-card__solution">→ Vision IA & détection</span>
+                    </div>
+
+                    <div class="challenge-card" data-animate>
+                        <div class="challenge-card__icon">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <h3 class="challenge-card__title">Réagir en temps réel</h3>
+                        <p class="challenge-card__text">Alertes, recommandations, priorisation automatique en fonction
+                            du contexte.</p>
+                        <span class="challenge-card__solution">→ IA temps réel</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== OFFRE PHARE (AUDIT) ========== -->
+        <section class="section section--navy" id="audit">
+            <div class="container">
+                <div class="audit__card" data-animate>
+                    <div class="audit__badge">
+                        <i data-lucide="sparkles"></i>
+                        Offre phare
+                    </div>
+
+                    <h2 class="audit__title">Audit IA & Automatisation</h2>
+                    <p class="audit__subtitle">
+                        En 2 semaines, nous identifions où l'IA peut générer des gains concrets dans votre organisation.
+                    </p>
+
+                    <div class="audit__includes">
+                        <div class="audit__include-item">
+                            <i data-lucide="search"></i>
+                            <span>Analyse de vos processus clés</span>
+                        </div>
+                        <div class="audit__include-item">
+                            <i data-lucide="zap"></i>
+                            <span>Identification des cas d'usage IA pertinents</span>
+                        </div>
+                        <div class="audit__include-item">
+                            <i data-lucide="map"></i>
+                            <span>Feuille de route priorisée</span>
+                        </div>
+                        <div class="audit__include-item">
+                            <i data-lucide="euro"></i>
+                            <span>Estimation des gains potentiels</span>
+                        </div>
+                    </div>
+
+                    <div class="audit__highlight">
+                        <i data-lucide="gift"></i>
+                        <span>Audit offert si le projet est lancé avec Astauria</span>
+                    </div>
+
+                    <a href="audit-ia.html" class="btn btn--primary btn--large audit__cta">
+                        Demander mon audit IA
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CAS D'ÉTUDE AVEC ROI ========== -->
+        <section class="section section--white" id="case-studies">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <span class="section-badge">Résultats Prouvés</span>
+                    <h2 class="section-title">Des ROI concrets pour nos clients</h2>
+                    <p class="section-subtitle">
+                        Des projets IA qui génèrent des gains mesurables dès les premiers mois
+                    </p>
+                </div>
+
+                <div class="case-studies__grid">
+                    <!-- Case Study 1 -->
+                    <article class="case-study-card" data-animate>
+                        <div class="case-study-card__header">
+                            <div class="case-study-card__sector">
+                                <i data-lucide="building-2"></i>
+                                <span>ETI Industrielle</span>
+                            </div>
+                            <span class="case-study-card__timeline">Déployé en 8 semaines</span>
+                        </div>
+
+                        <h3 class="case-study-card__title">Automatisation du reporting financier</h3>
+
+                        <div class="case-study-card__challenge">
+                            <strong>Défi :</strong> 40h/mois perdues à consolider des rapports Excel
+                        </div>
+
+                        <div class="case-study-card__solution">
+                            <strong>Solution :</strong> Pipeline d'extraction + génération automatique avec IA
+                        </div>
+
+                        <div class="case-study-card__results">
+                            <div class="case-study-card__metric">
+                                <span class="case-study-card__metric-value">-85%</span>
+                                <span class="case-study-card__metric-label">Temps de reporting</span>
+                            </div>
+                            <div class="case-study-card__metric">
+                                <span class="case-study-card__metric-value">32k€</span>
+                                <span class="case-study-card__metric-label">Économie/an</span>
+                            </div>
+                            <div class="case-study-card__metric case-study-card__metric--highlight">
+                                <span class="case-study-card__metric-value">ROI 4x</span>
+                                <span class="case-study-card__metric-label">Année 1</span>
+                            </div>
+                        </div>
+
+                        <a href="cas-etudes.html#reporting" class="case-study-card__link">
+                            Voir le détail <i data-lucide="arrow-right"></i>
+                        </a>
+                    </article>
+
+                    <!-- Case Study 2 -->
+                    <article class="case-study-card" data-animate>
+                        <div class="case-study-card__header">
+                            <div class="case-study-card__sector">
+                                <i data-lucide="truck"></i>
+                                <span>Logistique</span>
+                            </div>
+                            <span class="case-study-card__timeline">Déployé en 12 semaines</span>
+                        </div>
+
+                        <h3 class="case-study-card__title">Prédiction des ruptures de stock</h3>
+
+                        <div class="case-study-card__challenge">
+                            <strong>Défi :</strong> 15% de pertes sur les ruptures et surstocks
+                        </div>
+
+                        <div class="case-study-card__solution">
+                            <strong>Solution :</strong> ML prédictif sur historiques + facteurs externes
+                        </div>
+
+                        <div class="case-study-card__results">
+                            <div class="case-study-card__metric">
+                                <span class="case-study-card__metric-value">-60%</span>
+                                <span class="case-study-card__metric-label">Ruptures</span>
+                            </div>
+                            <div class="case-study-card__metric">
+                                <span class="case-study-card__metric-value">180k€</span>
+                                <span class="case-study-card__metric-label">Économie/an</span>
+                            </div>
+                            <div class="case-study-card__metric case-study-card__metric--highlight">
+                                <span class="case-study-card__metric-value">ROI 6x</span>
+                                <span class="case-study-card__metric-label">Année 1</span>
+                            </div>
+                        </div>
+
+                        <a href="cas-etudes.html#prediction" class="case-study-card__link">
+                            Voir le détail <i data-lucide="arrow-right"></i>
+                        </a>
+                    </article>
+                </div>
+
+                <div class="case-studies__cta" data-animate>
+                    <p>Vous voulez des résultats similaires ?</p>
+                    <a href="audit-ia.html" class="btn btn--primary">
+                        Demander mon audit IA gratuit
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== NOS SOLUTIONS ========== -->
+        <section class="section section--white" id="solutions">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <h2 class="section__title">Nos expertises IA</h2>
+                </div>
+
+                <div class="solutions__grid">
+                    <div class="solution-card" data-animate>
+                        <div class="solution-card__icon">
+                            <i data-lucide="brain"></i>
+                        </div>
+                        <h3 class="solution-card__title">NLP & Analyse de texte</h3>
+                        <p class="solution-card__text">
+                            Analyse automatique de contrats, tickets, emails. Extraction d'informations clés et
+                            classification.
+                        </p>
+                    </div>
+
+                    <div class="solution-card" data-animate>
+                        <div class="solution-card__icon">
+                            <i data-lucide="line-chart"></i>
+                        </div>
+                        <h3 class="solution-card__title">ML Prédictif</h3>
+                        <p class="solution-card__text">
+                            Prédiction de churn, réadmissions, ventes, pannes. Scoring et modèles sur mesure.
+                        </p>
+                    </div>
+
+                    <div class="solution-card" data-animate>
+                        <div class="solution-card__icon">
+                            <i data-lucide="scan"></i>
+                        </div>
+                        <h3 class="solution-card__title">Vision par ordinateur</h3>
+                        <p class="solution-card__text">
+                            Détection de défauts, OCR intelligent, analyse d'images en temps réel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TÉMOIGNAGES CLIENTS ========== -->
+        <section class="section section--grey" id="testimonials">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <h2 class="section__title">Ils nous font confiance</h2>
+                    <p class="section__subtitle">Des entreprises de tous secteurs ont transformé leurs opérations avec
+                        nos solutions IA.</p>
+                </div>
+
+                <!-- Logos clients - Défilement infini -->
+                <div class="clients__marquee" data-animate>
+                    <div class="clients__marquee-track">
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/green-logistics.png" alt="Green Logistics" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/cekha-labs.png" alt="Cekha Labs" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/ho-access.png" alt="H&O Access" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/integral-btp.png" alt="Integral BTP" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/krinch-partners.png" alt="Krinch & Partners" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/saunya-cosmetics.png" alt="Saunya Cosmetics" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/saucare.png" alt="Saucare" class="clients__logo">
+                        </div>
+                        <!-- Duplicated for infinite scroll -->
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/green-logistics.png" alt="Green Logistics" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/cekha-labs.png" alt="Cekha Labs" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/ho-access.png" alt="H&O Access" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/integral-btp.png" alt="Integral BTP" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/krinch-partners.png" alt="Krinch & Partners" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/saunya-cosmetics.png" alt="Saunya Cosmetics" class="clients__logo">
+                        </div>
+                        <div class="clients__logo-item">
+                            <img src="assets/clients/saucare.png" alt="Saucare" class="clients__logo">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrousel témoignages -->
+                <div class="testimonials__carousel" data-animate>
+                    <button class="carousel__btn carousel__btn--prev" aria-label="Précédent">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+
+                    <div class="carousel__track-container">
+                        <div class="carousel__track">
+                            <div class="testimonial-card">
+                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-card__text">L'automatisation de notre chaîne d'approvisionnement
+                                    nous a permis de réduire les délais de 40% et d'optimiser nos stocks.</p>
+                                <div class="testimonial-card__author">
+                                    <img src="assets/clients/green-logistics.png" alt="Green Logistics"
+                                        class="testimonial-card__logo">
+                                    <div class="testimonial-card__info">
+                                        <span class="testimonial-card__name">Directeur des Opérations</span>
+                                        <span class="testimonial-card__company">Green Logistics</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-card">
+                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-card__text">Le système de prédiction de la qualité des
+                                    formulations a transformé notre R&D. Nous économisons des semaines de travail.</p>
+                                <div class="testimonial-card__author">
+                                    <img src="assets/clients/cekha-labs.png" alt="Cekha Labs"
+                                        class="testimonial-card__logo">
+                                    <div class="testimonial-card__info">
+                                        <span class="testimonial-card__name">Responsable R&D</span>
+                                        <span class="testimonial-card__company">Cekha Labs</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-card">
+                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-card__text">L'analyse automatique des documents fonciers nous a
+                                    fait gagner un temps précieux. Un vrai avantage concurrentiel.</p>
+                                <div class="testimonial-card__author">
+                                    <img src="assets/clients/ho-access.png" alt="H&O Access"
+                                        class="testimonial-card__logo">
+                                    <div class="testimonial-card__info">
+                                        <span class="testimonial-card__name">Directeur Commercial</span>
+                                        <span class="testimonial-card__company">H&O Access</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-card">
+                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-card__text">Le tableau de bord prédictif pour nos chantiers a
+                                    révolutionné notre gestion de projet avec une précision remarquable.</p>
+                                <div class="testimonial-card__author">
+                                    <img src="assets/clients/integral-btp.png" alt="Integral BTP"
+                                        class="testimonial-card__logo">
+                                    <div class="testimonial-card__info">
+                                        <span class="testimonial-card__name">Directeur Technique</span>
+                                        <span class="testimonial-card__company">Integral BTP</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-card">
+                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-card__text">L'IA a transformé notre processus de recrutement. Nous
+                                    identifions les meilleurs profils 3 fois plus vite.</p>
+                                <div class="testimonial-card__author">
+                                    <img src="assets/clients/krinch-partners.png" alt="Krinch & Partners"
+                                        class="testimonial-card__logo">
+                                    <div class="testimonial-card__info">
+                                        <span class="testimonial-card__name">Directrice Associée</span>
+                                        <span class="testimonial-card__company">Krinch & Partners</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-card">
+                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-card__text">Le système de prédiction des tendances nous a permis
+                                    de réduire nos ruptures de stock de 65%.</p>
+                                <div class="testimonial-card__author">
+                                    <img src="assets/clients/saunya-cosmetics.png" alt="Saunya Cosmetics"
+                                        class="testimonial-card__logo">
+                                    <div class="testimonial-card__info">
+                                        <span class="testimonial-card__name">Directeur Commercial</span>
+                                        <span class="testimonial-card__company">Saunya Cosmetics</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial-card">
+                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-card__text">L'automatisation de la prise de rendez-vous a optimisé
+                                    notre planning. Nos instituts fonctionnent à 95% de capacité.</p>
+                                <div class="testimonial-card__author">
+                                    <img src="assets/clients/saucare.png" alt="Saucare" class="testimonial-card__logo">
+                                    <div class="testimonial-card__info">
+                                        <span class="testimonial-card__name">Responsable Réseau</span>
+                                        <span class="testimonial-card__company">Saucare</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel__btn carousel__btn--next" aria-label="Suivant">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Indicateurs du carrousel -->
+                <div class="carousel__dots" data-animate></div>
+
+                <!-- Partenaires -->
+                <div class="partners" data-animate>
+                    <p class="partners__label">Nos partenaires stratégiques</p>
+                    <div class="partners__grid">
+                        <span class="partners__item">NET2S SARL</span>
+                        <span class="partners__item">Cabinet Krinch & Partners</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FAQ ========== -->
+        <section class="section faq" id="faq">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <span class="section-badge">FAQ</span>
+                    <h2 class="section-title">Questions Fréquentes</h2>
+                    <p class="section-subtitle">
+                        Tout ce que vous devez savoir avant de vous lancer dans l'IA
+                    </p>
+                </div>
+
+                <div class="faq__grid" data-animate>
+                    <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq__question" aria-expanded="false">
+                            <span itemprop="name">Combien coûte un projet IA typique ?</span>
+                            <i data-lucide="chevron-down" class="faq__icon"></i>
+                        </button>
+                        <div class="faq__answer" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Nos projets commencent généralement à partir de <strong>5 000€ pour un POC</strong>
+                                    (preuve de concept) et peuvent aller jusqu'à 50 000€+ pour des solutions complètes.
+                                    L'audit IA gratuit permet de cadrer précisément votre besoin et d'estimer le budget
+                                    avant tout engagement.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq__question" aria-expanded="false">
+                            <span itemprop="name">Combien de temps faut-il pour déployer une solution IA ?</span>
+                            <i data-lucide="chevron-down" class="faq__icon"></i>
+                        </button>
+                        <div class="faq__answer" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Un POC peut être livré en <strong>4 à 8 semaines</strong>. Une solution complète
+                                    prend généralement 3 à 6 mois selon la complexité. Notre approche agile permet
+                                    d'avoir des premiers résultats rapidement tout en itérant sur la solution.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq__question" aria-expanded="false">
+                            <span itemprop="name">Avons-nous besoin de beaucoup de données pour commencer ?</span>
+                            <i data-lucide="chevron-down" class="faq__icon"></i>
+                        </button>
+                        <div class="faq__answer" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Cela dépend du cas d'usage. Pour de l'automatisation simple, peu de données
+                                    suffisent. Pour du machine learning prédictif, il faut généralement <strong>6 à 12
+                                        mois d'historique</strong>. L'audit IA évalue la qualité et la quantité de vos
+                                    données disponibles.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq__question" aria-expanded="false">
+                            <span itemprop="name">L'IA va-t-elle remplacer mes employés ?</span>
+                            <i data-lucide="chevron-down" class="faq__icon"></i>
+                        </button>
+                        <div class="faq__answer" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Notre approche est celle de l'<strong>augmentation, pas du remplacement</strong>.
+                                    L'IA prend en charge les tâches répétitives et à faible valeur ajoutée, libérant vos
+                                    équipes pour des missions plus stratégiques. Nous accompagnons aussi la conduite du
+                                    changement.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq__question" aria-expanded="false">
+                            <span itemprop="name">Travaillez-vous avec les PME ou seulement les grands groupes ?</span>
+                            <i data-lucide="chevron-down" class="faq__icon"></i>
+                        </button>
+                        <div class="faq__answer" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Nous travaillons principalement avec les <strong>PME et ETI</strong> (20 à 500
+                                    employés). Notre expertise est d'adapter les technologies IA aux contraintes et
+                                    budgets des entreprises de taille moyenne, sans les coûts des grands cabinets de
+                                    conseil.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button class="faq__question" aria-expanded="false">
+                            <span itemprop="name">Que se passe-t-il si le projet IA ne fonctionne pas ?</span>
+                            <i data-lucide="chevron-down" class="faq__icon"></i>
+                        </button>
+                        <div class="faq__answer" itemscope itemprop="acceptedAnswer"
+                            itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>C'est pour cela que nous commençons toujours par un POC à périmètre limité. Si les
+                                    résultats ne sont pas concluants, vous n'aurez investi que sur cette phase de test.
+                                    <strong>Notre taux de réussite est de 85%</strong> grâce à notre méthodologie de
+                                    qualification rigoureuse.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq__cta" data-animate>
+                    <p>Vous avez d'autres questions ?</p>
+                    <a href="contact.html" class="btn btn--outline">Contactez-nous</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CTA FINAL ========== -->
+        <section class="section section--navy final-cta" id="contact">
+            <div class="container">
+                <div class="final-cta__content" data-animate>
+                    <h2 class="final-cta__title">Prêt à explorer le potentiel de l'IA ?</h2>
+                    <p class="final-cta__text">
+                        En 30 minutes, on identifie ensemble si l'IA peut résoudre vos problèmes métiers.
+                    </p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large final-cta__btn">
+                        <span>Demander mon audit IA</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer CTA -->
+            <div class="footer__cta">
+                <p class="footer__cta-text">Prêt à explorer le potentiel de l'IA dans votre organisation ?</p>
+                <a href="audit-ia.html" class="btn btn--primary">Demander un audit IA</a>
+            </div>
+
+            <!-- Footer Main Grid -->
+            <div class="footer__main">
+                <!-- Column 1 — Identity -->
+                <div class="footer__column footer__identity">
+                    <a href="index.html">
+                        <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img logo-img--footer">
+                    </a>
+                    <p class="footer__brand-name">Astauria</p>
+                    <p class="footer__brand-tagline">IA & automatisation au service des entreprises</p>
+                    <p class="footer__brand-description">
+                        Cabinet de conseil spécialisé en intelligence artificielle et automatisation des processus
+                        métiers.
+                    </p>
+                </div>
+
+                <!-- Column 2 — Navigation -->
+                <div class="footer__column">
+                    <h4>Navigation</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="cas-usage.html">Cas d'usage</a></li>
+                        <li><a href="pourquoi-astauria.html">Pourquoi Astauria</a></li>
+                        <li><a href="blog.html">Ressources</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 — Expertises -->
+                <div class="footer__column">
+                    <h4>Expertises</h4>
+                    <ul class="footer__expertise-list">
+                        <li>NLP & Analyse de texte</li>
+                        <li>Machine Learning prédictif</li>
+                        <li>Vision par ordinateur</li>
+                        <li>Automatisation intelligente</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 — Contact -->
+                <div class="footer__column">
+                    <h4>Contact</h4>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item">
+                            <i data-lucide="mail"></i>
+                            <a href="mailto:contact@astauria.com">contact@astauria.com</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i data-lucide="globe"></i>
+                            <a href="https://www.astauria.com">www.astauria.com</a>
+                        </div>
+                    </div>
+                    <div class="footer__presence">
+                        <p class="footer__presence-label">Présence</p>
+                        <div class="footer__presence-tags">
+                            <span class="footer__presence-tag">France</span>
+                            <span class="footer__presence-tag">Cameroun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Astauria — Tous droits réservés</p>
+                <nav class="footer__legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-popup__overlay"></div>
+        <div class="newsletter-popup__modal">
+            <button class="newsletter-popup__close" id="newsletter-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="newsletter-popup__content">
+                <div class="newsletter-popup__badge">
+                    <i data-lucide="gift"></i>
+                    <span>GUIDE GRATUIT</span>
+                </div>
+                <h3 class="newsletter-popup__title">
+                    Les 7 questions clés avant d'investir dans l'IA
+                </h3>
+                <p class="newsletter-popup__subtitle">
+                    Téléchargez notre guide exclusif et évitez les erreurs coûteuses de 80% des projets IA.
+                </p>
+                <ul class="newsletter-popup__benefits">
+                    <li><i data-lucide="check-circle"></i> Checklist ROI complète</li>
+                    <li><i data-lucide="check-circle"></i> Exemples de cas réels</li>
+                    <li><i data-lucide="check-circle"></i> Template d'évaluation</li>
+                </ul>
+                <form class="newsletter-popup__form" id="newsletter-form">
+                    <div class="newsletter-popup__input-group">
+                        <input type="email" name="email" placeholder="votre@email.com" required
+                            class="newsletter-popup__input">
+                        <button type="submit" class="btn btn--primary newsletter-popup__btn">
+                            <span>Recevoir le guide</span>
+                            <i data-lucide="download"></i>
+                        </button>
+                    </div>
+                    <p class="newsletter-popup__privacy">
+                        <i data-lucide="shield-check"></i>
+                        Vos données sont protégées. Désinscription en 1 clic.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOATING CONTACT BUTTON ========== -->
+    <div class="floating-contact" id="floating-contact">
+        <div class="floating-contact__panel">
+            <div class="floating-contact__header">
+                <span>💬 Comment pouvons-nous vous aider ?</span>
+            </div>
+            <div class="floating-contact__options">
+                <a href="mailto:contact@astauria.com" class="floating-contact__option">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@astauria.com</span>
+                    </div>
+                </a>
+                <a href="tel:+33123456789" class="floating-contact__option">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                </a>
+                <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>Audit IA gratuit</strong>
+                        <span>Réservez un créneau</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="floating-contact__btn" id="floating-contact-btn" aria-label="Nous contacter">
+            <i data-lucide="message-circle" class="floating-contact__icon-open"></i>
+            <i data-lucide="x" class="floating-contact__icon-close"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="newsletter.js"></script>
+    <script src="cookies.js"></script>
+</body>
+
+</html>

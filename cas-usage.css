@@ -1,0 +1,379 @@
+/* ================================================
+   ASTAURIA — Cas d'Usage Page Styles (Restructured)
+   ================================================ */
+
+/* ========== HERO CASES VARIANT ========== */
+.hero--cases {
+    min-height: 55vh;
+    text-align: center;
+}
+
+.hero--cases .hero__content {
+    max-width: 800px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.hero__badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--color-gold);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-lg);
+}
+
+.hero__stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2xl);
+    flex-wrap: wrap;
+}
+
+.hero__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-lg) var(--space-xl);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    min-width: 140px;
+}
+
+.hero__stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    line-height: 1;
+}
+
+.hero__stat-label {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--space-xs);
+}
+
+/* ========== SECTOR FILTERS ========== */
+.filters-section {
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--color-medium-grey);
+}
+
+.sector-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.sector-filter {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--color-light-grey);
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-navy);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.sector-filter svg {
+    width: 18px;
+    height: 18px;
+}
+
+.sector-filter:hover {
+    background: var(--color-white);
+    border-color: var(--color-navy);
+}
+
+.sector-filter--active {
+    background: var(--color-navy);
+    color: var(--color-white);
+    border-color: var(--color-navy);
+}
+
+.sector-filter--active svg {
+    color: var(--color-gold);
+}
+
+/* ========== CASES GRID ========== */
+.cases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+}
+
+/* ========== CASE CARD ========== */
+.case-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    text-decoration: none;
+    box-shadow: var(--shadow-md);
+    border: 2px solid transparent;
+    transition: all var(--transition-base);
+    overflow: hidden;
+}
+
+.case-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-gold);
+}
+
+.case-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.case-card__sector {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-navy);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-card__sector svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-gold);
+}
+
+.case-card__tech {
+    padding: var(--space-xs) var(--space-sm);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+    color: var(--color-gold);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: var(--radius-sm);
+}
+
+.case-card__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: var(--space-sm);
+    line-height: 1.3;
+}
+
+.case-card__desc {
+    flex: 1;
+    font-size: var(--font-size-base);
+    color: var(--color-dark-grey);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+.case-card__result {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+}
+
+.case-card__metric {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #22c55e;
+    line-height: 1;
+}
+
+.case-card__metric-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-navy);
+    font-weight: 500;
+}
+
+.case-card__cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-navy);
+    transition: all var(--transition-base);
+}
+
+.case-card__cta svg {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-base);
+}
+
+.case-card:hover .case-card__cta {
+    color: var(--color-gold);
+}
+
+.case-card:hover .case-card__cta svg {
+    transform: translateX(4px);
+}
+
+/* ========== APPROACH SECTION ========== */
+.approach {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.approach__title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-2xl);
+    color: var(--color-navy);
+}
+
+.approach__steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+.approach__step {
+    padding: var(--space-xl);
+    background: var(--color-light-grey);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.approach__step:hover {
+    background: var(--color-navy);
+    transform: translateY(-4px);
+}
+
+.approach__step:hover h3,
+.approach__step:hover p {
+    color: var(--color-white);
+}
+
+.approach__step:hover .approach__step-number {
+    background: var(--color-gold);
+    color: var(--color-navy);
+}
+
+.approach__step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-navy);
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    border-radius: 50%;
+    margin: 0 auto var(--space-md);
+    transition: all var(--transition-base);
+}
+
+.approach__step h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-navy);
+    margin-bottom: var(--space-sm);
+    transition: color var(--transition-base);
+}
+
+.approach__step p {
+    font-size: var(--font-size-sm);
+    color: var(--color-dark-grey);
+    margin: 0;
+    transition: color var(--transition-base);
+}
+
+/* ========== CTA BLOCK ========== */
+.cta-block {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-block__title {
+    font-size: var(--font-size-2xl);
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+}
+
+.cta-block__text {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--space-xl);
+}
+
+/* ========== ANIMATION ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== RESPONSIVE — TABLET ========== */
+@media (min-width: 768px) {
+    .hero__stat-value {
+        font-size: 3rem;
+    }
+
+    .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .approach__steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sector-filter {
+        padding: var(--space-sm) var(--space-xl);
+    }
+}
+
+/* ========== RESPONSIVE — DESKTOP ========== */
+@media (min-width: 1024px) {
+    .hero__stats {
+        gap: var(--space-3xl);
+    }
+
+    .hero__stat {
+        min-width: 160px;
+    }
+
+    .cases-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .approach__steps {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .case-card__title {
+        font-size: var(--font-size-lg);
+    }
+
+    .case-card__metric {
+        font-size: 2.25rem;
+    }
+}

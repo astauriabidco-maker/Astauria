@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZF5RYSS4V');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ressources et articles sur l'IA et l'automatisation pour entreprises. Découvrez nos guides, cas d'usage et conseils pratiques.">
+    <title>Ressources — Astauria</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="cas-usage.html" class="nav__link">Cas d'usage</a></li>
+                    <li><a href="pourquoi-astauria.html" class="nav__link">Pourquoi Astauria</a></li>
+                    <li><a href="blog.html" class="nav__link nav__link--active">Ressources</a></li>
+                    <li><a href="audit-ia.html" class="nav__link">Audit IA</a></li>
+                </ul>
+            </nav>
+
+            <a href="audit-ia.html" class="btn btn--primary header__cta">
+                Audit IA & Automatisation
+            </a>
+
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO ========== -->
+        <section class="hero hero--blog">
+            <div class="hero__bg"></div>
+            <div class="container hero__container">
+                <div class="hero__content" data-animate>
+                    <h1 class="hero__title">
+                        Ressources & Insights
+                    </h1>
+                    <p class="hero__subtitle">
+                        Guides pratiques, cas d'usage et réflexions sur l'IA et l'automatisation au service des
+                        entreprises.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CATEGORIES ========== -->
+        <section class="section section--white" id="categories">
+            <div class="container">
+                <div class="blog-categories" data-animate>
+                    <button class="blog-category blog-category--active">Tous</button>
+                    <button class="blog-category">IA & Stratégie</button>
+                    <button class="blog-category">Automatisation</button>
+                    <button class="blog-category">Cas d'usage</button>
+                    <button class="blog-category">Guides</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ARTICLES ========== -->
+        <section class="section section--grey" id="articles">
+            <div class="container">
+                <div class="articles-grid">
+                    <!-- Article 1 -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/blog-ai-strategy.png" alt="IA et stratégie">
+                            <span class="article-card__tag">IA & Stratégie</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">15 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                5 questions à se poser avant d'investir dans l'IA
+                            </h2>
+                            <p class="article-card__excerpt">
+                                Avant de lancer un projet IA, il est essentiel de clarifier vos objectifs, vos données
+                                disponibles et vos contraintes. Voici les 5 questions clés.
+                            </p>
+                            <a href="article-questions-ia.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/blog-automation.png" alt="Automatisation">
+                            <span class="article-card__tag">Automatisation</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">8 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                Automatiser sans tout casser : les bonnes pratiques
+                            </h2>
+                            <p class="article-card__excerpt">
+                                L'automatisation peut apporter des gains significatifs, mais une approche trop agressive
+                                peut déstabiliser vos équipes. Nos conseils pour une transition réussie.
+                            </p>
+                            <a href="article-automatisation.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/blog-data-analytics.png" alt="Cas d'usage analytics">
+                            <span class="article-card__tag">Cas d'usage</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">2 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                Comment une PME a réduit son temps de reporting de 60%
+                            </h2>
+                            <p class="article-card__excerpt">
+                                Étude de cas : une entreprise de services a automatisé la consolidation de ses données
+                                et la génération de rapports. Retour sur ce projet.
+                            </p>
+                            <a href="article-cas-reporting.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/blog-ai-strategy.png" alt="Guide audit IA">
+                            <span class="article-card__tag">Guides</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">20 décembre 2025</span>
+                            <h2 class="article-card__title">
+                                Guide : Préparer son audit IA en 5 étapes
+                            </h2>
+                            <p class="article-card__excerpt">
+                                Pour maximiser l'impact d'un audit IA, une préparation minimale est nécessaire. Voici
+                                comment vous y prendre.
+                            </p>
+                            <a href="article-guide-audit.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/blog-data-analytics.png" alt="Données et IA">
+                            <span class="article-card__tag">IA & Stratégie</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">15 décembre 2025</span>
+                            <h2 class="article-card__title">
+                                Vos données sont-elles prêtes pour l'IA ?
+                            </h2>
+                            <p class="article-card__excerpt">
+                                La qualité des données est le premier facteur de succès d'un projet IA. Comment évaluer
+                                la maturité de vos données.
+                            </p>
+                            <a href="article-donnees-ia.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/usecase-healthcare.png" alt="IA et milieu hospitalier">
+                            <span class="article-card__tag">Cas d'usage</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">10 décembre 2025</span>
+                            <h2 class="article-card__title">
+                                IA et milieu hospitalier : opportunités et limites
+                            </h2>
+                            <p class="article-card__excerpt">
+                                L'IA peut soulager les tâches administratives en milieu hospitalier. Tour d'horizon des
+                                possibilités et des précautions à prendre.
+                            </p>
+                            <a href="article-ia-hospitalier.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    <!-- Article 7: Tri urgences IA -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/usecase-healthcare.png" alt="Tri urgences IA">
+                            <span class="article-card__tag">Cas d'usage • Santé</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">28 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                Tri intelligent des urgences : quand l'IA sauve des vies
+                            </h2>
+                            <p class="article-card__excerpt">
+                                Un service d'urgences a réduit de 25% les délais pour les cas critiques grâce au tri
+                                assisté par IA.
+                            </p>
+                            <a href="cas-urgences-ia.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 8: Réadmissions IA -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/usecase-healthcare.png" alt="Prédiction réadmissions">
+                            <span class="article-card__tag">Cas d'usage • Santé</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">25 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                Prédire les réadmissions : l'IA au service du suivi patient
+                            </h2>
+                            <p class="article-card__excerpt">
+                                -30% de réadmissions évitables grâce au machine learning qui identifie les patients à
+                                risque.
+                            </p>
+                            <a href="cas-readmissions-ia.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 9: Vision industrielle -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/usecase-manufacturing.png" alt="Vision IA industrie">
+                            <span class="article-card__tag">Cas d'usage • Industrie</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">22 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                Vision IA : détecter l'invisible sur la chaîne de production
+                            </h2>
+                            <p class="article-card__excerpt">
+                                -92% de défauts grâce aux caméras intelligentes qui repèrent les micro-anomalies.
+                            </p>
+                            <a href="cas-vision-industrie.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 10: NLP juridique -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/blog-data-analytics.png" alt="NLP juridique">
+                            <span class="article-card__tag">Cas d'usage • Juridique</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">18 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                NLP juridique : lire 500 pages de contrat en 10 minutes
+                            </h2>
+                            <p class="article-card__excerpt">
+                                -70% de temps sur la due diligence grâce à l'analyse sémantique des contrats.
+                            </p>
+                            <a href="cas-nlp-juridique.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 11: Prédiction churn -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/blog-data-analytics.png" alt="Prédiction churn">
+                            <span class="article-card__tag">Cas d'usage • E-commerce</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">12 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                Prédire le churn : retenir les clients avant qu'ils ne partent
+                            </h2>
+                            <p class="article-card__excerpt">
+                                -35% de churn grâce au machine learning qui détecte les signaux faibles de départ.
+                            </p>
+                            <a href="cas-churn-ecommerce.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 12: Analyse émotionnelle -->
+                    <article class="article-card" data-animate>
+                        <div class="article-card__image">
+                            <img src="assets/blog-automation.png" alt="Analyse émotionnelle">
+                            <span class="article-card__tag">Cas d'usage • Service Client</span>
+                        </div>
+                        <div class="article-card__content">
+                            <span class="article-card__date">5 janvier 2026</span>
+                            <h2 class="article-card__title">
+                                Analyse émotionnelle : détecter et désamorcer en temps réel
+                            </h2>
+                            <p class="article-card__excerpt">
+                                +40% de CSAT grâce à l'IA qui analyse les émotions et guide les conseillers.
+                            </p>
+                            <a href="cas-sentiment-service.html" class="article-card__link">
+                                Lire l'article
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="newsletter-section" data-animate>
+                    <div class="newsletter-card">
+                        <div class="newsletter-card__icon">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <div class="newsletter-card__content">
+                            <h3>Restez informé</h3>
+                            <p>Recevez nos derniers articles et guides pratiques directement dans votre boîte mail.</p>
+                        </div>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre email professionnel" required>
+                            <button type="submit" class="btn btn--primary">S'inscrire</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CTA ========== -->
+        <section class="section section--navy" id="cta">
+            <div class="container">
+                <div class="blog-cta" data-animate>
+                    <h2 class="section__title section__title--light">Prêt à explorer le potentiel de l'IA ?</h2>
+                    <p class="blog-cta__text">
+                        Nos experts sont à votre disposition pour évaluer vos opportunités d'automatisation.
+                    </p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large">
+                        <span>Demander mon audit IA</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer CTA -->
+            <div class="footer__cta">
+                <p class="footer__cta-text">Prêt à explorer le potentiel de l'IA dans votre organisation ?</p>
+                <a href="audit-ia.html" class="btn btn--primary">Demander un audit IA</a>
+            </div>
+
+            <!-- Footer Main Grid -->
+            <div class="footer__main">
+                <!-- Column 1 — Identity -->
+                <div class="footer__column footer__identity">
+                    <a href="index.html">
+                        <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img logo-img--footer">
+                    </a>
+                    <p class="footer__brand-name">Astauria</p>
+                    <p class="footer__brand-tagline">IA & automatisation au service des entreprises</p>
+                    <p class="footer__brand-description">
+                        Cabinet de conseil spécialisé en intelligence artificielle et automatisation des processus
+                        métiers.
+                    </p>
+                </div>
+
+                <!-- Column 2 — Navigation -->
+                <div class="footer__column">
+                    <h4>Navigation</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="cas-usage.html">Cas d'usage</a></li>
+                        <li><a href="pourquoi-astauria.html">Pourquoi Astauria</a></li>
+                        <li><a href="blog.html">Ressources</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 — Expertises -->
+                <div class="footer__column">
+                    <h4>Expertises</h4>
+                    <ul class="footer__expertise-list">
+                        <li>NLP & Analyse de texte</li>
+                        <li>Machine Learning prédictif</li>
+                        <li>Vision par ordinateur</li>
+                        <li>Automatisation intelligente</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 — Contact -->
+                <div class="footer__column">
+                    <h4>Contact</h4>
+                    <div class="footer__contact-info">
+                        <div class="footer__contact-item">
+                            <i data-lucide="mail"></i>
+                            <a href="mailto:contact@astauria.com">contact@astauria.com</a>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i data-lucide="globe"></i>
+                            <a href="https://www.astauria.com">www.astauria.com</a>
+                        </div>
+                    </div>
+                    <div class="footer__presence">
+                        <p class="footer__presence-label">Présence</p>
+                        <div class="footer__presence-tags">
+                            <span class="footer__presence-tag">France</span>
+                            <span class="footer__presence-tag">Cameroun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Astauria — Tous droits réservés</p>
+                <nav class="footer__legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-popup__overlay"></div>
+        <div class="newsletter-popup__modal">
+            <button class="newsletter-popup__close" id="newsletter-close" aria-label="Fermer">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="newsletter-popup__content">
+                <div class="newsletter-popup__badge">
+                    <i data-lucide="gift"></i>
+                    <span>GUIDE GRATUIT</span>
+                </div>
+                <h3 class="newsletter-popup__title">Les 7 questions clés avant d'investir dans l'IA</h3>
+                <p class="newsletter-popup__subtitle">Téléchargez notre guide exclusif et évitez les erreurs coûteuses de 80% des projets IA.</p>
+                <ul class="newsletter-popup__benefits">
+                    <li><i data-lucide="check-circle"></i> Checklist ROI complète</li>
+                    <li><i data-lucide="check-circle"></i> Exemples de cas réels</li>
+                    <li><i data-lucide="check-circle"></i> Template d'évaluation</li>
+                </ul>
+                <form class="newsletter-popup__form" id="newsletter-form">
+                    <div class="newsletter-popup__input-group">
+                        <input type="email" name="email" placeholder="votre@email.com" required class="newsletter-popup__input">
+                        <button type="submit" class="btn btn--primary newsletter-popup__btn"><span>Recevoir le guide</span><i data-lucide="download"></i></button>
+                    </div>
+                    <p class="newsletter-popup__privacy"><i data-lucide="shield-check"></i> Vos données sont protégées. Désinscription en 1 clic.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOATING CONTACT BUTTON ========== -->
+    <div class="floating-contact" id="floating-contact">
+        <div class="floating-contact__panel">
+            <div class="floating-contact__header">
+                <span>💬 Comment pouvons-nous vous aider ?</span>
+            </div>
+            <div class="floating-contact__options">
+                <a href="mailto:contact@astauria.com" class="floating-contact__option">
+                    <i data-lucide="mail"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@astauria.com</span>
+                    </div>
+                </a>
+                <a href="tel:+33123456789" class="floating-contact__option">
+                    <i data-lucide="phone"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                </a>
+                <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">
+                    <i data-lucide="calendar"></i>
+                    <div>
+                        <strong>Audit IA gratuit</strong>
+                        <span>Réservez un créneau</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="floating-contact__btn" id="floating-contact-btn" aria-label="Nous contacter">
+            <i data-lucide="message-circle" class="floating-contact__icon-open"></i>
+            <i data-lucide="x" class="floating-contact__icon-close"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="newsletter.js"></script>
+    <script src="cookies.js"></script>
+</body>
+
+</html>

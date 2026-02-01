@@ -1,0 +1,377 @@
+/* ================================================
+   ASTAURIA — Solutions Page Specific Styles
+   ================================================ */
+
+/* ========== HERO SOLUTIONS VARIANT ========== */
+.hero--solutions {
+    min-height: 70vh;
+}
+
+.hero--solutions .hero__content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* ========== APPROACH SECTION ========== */
+.approach-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.approach-text {
+    text-align: center;
+}
+
+.approach__intro {
+    font-size: var(--font-size-lg);
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-xl);
+}
+
+.approach__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.approach__list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-light-grey);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    color: var(--color-navy);
+}
+
+.approach__list li svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-gold);
+}
+
+.approach__philosophy {
+    padding: var(--space-xl);
+    background: var(--color-light-grey);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xl);
+}
+
+.approach__philosophy p {
+    font-size: var(--font-size-lg);
+    color: var(--color-navy);
+    margin: var(--space-sm) 0;
+}
+
+.approach__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+}
+
+.approach__cta svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-gold);
+}
+
+.approach__cta a {
+    color: var(--color-gold);
+    text-decoration: underline;
+}
+
+.approach__cta a:hover {
+    text-decoration: none;
+}
+
+/* ========== SOLUTION DETAIL CARDS ========== */
+.solution-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-2xl);
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.solution-detail--featured {
+    border: 2px solid var(--color-gold);
+    box-shadow: var(--shadow-lg);
+}
+
+.solution-detail__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-medium-grey);
+}
+
+.solution-detail__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.solution-detail__icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-gold);
+}
+
+.solution-detail__title {
+    font-size: var(--font-size-2xl);
+    margin: 0;
+}
+
+.solution-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+}
+
+.solution-detail__block {
+    padding: var(--space-xl);
+    background: var(--color-light-grey);
+    border-radius: var(--radius-md);
+}
+
+.solution-detail__block h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+}
+
+.solution-detail__block h3 svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-gold);
+}
+
+.solution-detail__block p {
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-md);
+}
+
+.solution-detail__block ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.solution-detail__block ul li {
+    position: relative;
+    padding-left: var(--space-lg);
+    color: var(--color-dark-grey);
+}
+
+.solution-detail__block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: var(--color-gold);
+    border-radius: 50%;
+}
+
+.solution-detail__block--results {
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+}
+
+.solution-detail__block--results h3 {
+    color: var(--color-white);
+}
+
+.solution-detail__block--results h3 svg {
+    color: #22c55e;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.results-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--color-white) !important;
+    font-weight: 500;
+}
+
+.results-list li::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #22c55e;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    position: static;
+}
+
+/* ========== METHODOLOGY ========== */
+.methodology__steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.methodology-step {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.methodology-step:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(201, 162, 77, 0.3);
+}
+
+.methodology-step__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+    color: var(--color-navy);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.methodology-step__content h3 {
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.methodology-step__content p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.methodology__note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.methodology__note svg {
+    width: 20px;
+    height: 20px;
+    color: #22c55e;
+}
+
+/* ========== START AUDIT ========== */
+.start-audit {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.start-audit__benefits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: var(--space-2xl) 0;
+}
+
+.start-audit__benefit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--color-light-grey);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    color: var(--color-navy);
+    transition: all var(--transition-base);
+}
+
+.start-audit__benefit:hover {
+    background: var(--color-navy);
+    color: var(--color-white);
+}
+
+.start-audit__benefit svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-gold);
+}
+
+/* ========== RESPONSIVE — TABLET ========== */
+@media (min-width: 768px) {
+    .approach__list {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .approach__list li {
+        flex: 1;
+        max-width: 200px;
+    }
+
+    .solution-detail__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .methodology__steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .start-audit__benefits {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .start-audit__benefit {
+        flex: 1;
+    }
+}
+
+/* ========== RESPONSIVE — DESKTOP ========== */
+@media (min-width: 1024px) {
+    .methodology__steps {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

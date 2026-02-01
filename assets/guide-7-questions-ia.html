@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les 7 Questions Clés Avant d'Investir dans l'IA - Guide Astauria</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #1a2b3c;
+            background: #fff;
+        }
+
+        .page {
+            max-width: 595px;
+            /* A4 width at 72dpi */
+            margin: 0 auto;
+            padding: 48px;
+        }
+
+        .cover {
+            min-height: 800px;
+            background: linear-gradient(135deg, #0a192f 0%, #1a2b4c 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 48px;
+            page-break-after: always;
+        }
+
+        .cover__badge {
+            display: inline-block;
+            background: #d4a03b;
+            color: #0a192f;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 32px;
+        }
+
+        .cover__title {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .cover__subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 48px;
+        }
+
+        .cover__logo {
+            margin-top: auto;
+            padding-top: 60px;
+        }
+
+        .cover__logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4a03b;
+        }
+
+        .cover__logo-tagline {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #0a192f;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #d4a03b;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #0a192f;
+            margin: 24px 0 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #4a5568;
+        }
+
+        .intro {
+            background: #f7f9fc;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            border-left: 4px solid #d4a03b;
+        }
+
+        .intro p {
+            margin: 0;
+            font-style: italic;
+        }
+
+        .question {
+            margin-bottom: 36px;
+            page-break-inside: avoid;
+        }
+
+        .question__number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #d4a03b, #e6b800);
+            color: #0a192f;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-bottom: 12px;
+        }
+
+        .question__title {
+            font-size: 20px;
+            color: #0a192f;
+            margin-bottom: 12px;
+        }
+
+        .question__why {
+            background: #fff3cd;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+
+        .question__why-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #856404;
+            margin-bottom: 8px;
+        }
+
+        .question__checklist {
+            list-style: none;
+            background: #f0fff4;
+            padding: 16px 16px 16px 24px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .question__checklist li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            color: #276749;
+        }
+
+        .question__checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #38a169;
+            font-weight: 700;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0a192f, #1a2b4c);
+            color: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .cta-section h2 {
+            color: #fff;
+            border: none;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-section__highlight {
+            display: inline-block;
+            background: #d4a03b;
+            color: #0a192f;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 16px;
+            text-decoration: none;
+        }
+
+        .footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 14px;
+            color: #718096;
+        }
+
+        @media print {
+            .page {
+                padding: 40px;
+            }
+
+            .cover {
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PAGE DE COUVERTURE -->
+    <div class="cover">
+        <span class="cover__badge">Guide Exclusif Astauria</span>
+        <h1 class="cover__title">Les 7 Questions Clés<br>Avant d'Investir<br>dans l'IA</h1>
+        <p class="cover__subtitle">
+            Évitez les erreurs coûteuses de 80% des projets IA.<br>
+            Checklist complète pour décideurs.
+        </p>
+        <div class="cover__logo">
+            <div class="cover__logo-text">ASTAURIA</div>
+            <div class="cover__logo-tagline">IA & Automatisation au service des entreprises</div>
+        </div>
+    </div>
+
+    <!-- CONTENU -->
+    <div class="page">
+        <h2>Introduction</h2>
+        <div class="intro">
+            <p>"80% des projets IA échouent ou ne répondent pas aux attentes initiales. Ce guide vous donne les 7
+                questions essentielles à vous poser AVANT d'investir, pour maximiser vos chances de succès."</p>
+        </div>
+
+        <!-- QUESTION 1 -->
+        <div class="question">
+            <div class="question__number">1</div>
+            <h3 class="question__title">Quel problème métier précis voulez-vous résoudre ?</h3>
+            <p>L'IA n'est pas une fin en soi. Avant tout investissement, identifiez un problème <strong>concret,
+                    mesurable et récurrent</strong> qui impacte votre activité.</p>
+            <div class="question__why">
+                <div class="question__why-label">Pourquoi c'est crucial</div>
+                <p style="margin:0">Les projets IA sans problème clair défini échouent dans 73% des cas. Un objectif
+                    vague comme "utiliser l'IA" n'est pas suffisant.</p>
+            </div>
+            <ul class="question__checklist">
+                <li>J'ai identifié un processus qui prend trop de temps</li>
+                <li>J'ai un problème de qualité/erreurs récurrent</li>
+                <li>Je perds de l'argent sur une activité spécifique</li>
+            </ul>
+        </div>
+
+        <!-- QUESTION 2 -->
+        <div class="question">
+            <div class="question__number">2</div>
+            <h3 class="question__title">Disposez-vous des données nécessaires ?</h3>
+            <p>L'IA a besoin de données pour apprendre. Pas de données = pas d'IA. Évaluez honnêtement la qualité et la
+                quantité de vos données disponibles.</p>
+            <div class="question__why">
+                <div class="question__why-label">Pourquoi c'est crucial</div>
+                <p style="margin:0">60% du temps d'un projet IA est consacré à la préparation des données. Sans données
+                    exploitables, le projet est voué à l'échec.</p>
+            </div>
+            <ul class="question__checklist">
+                <li>Mes données sont centralisées et accessibles</li>
+                <li>J'ai au moins 6-12 mois d'historique</li>
+                <li>Les données sont structurées et de bonne qualité</li>
+            </ul>
+        </div>
+
+        <!-- QUESTION 3 -->
+        <div class="question">
+            <div class="question__number">3</div>
+            <h3 class="question__title">Quel ROI attendez-vous et en combien de temps ?</h3>
+            <p>Définissez des indicateurs de succès <strong>quantifiables</strong> : temps gagné, erreurs évitées,
+                chiffre d'affaires généré, coûts réduits.</p>
+            <div class="question__why">
+                <div class="question__why-label">Pourquoi c'est crucial</div>
+                <p style="margin:0">Un ROI non défini rend impossible l'évaluation du succès. Les projets sans KPIs
+                    clairs sont abandonnés 2x plus souvent.</p>
+            </div>
+            <ul class="question__checklist">
+                <li>J'ai chiffré le coût actuel du problème</li>
+                <li>J'ai défini un objectif de gain mesurable</li>
+                <li>J'ai un horizon de rentabilité réaliste (6-18 mois)</li>
+            </ul>
+        </div>
+
+        <!-- QUESTION 4 -->
+        <div class="question">
+            <div class="question__number">4</div>
+            <h3 class="question__title">Qui sera propriétaire du projet en interne ?</h3>
+            <p>Un projet IA sans sponsor interne fort échoue. Identifiez un "champion" qui portera le projet et
+                facilitera l'adoption.</p>
+            <div class="question__why">
+                <div class="question__why-label">Pourquoi c'est crucial</div>
+                <p style="margin:0">Les utilisateurs finaux doivent être impliqués dès le départ. Un outil parfait
+                    techniquement mais non adopté = investissement perdu.</p>
+            </div>
+            <ul class="question__checklist">
+                <li>Un responsable métier est identifié et motivé</li>
+                <li>La direction soutient activement le projet</li>
+                <li>Les équipes terrain sont consultées</li>
+            </ul>
+        </div>
+
+        <!-- QUESTION 5 -->
+        <div class="question">
+            <div class="question__number">5</div>
+            <h3 class="question__title">Comment l'IA s'intègrera-t-elle à vos processus existants ?</h3>
+            <p>L'IA doit s'insérer naturellement dans le quotidien de vos équipes. Une solution isolée ne sera pas
+                utilisée.</p>
+            <div class="question__why">
+                <div class="question__why-label">Pourquoi c'est crucial</div>
+                <p style="margin:0">45% des échecs IA viennent d'un manque d'intégration technique ou organisationnelle
+                    avec l'existant.</p>
+            </div>
+            <ul class="question__checklist">
+                <li>J'ai cartographié les systèmes impactés</li>
+                <li>Les APIs ou connexions nécessaires sont identifiées</li>
+                <li>Le changement de processus est anticipé</li>
+            </ul>
+        </div>
+
+        <!-- QUESTION 6 -->
+        <div class="question">
+            <div class="question__number">6</div>
+            <h3 class="question__title">Avez-vous prévu un budget pour la maintenance ?</h3>
+            <p>Un modèle IA n'est jamais "terminé". Il doit être surveillé, mis à jour et amélioré en continu.</p>
+            <div class="question__why">
+                <div class="question__why-label">Pourquoi c'est crucial</div>
+                <p style="margin:0">Prévoyez 20-30% du budget initial par an pour la maintenance. Sans cela, les
+                    performances se dégradent en 6-12 mois.</p>
+            </div>
+            <ul class="question__checklist">
+                <li>J'ai prévu un budget annuel de maintenance</li>
+                <li>La surveillance des performances est planifiée</li>
+                <li>Une équipe ou un prestataire est identifié pour le support</li>
+            </ul>
+        </div>
+
+        <!-- QUESTION 7 -->
+        <div class="question">
+            <div class="question__number">7</div>
+            <h3 class="question__title">Êtes-vous prêt à commencer petit ?</h3>
+            <p>Les projets IA réussis commencent par un <strong>POC ciblé</strong> avant de scaler. Évitez les projets
+                pharaoniques dès le départ.</p>
+            <div class="question__why">
+                <div class="question__why-label">Pourquoi c'est crucial</div>
+                <p style="margin:0">Un POC de 2-3 mois permet de valider le concept avec un risque limité. Les "big
+                    bang" IA réussissent rarement.</p>
+            </div>
+            <ul class="question__checklist">
+                <li>J'accepte de commencer par un périmètre réduit</li>
+                <li>Je suis prêt à itérer et ajuster</li>
+                <li>Je préfère des résultats rapides à une solution parfaite tardive</li>
+            </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Prêt à Passer à l'Action ?</h2>
+            <p>Demandez votre audit IA gratuit et découvrez les opportunités concrètes pour votre entreprise.</p>
+            <a href="https://astauria.com/audit-ia" class="cta-section__highlight">Demander Mon Audit Gratuit →</a>
+        </div>
+
+        <div class="footer">
+            <p><strong>ASTAURIA</strong> — IA & Automatisation au service des entreprises</p>
+            <p>contact@astauria.com • astauria.com</p>
+        </div>
+    </div>
+</body>
+
+</html>
