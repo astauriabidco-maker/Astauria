@@ -9,16 +9,24 @@ import {
     LogOut,
     Image,
     Settings,
+    FileCode,
+    Search,
+    Rocket,
 } from 'lucide-react';
 import { useAuthStore } from '../store/auth';
 
 const navItems = [
     { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
     { to: '/navigation', icon: Menu, label: 'Navigation' },
+    { to: '/pages', icon: FileCode, label: 'Pages' },
     { to: '/articles', icon: FileText, label: 'Articles' },
     { to: '/faq', icon: HelpCircle, label: 'FAQ' },
     { to: '/testimonials', icon: MessageSquare, label: 'Témoignages' },
     { to: '/case-studies', icon: BarChart3, label: 'Cas d\'étude' },
+    { to: '/media', icon: Image, label: 'Médiathèque' },
+    { to: '/seo', icon: Search, label: 'SEO' },
+    { to: '/deploy', icon: Rocket, label: 'Déploiement' },
+    { to: '/settings', icon: Settings, label: 'Paramètres' },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

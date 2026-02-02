@@ -8,6 +8,12 @@ import Articles from './pages/Articles';
 import Faq from './pages/Faq';
 import Testimonials from './pages/Testimonials';
 import CaseStudies from './pages/CaseStudies';
+import Settings from './pages/Settings';
+import Media from './pages/Media';
+import Pages from './pages/Pages';
+import Seo from './pages/Seo';
+import Deploy from './pages/Deploy';
+import { ToastContainer } from './components/Toast';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
     const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
@@ -16,25 +22,33 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
 export default function App() {
     return (
-        <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route
-                path="/*"
-                element={
-                    <ProtectedRoute>
-                        <Layout>
-                            <Routes>
-                                <Route path="/" element={<Dashboard />} />
-                                <Route path="/navigation" element={<Navigation />} />
-                                <Route path="/articles" element={<Articles />} />
-                                <Route path="/faq" element={<Faq />} />
-                                <Route path="/testimonials" element={<Testimonials />} />
-                                <Route path="/case-studies" element={<CaseStudies />} />
-                            </Routes>
-                        </Layout>
-                    </ProtectedRoute>
-                }
-            />
-        </Routes>
+        <>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route
+                    path="/*"
+                    element={
+                        <ProtectedRoute>
+                            <Layout>
+                                <Routes>
+                                    <Route path="/" element={<Dashboard />} />
+                                    <Route path="/navigation" element={<Navigation />} />
+                                    <Route path="/pages" element={<Pages />} />
+                                    <Route path="/articles" element={<Articles />} />
+                                    <Route path="/faq" element={<Faq />} />
+                                    <Route path="/testimonials" element={<Testimonials />} />
+                                    <Route path="/case-studies" element={<CaseStudies />} />
+                                    <Route path="/media" element={<Media />} />
+                                    <Route path="/seo" element={<Seo />} />
+                                    <Route path="/deploy" element={<Deploy />} />
+                                    <Route path="/settings" element={<Settings />} />
+                                </Routes>
+                            </Layout>
+                        </ProtectedRoute>
+                    }
+                />
+            </Routes>
+            <ToastContainer />
+        </>
     );
 }

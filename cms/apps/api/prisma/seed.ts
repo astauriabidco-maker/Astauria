@@ -394,6 +394,129 @@ async function main() {
     }
     console.log('✅ Paramètres: 6');
 
+    // ========== SITE PAGES ==========
+    const pages = [
+        {
+            id: 'page-index',
+            slug: 'index',
+            title: 'Accueil',
+            template: 'homepage',
+            status: 'PUBLISHED',
+            sections: [
+                { type: 'hero', order: 0, content: JSON.stringify({ title: "L'IA qui résout vos vrais problèmes métiers", subtitle: "Nous déployons des solutions d'intelligence artificielle concrètes : prédiction, analyse automatique, détection d'anomalies. Pas de la tech pour la tech, mais des résultats mesurables.", badge: 'Cabinet IA & Automatisation', cta: { text: 'Demander un audit IA gratuit', url: 'audit-ia.html' } }) },
+                { type: 'stats', order: 1, content: JSON.stringify([{ value: '15+', label: 'Projets IA déployés' }, { value: '6', label: "Secteurs d'expertise" }, { value: '40%', label: 'Gain de temps moyen' }]) },
+                { type: 'clients', order: 2, content: JSON.stringify({ title: 'Ils nous font confiance', logos: ['green-logistics', 'cekha-labs', 'ho-access', 'integral-btp', 'krinch-partners', 'saunya-cosmetics', 'saucare'] }) },
+                { type: 'use-cases', order: 3, content: JSON.stringify({ title: "Des résultats concrets dans tous les secteurs", subtitle: "Découvrez comment nous avons aidé des entreprises comme la vôtre" }) },
+                { type: 'testimonials', order: 4, content: JSON.stringify({ title: 'Ce que disent nos clients' }) },
+                { type: 'faq', order: 5, content: JSON.stringify({ title: 'Questions fréquentes' }) },
+                { type: 'cta', order: 6, content: JSON.stringify({ title: "Prêt à explorer le potentiel de l'IA ?", buttonText: 'Demander un audit IA', buttonUrl: 'audit-ia.html' }) },
+            ],
+        },
+        {
+            id: 'page-solutions',
+            slug: 'solutions',
+            title: 'Nos Solutions',
+            template: 'solutions',
+            status: 'PUBLISHED',
+            sections: [
+                { type: 'hero', order: 0, content: JSON.stringify({ title: "Des solutions IA et d'automatisation adaptées aux PME", subtitle: "Astauria conçoit et intègre des solutions d'intelligence artificielle et d'automatisation pragmatiques, connectées à vos systèmes métiers, pour générer des résultats concrets." }) },
+                { type: 'approach', order: 1, content: JSON.stringify({ title: 'Une approche simple, orientée résultats', intro: 'Nous partons toujours de votre réalité :', points: ['Vos processus', 'Vos outils', 'Vos contraintes'], philosophy: "L'IA n'est jamais un objectif en soi. C'est un levier pour gagner du temps, fiabiliser vos opérations et mieux piloter votre activité." }) },
+                { type: 'solution', order: 2, content: JSON.stringify({ icon: 'bot', title: 'Assistant IA & ERP', problem: 'Les données sont présentes dans votre ERP, mais difficiles à exploiter rapidement.', solution: "Nous intégrons un assistant intelligent qui permet : D'accéder à vos données métiers, De générer des tableaux de bord, D'obtenir des indicateurs clés en quelques secondes", results: ["Gain de temps dans l'accès à l'information", 'Meilleure visibilité', 'Décisions plus rapides'] }) },
+                { type: 'solution', order: 3, content: JSON.stringify({ icon: 'refresh-cw', title: 'Automatisation intelligente des processus', problem: "Trop de tâches manuelles, répétitives et sources d'erreurs.", solution: 'Nous automatisons vos processus clés : Facturation, Traitement de documents, Échanges entre outils métiers', results: ['Réduction du temps administratif', 'Moins d\'erreurs humaines', 'Processus plus fiables'] }) },
+                { type: 'solution', order: 4, content: JSON.stringify({ icon: 'bar-chart-3', title: "IA d'aide à la décision", problem: 'Les décisions sont souvent prises sans visibilité claire sur les données.', solution: "Nous mettons en place des outils d'analyse et d'alerte pour : Anticiper les variations d'activité, Détecter les anomalies, Identifier les risques", results: ['Meilleure anticipation', 'Décisions basées sur des faits', 'Pilotage plus serein'] }) },
+                { type: 'methodology', order: 5, content: JSON.stringify({ title: 'Une méthodologie claire et maîtrisée', steps: [{ number: 1, title: 'Audit IA & Automatisation', desc: 'Analyse de vos processus et identification des opportunités' }, { number: 2, title: 'POC ciblé', desc: 'Validation rapide de la solution sur un cas concret' }, { number: 3, title: 'Déploiement progressif', desc: 'Intégration dans vos outils existants' }, { number: 4, title: 'Accompagnement & support', desc: 'Suivi, ajustements et amélioration continue' }] }) },
+                { type: 'cta', order: 6, content: JSON.stringify({ title: 'Une entrée sans risque', benefits: ["Vision claire avant d'investir", 'Recommandations exploitables', 'Audit offert si projet lancé'], buttonText: 'Demander mon audit IA', buttonUrl: 'audit-ia.html' }) },
+            ],
+        },
+        {
+            id: 'page-pourquoi',
+            slug: 'pourquoi-astauria',
+            title: 'Pourquoi Astauria',
+            template: 'about',
+            status: 'PUBLISHED',
+            sections: [
+                { type: 'hero', order: 0, content: JSON.stringify({ title: "Un partenaire de confiance pour l'IA et l'automatisation des PME", subtitle: "Astauria accompagne les PME en France et au Cameroun dans l'intégration de solutions d'IA et d'automatisation pragmatiques, orientées résultats et adaptées à leur réalité métier." }) },
+                { type: 'conviction', order: 1, content: JSON.stringify({ title: "L'IA n'a de valeur que si elle produit des résultats", intro: "Chez Astauria, nous sommes convaincus que l'intelligence artificielle n'est pas une finalité. Elle doit avant tout :", points: ['Simplifier le travail des équipes', 'Fiabiliser les processus', 'Aider à prendre de meilleures décisions'], highlight: 'Notre approche est concrète, mesurée et responsable.' }) },
+                { type: 'approach', order: 2, content: JSON.stringify({ title: 'Une approche claire, sans promesses excessives', intro: 'Nous intervenons avec une méthode simple :', steps: ['Partir de vos processus existants', 'Identifier les gains rapides', 'Intégrer des solutions maîtrisées', 'Accompagner dans la durée'], statements: ['Pas de discours complexe.', 'Pas de solutions hors-sol.'] }) },
+                { type: 'expertise', order: 3, content: JSON.stringify({ title: 'Une double compétence métier et technique', intro: "Astauria s'appuie sur :", cards: ['Une solide expérience en intégration de systèmes et ERP', 'Une connaissance fine des processus PME', 'Une maîtrise des enjeux de données et d\'automatisation'], highlight: 'Cette double compétence nous permet de proposer des solutions réalistes et efficaces.' }) },
+                { type: 'locations', order: 4, content: JSON.stringify({ title: 'France & Cameroun : la proximité comme force', locations: ['France', 'Cameroun'], benefits: ['De comprendre les réalités terrain', "D'être proches de nos clients", 'De proposer des solutions adaptées à chaque contexte'], note: 'Même méthode, même exigence de qualité.' }) },
+                { type: 'partnership', order: 5, content: JSON.stringify({ title: "Plus qu'un prestataire, un partenaire", intro: 'Nous travaillons avec nos clients dans une logique de :', values: ['Transparence', 'Collaboration', 'Montée en compétences'], statement: 'Notre objectif n\'est pas de vendre un projet ponctuel, mais de construire une relation durable et utile.' }) },
+                { type: 'commitments', order: 6, content: JSON.stringify({ title: 'Des engagements clairs', intro: "Astauria s'engage à :", items: ['Proposer uniquement des solutions utiles', 'Expliquer clairement chaque étape', 'Sécuriser vos données et vos systèmes', 'Mesurer les résultats obtenus'], note: 'Votre confiance est notre priorité.' }) },
+                { type: 'cta', order: 7, content: JSON.stringify({ title: 'Une approche responsable et sans risque', buttonText: 'Demander mon audit IA', buttonUrl: 'audit-ia.html' }) },
+            ],
+        },
+        {
+            id: 'page-cas-usage',
+            slug: 'cas-usage',
+            title: "Cas d'usage",
+            template: 'case-studies',
+            status: 'PUBLISHED',
+            sections: [
+                { type: 'hero', order: 0, content: JSON.stringify({ title: "L'IA en action : des résultats concrets", subtitle: "Découvrez comment nous avons aidé des entreprises à transformer leurs processus grâce à l'intelligence artificielle et l'automatisation." }) },
+                { type: 'case-list', order: 1, content: JSON.stringify({ title: 'Nos études de cas', description: 'Chaque projet est unique. Voici quelques exemples de transformations réussies.' }) },
+            ],
+        },
+        {
+            id: 'page-audit',
+            slug: 'audit-ia',
+            title: 'Audit IA & Automatisation',
+            template: 'audit',
+            status: 'PUBLISHED',
+            sections: [
+                { type: 'hero', order: 0, content: JSON.stringify({ title: "Audit IA & Automatisation gratuit", subtitle: "En 30 minutes, identifiez les opportunités d'IA et d'automatisation adaptées à votre entreprise. Sans engagement.", badge: 'Offert si projet lancé' }) },
+                { type: 'benefits', order: 1, content: JSON.stringify({ title: "Ce que vous obtiendrez", items: ['Diagnostic de vos processus actuels', 'Identification des quick wins', 'Estimation du ROI potentiel', 'Feuille de route personnalisée'] }) },
+                { type: 'process', order: 2, content: JSON.stringify({ title: "Comment ça marche ?", steps: ['Prise de contact (5 min)', 'Audit téléphonique (30 min)', 'Restitution personnalisée'] }) },
+                { type: 'form', order: 3, content: JSON.stringify({ title: "Demander votre audit gratuit", fields: ['Nom', 'Email', 'Entreprise', 'Téléphone', 'Message'] }) },
+            ],
+        },
+        {
+            id: 'page-blog',
+            slug: 'blog',
+            title: 'Ressources',
+            template: 'blog',
+            status: 'PUBLISHED',
+            sections: [
+                { type: 'hero', order: 0, content: JSON.stringify({ title: "Ressources & Actualités IA", subtitle: "Articles, guides et études de cas pour comprendre et implémenter l'IA dans votre entreprise." }) },
+                { type: 'article-list', order: 1, content: JSON.stringify({ title: 'Derniers articles', showCategories: true }) },
+            ],
+        },
+        {
+            id: 'page-contact',
+            slug: 'contact',
+            title: 'Contact',
+            template: 'contact',
+            status: 'PUBLISHED',
+            sections: [
+                { type: 'hero', order: 0, content: JSON.stringify({ title: "Parlons de votre projet", subtitle: "Une question ? Un projet ? Contactez-nous et discutons de vos besoins en IA et automatisation." }) },
+                { type: 'contact-info', order: 1, content: JSON.stringify({ email: 'contact@astauria.com', phone: '+33 1 23 45 67 89', locations: ['France', 'Cameroun'] }) },
+                { type: 'form', order: 2, content: JSON.stringify({ title: 'Envoyez-nous un message' }) },
+            ],
+        },
+    ];
+
+    for (const pageData of pages) {
+        const { sections, ...page } = pageData;
+        const createdPage = await prisma.page.upsert({
+            where: { id: page.id },
+            update: { ...page, publishedAt: new Date() },
+            create: { ...page, publishedAt: new Date() },
+        });
+
+        // Delete existing sections and recreate
+        await prisma.section.deleteMany({ where: { pageId: createdPage.id } });
+        for (const section of sections) {
+            await prisma.section.create({
+                data: {
+                    type: section.type,
+                    content: section.content,
+                    order: section.order,
+                    pageId: createdPage.id,
+                },
+            });
+        }
+    }
+    console.log('✅ Pages du site: 7 pages avec sections');
+
     console.log('\n🎉 Seeding complet !');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('📊 Résumé:');
@@ -405,6 +528,7 @@ async function main() {
     console.log('   • 5 catégories blog');
     console.log('   • 6 articles blog');
     console.log('   • 6 paramètres');
+    console.log('   • 7 pages du site');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 }
 

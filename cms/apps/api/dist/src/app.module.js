@@ -21,6 +21,7 @@ const case_studies_module_1 = require("./case-studies/case-studies.module");
 const media_module_1 = require("./media/media.module");
 const seo_module_1 = require("./seo/seo.module");
 const generator_module_1 = require("./generator/generator.module");
+const settings_module_1 = require("./settings/settings.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -40,6 +41,7 @@ exports.AppModule = AppModule = __decorate([
             media_module_1.MediaModule,
             seo_module_1.SeoModule,
             generator_module_1.GeneratorModule,
+            settings_module_1.SettingsModule,
         ],
     })
 ], AppModule);

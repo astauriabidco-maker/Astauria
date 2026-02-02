@@ -1,9 +1,13 @@
-import { useQuery } from '@tanstack/react-query';
-import { BarChart3, FileText, HelpCircle, MessageSquare, Menu, Eye, Users, Settings } from 'lucide-react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { BarChart3, FileText, HelpCircle, MessageSquare, Menu, Rocket, CheckCircle, AlertCircle } from 'lucide-react';
 import api from '../services/api';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Dashboard() {
+    const queryClient = useQueryClient();
+    const [publishResult, setPublishResult] = useState<{ success: boolean; message: string } | null>(null);
+
     // Fetch real stats from API
     const { data: navData } = useQuery({
         queryKey: ['navigation'],
@@ -30,6 +34,25 @@ export default function Dashboard() {
         queryFn: async () => (await api.get('/blog/articles')).data,
     });
 
+    // Publish mutation
+    const publishMutation = useMutation({
+        mutationFn: async () => {
+            const res = await api.post('/generator/publish');
+            return res.data;
+        },
+        onSuccess: (data) => {
+            setPublishResult({ success: true, message: data.message });
+            setTimeout(() => setPublishResult(null), 5000);
+        },
+        onError: (error: any) => {
+            setPublishResult({
+                success: false,
+                message: error.response?.data?.message || 'Erreur lors de la publication'
+            });
+            setTimeout(() => setPublishResult(null), 5000);
+        },
+    });
+
     const stats = [
         { label: 'Navigation', value: navData?.length ?? 0, icon: Menu, color: 'bg-navy-900', link: '/navigation' },
         { label: 'Articles', value: articleData?.length ?? 0, icon: FileText, color: 'bg-blue-500', link: '/articles' },
@@ -40,10 +63,36 @@ export default function Dashboard() {
 
     return (
         <div>
-            <div className="mb-8">
-                <h1 className="text-2xl font-bold text-gray-900">Tableau de bord</h1>
-                <p className="text-gray-500">Vue d'ensemble du contenu Astauria</p>
+            <div className="flex justify-between items-start mb-8">
+                <div>
+                    <h1 className="text-2xl font-bold text-gray-900">Tableau de bord</h1>
+                    <p className="text-gray-500">Vue d'ensemble du contenu Astauria</p>
+                </div>
+
+                {/* Publish Button */}
+                <button
+                    onClick={() => publishMutation.mutate()}
+                    disabled={publishMutation.isPending}
+                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all shadow-lg ${publishMutation.isPending
+                            ? 'bg-gray-400 cursor-wait'
+                            : 'bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 hover:scale-105'
+                        }`}
+                >
+                    <Rocket size={20} className={publishMutation.isPending ? 'animate-bounce' : ''} />
+                    <span>{publishMutation.isPending ? 'Publication...' : 'Publier le site'}</span>
+                </button>
             </div>
+
+            {/* Publish Result Toast */}
+            {publishResult && (
+                <div className={`mb-6 p-4 rounded-xl flex items-center gap-3 ${publishResult.success
+                        ? 'bg-green-50 border border-green-200 text-green-800'
+                        : 'bg-red-50 border border-red-200 text-red-800'
+                    }`}>
+                    {publishResult.success ? <CheckCircle size={20} /> : <AlertCircle size={20} />}
+                    <span>{publishResult.message}</span>
+                </div>
+            )}
 
             {/* Stats grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
@@ -60,6 +109,16 @@ export default function Dashboard() {
                         <p className="text-gray-500 text-sm">{stat.label}</p>
                     </Link>
                 ))}
+            </div>
+
+            {/* Info box */}
+            <div className="bg-gradient-to-r from-navy-900 to-navy-800 rounded-xl p-6 text-white mb-8">
+                <h2 className="text-lg font-semibold mb-2">💡 Comment ça marche ?</h2>
+                <ol className="list-decimal list-inside space-y-1 text-gray-300 text-sm">
+                    <li>Modifiez votre contenu dans les différentes sections (FAQ, Témoignages, etc.)</li>
+                    <li>Cliquez sur <strong className="text-gold-400">"Publier le site"</strong> pour appliquer vos modifications</li>
+                    <li>Les fichiers HTML sont automatiquement mis à jour avec le nouveau contenu</li>
+                </ol>
             </div>
 
             {/* Recent content preview */}

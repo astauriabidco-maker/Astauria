@@ -12,6 +12,7 @@ import { CaseStudiesModule } from './case-studies/case-studies.module';
 import { MediaModule } from './media/media.module';
 import { SeoModule } from './seo/seo.module';
 import { GeneratorModule } from './generator/generator.module';
+import { SettingsModule } from './settings/settings.module';
 
 @Module({
     imports: [
@@ -28,6 +29,7 @@ import { GeneratorModule } from './generator/generator.module';
         MediaModule,
         SeoModule,
         GeneratorModule,
+        SettingsModule,
     ],
 })
 export class AppModule { }

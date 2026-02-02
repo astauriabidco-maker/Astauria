@@ -3,160 +3,160 @@ export declare class BlogService {
     private prisma;
     constructor(prisma: PrismaService);
     create(data: any, authorId: string): Promise<{
+        category: {
+            id: string;
+            name: string;
+            createdAt: Date;
+            slug: string;
+            description: string | null;
+            color: string | null;
+        };
         author: {
             name: string;
             avatar: string | null;
-        };
-        category: {
-            id: string;
-            slug: string;
-            createdAt: Date;
-            name: string;
-            description: string | null;
-            color: string | null;
         };
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        categoryId: string;
+        content: string;
         slug: string;
         title: string;
-        excerpt: string;
-        content: string;
         coverImage: string | null;
+        excerpt: string;
         readTime: number | null;
         status: string;
         publishedAt: Date | null;
-        createdAt: Date;
-        updatedAt: Date;
         authorId: string;
-        categoryId: string;
     }>;
     findAll(status?: string): Promise<({
+        category: {
+            id: string;
+            name: string;
+            createdAt: Date;
+            slug: string;
+            description: string | null;
+            color: string | null;
+        };
         author: {
             name: string;
             avatar: string | null;
-        };
-        category: {
-            id: string;
-            slug: string;
-            createdAt: Date;
-            name: string;
-            description: string | null;
-            color: string | null;
         };
         tags: {
             id: string;
-            slug: string;
             name: string;
+            slug: string;
         }[];
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        categoryId: string;
+        content: string;
         slug: string;
         title: string;
-        excerpt: string;
-        content: string;
         coverImage: string | null;
+        excerpt: string;
         readTime: number | null;
         status: string;
         publishedAt: Date | null;
-        createdAt: Date;
-        updatedAt: Date;
         authorId: string;
-        categoryId: string;
     })[]>;
     findBySlug(slug: string): Promise<({
+        category: {
+            id: string;
+            name: string;
+            createdAt: Date;
+            slug: string;
+            description: string | null;
+            color: string | null;
+        };
         author: {
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             email: string;
             password: string;
             name: string;
             role: string;
             avatar: string | null;
             lastLogin: Date | null;
-        };
-        category: {
-            id: string;
-            slug: string;
             createdAt: Date;
-            name: string;
-            description: string | null;
-            color: string | null;
+            updatedAt: Date;
         };
         tags: {
             id: string;
-            slug: string;
             name: string;
+            slug: string;
         }[];
         seo: {
             id: string;
+            pageId: string | null;
             metaTitle: string | null;
             metaDesc: string | null;
             ogImage: string | null;
             canonical: string | null;
             noIndex: boolean;
-            pageId: string | null;
             articleId: string | null;
         } | null;
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        categoryId: string;
+        content: string;
         slug: string;
         title: string;
-        excerpt: string;
-        content: string;
         coverImage: string | null;
+        excerpt: string;
         readTime: number | null;
         status: string;
         publishedAt: Date | null;
-        createdAt: Date;
-        updatedAt: Date;
         authorId: string;
-        categoryId: string;
     }) | null>;
     update(id: string, data: any): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        categoryId: string;
+        content: string;
         slug: string;
         title: string;
-        excerpt: string;
-        content: string;
         coverImage: string | null;
+        excerpt: string;
         readTime: number | null;
         status: string;
         publishedAt: Date | null;
-        createdAt: Date;
-        updatedAt: Date;
         authorId: string;
-        categoryId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        categoryId: string;
+        content: string;
         slug: string;
         title: string;
-        excerpt: string;
-        content: string;
         coverImage: string | null;
+        excerpt: string;
         readTime: number | null;
         status: string;
         publishedAt: Date | null;
-        createdAt: Date;
-        updatedAt: Date;
         authorId: string;
-        categoryId: string;
     }>;
     publish(id: string): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        categoryId: string;
+        content: string;
         slug: string;
         title: string;
-        excerpt: string;
-        content: string;
         coverImage: string | null;
+        excerpt: string;
         readTime: number | null;
         status: string;
         publishedAt: Date | null;
-        createdAt: Date;
-        updatedAt: Date;
         authorId: string;
-        categoryId: string;
     }>;
     getCategories(): Promise<({
         _count: {
@@ -164,9 +164,9 @@ export declare class BlogService {
         };
     } & {
         id: string;
-        slug: string;
-        createdAt: Date;
         name: string;
+        createdAt: Date;
+        slug: string;
         description: string | null;
         color: string | null;
     })[]>;
@@ -177,9 +177,9 @@ export declare class BlogService {
         color?: string;
     }): Promise<{
         id: string;
-        slug: string;
-        createdAt: Date;
         name: string;
+        createdAt: Date;
+        slug: string;
         description: string | null;
         color: string | null;
     }>;

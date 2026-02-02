@@ -8,10 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GeneratorModule = void 0;
 const common_1 = require("@nestjs/common");
+const generator_service_1 = require("./generator.service");
+const generator_controller_1 = require("./generator.controller");
+const prisma_module_1 = require("../prisma/prisma.module");
 let GeneratorModule = class GeneratorModule {
 };
 exports.GeneratorModule = GeneratorModule;
 exports.GeneratorModule = GeneratorModule = __decorate([
-    (0, common_1.Module)({})
+    (0, common_1.Module)({
+        imports: [prisma_module_1.PrismaModule],
+        controllers: [generator_controller_1.GeneratorController],
+        providers: [generator_service_1.GeneratorService],
+        exports: [generator_service_1.GeneratorService],
+    })
 ], GeneratorModule);
 //# sourceMappingURL=generator.module.js.map

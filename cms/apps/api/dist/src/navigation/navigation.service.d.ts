@@ -6,88 +6,88 @@ export declare class NavigationService {
     constructor(prisma: PrismaService);
     create(dto: CreateMenuItemDto): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         label: string;
         url: string;
         icon: string | null;
         order: number;
         isActive: boolean;
         location: string;
-        createdAt: Date;
-        updatedAt: Date;
         parentId: string | null;
     }>;
     findAll(location?: string): Promise<({
         children: {
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
             label: string;
             url: string;
             icon: string | null;
             order: number;
             isActive: boolean;
             location: string;
-            createdAt: Date;
-            updatedAt: Date;
             parentId: string | null;
         }[];
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         label: string;
         url: string;
         icon: string | null;
         order: number;
         isActive: boolean;
         location: string;
-        createdAt: Date;
-        updatedAt: Date;
         parentId: string | null;
     })[]>;
     findOne(id: string): Promise<({
         children: {
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
             label: string;
             url: string;
             icon: string | null;
             order: number;
             isActive: boolean;
             location: string;
-            createdAt: Date;
-            updatedAt: Date;
             parentId: string | null;
         }[];
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         label: string;
         url: string;
         icon: string | null;
         order: number;
         isActive: boolean;
         location: string;
-        createdAt: Date;
-        updatedAt: Date;
         parentId: string | null;
     }) | null>;
     update(id: string, dto: UpdateMenuItemDto): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         label: string;
         url: string;
         icon: string | null;
         order: number;
         isActive: boolean;
         location: string;
-        createdAt: Date;
-        updatedAt: Date;
         parentId: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         label: string;
         url: string;
         icon: string | null;
         order: number;
         isActive: boolean;
         location: string;
-        createdAt: Date;
-        updatedAt: Date;
         parentId: string | null;
     }>;
     reorder(items: {
@@ -95,14 +95,14 @@ export declare class NavigationService {
         order: number;
     }[]): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         label: string;
         url: string;
         icon: string | null;
         order: number;
         isActive: boolean;
         location: string;
-        createdAt: Date;
-        updatedAt: Date;
         parentId: string | null;
     }[]>;
 }
