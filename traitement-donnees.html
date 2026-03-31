@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accord de Traitement des Données et conformité RGPD d'Astauria.">
+    <title>Traitement des données Personnelles (RGPD) — Astauria</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="assets/logo-astauria.png" alt="Astauria" class="logo-img">
+            </a>
+            <nav class="header__nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Accueil</a></li>
+                    <li><a href="solutions.html" class="nav__link">Solutions</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="btn btn--primary header__cta">Nous contacter</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="article-hero">
+            <div class="container">
+                <div class="article-hero__content">
+                    <a href="index.html" class="article-hero__back"><i data-lucide="arrow-left"></i> Retour à l'accueil</a>
+                    <h1 class="article-hero__title">Accord de Traitement des Données (DPA - RGPD)</h1>
+                    <p class="article-hero__meta">Annexe à Nos Conditions Générales concernant l'utilisation de l'IA.</p>
+                </div>
+            </div>
+        </section>
+
+        <article class="article-content">
+            <div class="container container--narrow">
+
+                <section class="article-section">
+                    <h2>1. Préambule et Rôles</h2>
+                    <p>Dans le cadre des prestations impliquant le traitement de la donnée (Machine Learning, LLM personnalisés, nettoyage de données, OCR), le Client agit en qualité de <strong>Responsable de Traitement</strong> et confie à Astauria le rôle de <strong>Sous-traitant</strong> au sens de l'article 28 du RGPD.</p>
+                </section>
+
+                <section class="article-section">
+                    <h2>2. Engagements d'Astauria (IA & RGPD)</h2>
+                    <p>En tant que cabinet spécialisé en Intelligence Artificielle, nous nous engageons spécifiquement à :</p>
+                    <ul>
+                        <li><strong>Anonymisation & Pseudonymisation :</strong> Favoriser ces techniques avant tout entraînement de modèles sur les données clientes.</li>
+                        <li><strong>Non-Entraînement de modèles publics :</strong> Vos données ne sont strictement <strong>jamais</strong> utilisées pour entraîner des modèles fondamentaux (ou LLMs) accessibles au grand public ou à d'autres clients d'Astauria. Vos données restent cloisonnées (Tenant Isolation) dans vos environnements.</li>
+                        <li><strong>Hébergement Souverain ou Sécurisé :</strong> Garantir que le stockage et l'inférence des modèles s'opèrent sur des serveurs hébergés au sein de l'Union Européenne (RGPD compliant), sauf accord dérogatoire explicite de votre part pour certains fournisseurs spécifiques.</li>
+                    </ul>
+                </section>
+
+                <section class="article-section">
+                    <h2>3. Obligations du Client</h2>
+                    <p>Le Client s'assure qu'il dispose de la base légale lui permettant de collecter et traiter les données transmises à Astauria. En cas de données hautement sensibles (santé, données bancaires non chiffrées), le client est tenu d'en alerter Astauria au préalable pour la mise en place d'un bac à sable sécurisé (sandbox HDS/PCI-DSS si requis).</p>
+                </section>
+
+                <section class="article-section">
+                    <h2>4. Restitution et Destruction</h2>
+                    <p>À la fin du projet (POC ou Déploiement), Astauria s'engage à détruire tous les jeux de données temporaires (datasets d'entraînement, caches) de ses systèmes sous un délai de 30 jours, à l'exception des modèles algorithmiques compilés remis au client ou devant être hébergés de façon continue dans le cadre d'un contrat de maintenance de logiciel (TMA).</p>
+                </section>
+
+                <section class="article-section">
+                    <h2>5. Sécurité Technologique</h2>
+                    <p>Nous implémentons : le chiffrement en transit (TLS 1.3), le chiffrement au repos (AES-256), le contrôle d'accès strict (RBAC), et des revues de code pour éviter les vulnérabilités d'injection de prompts dans les solutions LLM.</p>
+                </section>
+
+                <section class="article-section">
+                    <h2>6. Notification de violation</h2>
+                    <p>En cas de faille de sécurité impliquant vos données, Astauria vous alertera par écrit (email) dans un délai maximal de 48h après la découverte de l'incident, vous permettant de respecter vos délais déclaratifs auprès de la CNIL.</p>
+                </section>
+
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+                <p class="footer__copyright">© 2026 Astauria — Tous droits réservés</p>
+                <nav class="footer__legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                    <span>•</span>
+                    <a href="cgv.html">CGV</a>
+                    <span>•</span>
+                    <a href="traitement-donnees.html">RGPD / Traitement des Données</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

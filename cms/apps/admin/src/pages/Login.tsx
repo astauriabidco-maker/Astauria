@@ -32,8 +32,8 @@ export default function Login() {
             <div className="w-full max-w-md">
                 {/* Logo */}
                 <div className="text-center mb-8">
-                    <div className="w-16 h-16 bg-gold-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-navy-900 font-bold text-3xl">A</span>
+                    <div className="mb-6 flex justify-center bg-white p-3 rounded-xl inline-block mx-auto">
+                        <img src="/logo-astauria.png" alt="Astauria Logo" className="h-12 w-auto" />
                     </div>
                     <h1 className="text-2xl font-bold text-white">Astauria CMS</h1>
                     <p className="text-gray-400 mt-1">Connectez-vous pour gérer le contenu</p>

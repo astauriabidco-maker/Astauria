@@ -44,9 +44,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <aside className="w-64 bg-navy-900 text-white flex flex-col">
                 {/* Logo */}
                 <div className="p-6 border-b border-navy-800">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center">
-                            <span className="text-navy-900 font-bold text-lg">A</span>
+                    <div className="flex flex-col gap-3">
+                        <div className="bg-white p-2 rounded-lg inline-block w-fit">
+                            <img src="/logo-astauria.png" alt="Astauria Logo" className="h-6 w-auto" />
                         </div>
                         <div>
                             <h1 className="font-semibold text-lg">Astauria</h1>

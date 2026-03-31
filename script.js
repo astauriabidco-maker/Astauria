@@ -24,29 +24,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('nav');
 
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
 
-        // Toggle icon
-        const icon = menuToggle.querySelector('i');
-        if (nav.classList.contains('active')) {
-            icon.setAttribute('data-lucide', 'x');
-        } else {
-            icon.setAttribute('data-lucide', 'menu');
-        }
-        lucide.createIcons();
-    });
-
-    // Close mobile menu when clicking a link
-    const navLinks = document.querySelectorAll('.nav__link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.setAttribute('data-lucide', 'menu');
-            lucide.createIcons();
+            // Toggle icon (Lucide replaces the i tag with svg, so we re-create it)
+            if (nav.classList.contains('active')) {
+                menuToggle.innerHTML = '<i data-lucide="x"></i>';
+            } else {
+                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+            }
+            lucide.createIcons({ root: menuToggle });
         });
-    });
+
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons({ root: menuToggle });
+            });
+        });
+    }
 
     // ========== SCROLL ANIMATIONS ==========
     const animatedElements = document.querySelectorAll('[data-animate]');
@@ -258,4 +258,46 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ========== NUMBER COUNTER ANIMATION ==========
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const text = target.innerText;
+                // Match prefix (+ or -), number, and suffix (k€, %, +, x)
+                const match = text.match(/^([-+]?)(\d+)(.*)$/);
+                
+                if (match) {
+                    const prefix = match[1];
+                    const num = parseInt(match[2], 10);
+                    const suffix = match[3];
+                    
+                    let current = 0;
+                    const duration = 1500; // 1.5s
+                    const stepTime = 20;
+                    const steps = duration / stepTime;
+                    const increment = num / steps;
+
+                    // Set initial to zero based on visual content
+                    target.innerText = prefix + "0" + suffix;
+
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= num) {
+                            target.innerText = prefix + num + suffix;
+                            clearInterval(timer);
+                        } else {
+                            target.innerText = prefix + Math.floor(current) + suffix;
+                        }
+                    }, stepTime);
+                }
+                observer.unobserve(target);
+            }
+        });
+    }, observerOptions);
+
+    const statElements = document.querySelectorAll('.hero__stat-value, .case-study-card__metric-value, .stat-card__number');
+    statElements.forEach(el => counterObserver.observe(el));
+
 });
