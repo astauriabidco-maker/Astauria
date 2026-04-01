@@ -31,9 +31,5 @@ npm-debug.log*
 *.sqlite
 
 # Prisma
-cms/apps/api/prisma/migrations/*
-!cms/apps/api/prisma/migrations/.gitkeep
-
-# Cache
 .cache/
 .parcel-cache/
