@@ -28,20 +28,33 @@ body {
     }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Dark Premium */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-gray-100;
+    @apply bg-navy-950;
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 rounded-full;
+    @apply bg-white/10 rounded-full border-2 border-navy-950 transition-colors;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400;
+    @apply bg-gold-500/40;
+}
+
+/* Scrollbar for Glass Panels */
+.custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-white/5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-500/20;
 }

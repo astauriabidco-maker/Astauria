@@ -8,8 +8,12 @@ export class LeadsService {
   constructor(private prisma: PrismaService) {}
 
   async create(createLeadDto: CreateLeadDto) {
+    if (!createLeadDto.name) {
+      createLeadDto.name = 'Contact Web / Newsletter';
+    }
+    
     return this.prisma.lead.create({
-      data: createLeadDto,
+      data: createLeadDto as any, // Cast as any or properly map since Prisma expects name as string
     });
   }
 

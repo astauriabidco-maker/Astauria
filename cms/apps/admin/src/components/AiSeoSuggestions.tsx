@@ -112,14 +112,14 @@ export default function AiSeoSuggestions({ content, keyword, onApplySuggestion }
                             {/* Recommendations */}
                             {suggestions.length > 0 && (
                                 <div>
-                                    <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-                                        <Sparkles size={12} className="text-gold-400" />
-                                        Recommandations
+                                    <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-2.5 flex items-center gap-1.5 text-glow">
+                                        <Sparkles size={12} className="text-gold-400 animate-pulse" />
+                                        Recommandations Stratégiques
                                     </h4>
                                     <div className="space-y-2">
                                         {suggestions.map((s, i) => (
-                                            <div key={i} className="flex items-start gap-2 text-xs text-gray-300 bg-white/5 rounded-lg px-3 py-2">
-                                                <ArrowRight size={12} className="text-amber-400 mt-0.5 shrink-0" />
+                                            <div key={i} className="flex items-start gap-2 text-xs text-gray-300 bg-white/5 border border-white/5 rounded-lg px-3 py-2.5 hover:bg-white/10 transition-colors">
+                                                <ArrowRight size={12} className="text-gold-500 mt-0.5 shrink-0" />
                                                 <span>{s}</span>
                                             </div>
                                         ))}
@@ -128,16 +128,16 @@ export default function AiSeoSuggestions({ content, keyword, onApplySuggestion }
                             )}
 
                             {suggestions.length === 0 && !isLoading && (
-                                <div className="text-center text-xs text-green-400 py-2">
-                                    ✅ Excellent ! Aucune amélioration SEO majeure détectée.
+                                <div className="text-center text-xs text-green-400 py-3 bg-green-500/5 rounded-lg border border-green-500/10">
+                                    ✨ Analyse terminée : Votre contenu est parfaitement optimisé !
                                 </div>
                             )}
 
                             {/* SEO Title Ideas */}
                             {seoTitles.length > 0 && (
-                                <div>
-                                    <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-2.5">
-                                        Idées de titres H2
+                                <div className="pt-2">
+                                    <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-2.5 text-glow">
+                                        Idées de titres SEO
                                     </h4>
                                     <div className="space-y-1.5">
                                         {seoTitles.map((title, i) => (

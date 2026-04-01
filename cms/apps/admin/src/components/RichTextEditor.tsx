@@ -256,14 +256,14 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Comme
 
             {/* AI Panel */}
             {isAiPanelOpen && (
-                <div className="border-b border-white/10 bg-gradient-to-r from-navy-900/90 to-navy-800/90 p-4 shrink-0">
+                <div className="border-b border-white/10 bg-gradient-to-r from-navy-900/95 to-navy-800/95 p-4 shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
                     <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
-                            <Sparkles size={16} className="text-gold-400" />
-                            <span className="text-sm font-bold text-white">Assistant IA</span>
+                            <Sparkles size={16} className="text-gold-400 animate-pulse" />
+                            <span className="text-sm font-bold text-white text-glow">Assistant IA Astauria</span>
                             {providerInfo && (
-                                <span className="text-[10px] font-mono bg-white/10 text-gray-400 px-2 py-0.5 rounded-full">
-                                    {providerInfo.provider === 'mock' ? '⚠️ Mock' : `✅ ${providerInfo.model}`}
+                                <span className="text-[10px] font-mono bg-gold-500/10 text-gold-400 px-2 py-0.5 rounded-full border border-gold-500/20">
+                                    {providerInfo.provider === 'mock' ? 'SIMULATION' : providerInfo.model}
                                 </span>
                             )}
                         </div>

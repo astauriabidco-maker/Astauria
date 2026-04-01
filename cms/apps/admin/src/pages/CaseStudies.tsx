@@ -305,10 +305,10 @@ export default function CaseStudies() {
                                             type="button"
                                             onClick={handleGenerateSolution}
                                             disabled={isGeneratingSolution}
-                                            className="flex items-center gap-1.5 text-xs font-semibold text-gold-400 hover:text-gold-300 disabled:opacity-50 transition-colors"
+                                            className="flex items-center gap-1.5 text-xs font-semibold text-gold-400 hover:text-gold-300 disabled:opacity-50 transition-colors group"
                                         >
-                                            {isGeneratingSolution ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} />}
-                                            Générer la solution avec l'IA
+                                            {isGeneratingSolution ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} className="group-hover:animate-pulse" />}
+                                            <span className="text-glow">Générer la solution avec l'IA</span>
                                         </button>
                                     </div>
                                     <textarea value={formData.solution} onChange={(e) => setFormData({ ...formData, solution: e.target.value })} rows={2}

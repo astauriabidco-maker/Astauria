@@ -142,8 +142,26 @@ const NewsletterPopup = {
         this.showSuccess();
     },
 
-    storeLead: function (email) {
-        // Store locally (in production, send to API)
+    storeLead: async function (email) {
+        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:3000/api/leads' 
+            : '/api/leads';
+
+        try {
+            await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    email, 
+                    source: 'newsletter_popup',
+                    message: 'Inscription Newsletter et demande du guide.'
+                })
+            });
+        } catch (e) {
+            console.error('Erreur Newsletter:', e);
+        }
+
+        // Store locally
         localStorage.setItem(this.LEAD_STORAGE_KEY, 'true');
 
         // Store email for potential sync

@@ -216,10 +216,10 @@ export default function Articles() {
                 <div className="flex items-center gap-3">
                     <button
                         onClick={() => setIsAiGeneratorOpen(true)}
-                        className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gold-400 rounded-lg hover:bg-gold-500/10 hover:border-gold-500/20 transition-all font-bold"
+                        className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gold-400 rounded-lg hover:bg-gold-500/10 hover:border-gold-500/20 transition-all font-bold group"
                     >
-                        <Sparkles size={18} />
-                        <span className="hidden sm:inline">Générer avec l'IA</span>
+                        <Sparkles size={18} className="group-hover:animate-pulse" />
+                        <span className="hidden sm:inline text-glow">Générer avec l'IA</span>
                     </button>
                     <button
                         onClick={openCreateModal}
@@ -341,10 +341,10 @@ export default function Articles() {
                                         type="button"
                                         onClick={handleGenerateExcerpt}
                                         disabled={isGeneratingExcerpt}
-                                        className="flex items-center gap-1.5 text-xs font-semibold text-gold-400 hover:text-gold-300 disabled:opacity-50 transition-colors"
+                                        className="flex items-center gap-1.5 text-xs font-semibold text-gold-400 hover:text-gold-300 disabled:opacity-50 transition-colors group"
                                     >
-                                        {isGeneratingExcerpt ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} />}
-                                        Générer avec l'IA
+                                        {isGeneratingExcerpt ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} className="group-hover:animate-pulse" />}
+                                        <span className="text-glow">Générer avec l'IA</span>
                                     </button>
                                 </div>
                                 <textarea value={formData.excerpt} onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })} rows={2}
@@ -407,10 +407,10 @@ export default function Articles() {
                                         type="button"
                                         onClick={handleSuggestTags}
                                         disabled={isGeneratingTags}
-                                        className="flex items-center gap-1.5 text-xs font-semibold text-gold-400 hover:text-gold-300 disabled:opacity-50 transition-colors"
+                                        className="flex items-center gap-1.5 text-xs font-semibold text-gold-400 hover:text-gold-300 disabled:opacity-50 transition-colors group"
                                     >
-                                        {isGeneratingTags ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} />}
-                                        Suggérer des tags
+                                        {isGeneratingTags ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} className="group-hover:animate-pulse" />}
+                                        <span className="text-glow">Suggérer des tags</span>
                                     </button>
                                 </div>
                                 <input type="text" value={tagsInput} onChange={(e) => handleTagsChange(e.target.value)}

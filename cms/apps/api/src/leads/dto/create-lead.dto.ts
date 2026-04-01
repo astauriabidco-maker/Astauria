@@ -2,9 +2,10 @@ import { IsString, IsEmail, IsOptional } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateLeadDto {
-  @ApiProperty({ example: 'Jean Dupont' })
+  @ApiPropertyOptional({ example: 'Jean Dupont' })
+  @IsOptional()
   @IsString()
-  name: string;
+  name?: string;
 
   @ApiProperty({ example: 'jean@entreprise.com' })
   @IsEmail()

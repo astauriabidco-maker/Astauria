@@ -188,7 +188,7 @@ export default function SeoScore({ content, targetKeyword, excerpt }: SeoScorePr
             {/* Header with circular gauge */}
             <div className="flex items-center gap-5 mb-5">
                 <div className="relative w-24 h-24 shrink-0">
-                    <svg className="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                    <svg className="w-24 h-24 -rotate-90 drop-shadow-[0_0_8px_rgba(255,255,255,0.05)]" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r={radius} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="8" />
                         <circle
                             cx="50" cy="50" r={radius} fill="none"
@@ -197,18 +197,21 @@ export default function SeoScore({ content, targetKeyword, excerpt }: SeoScorePr
                             strokeLinecap="round"
                             strokeDasharray={circumference}
                             strokeDashoffset={offset}
-                            style={{ transition: 'stroke-dashoffset 0.8s ease-out, stroke 0.5s ease' }}
+                            style={{ 
+                                transition: 'stroke-dashoffset 0.8s ease-out, stroke 0.5s ease',
+                                filter: `drop-shadow(0 0 5px ${scoreColor}44)`
+                            }}
                         />
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-2xl font-bold text-white">{analysis.score}</span>
+                        <span className="text-2xl font-bold text-white text-glow">{analysis.score}</span>
                         <span className="text-[10px] text-gray-400 uppercase tracking-wider">/ 100</span>
                     </div>
                 </div>
                 <div>
                     <div className="flex items-center gap-2 mb-1">
                         <TrendingUp size={18} style={{ color: scoreColor }} />
-                        <h3 className="font-bold text-white text-lg">Score SEO</h3>
+                        <h3 className="font-bold text-white text-lg text-glow">Score SEO IA</h3>
                     </div>
                     <p className="text-sm font-medium" style={{ color: scoreColor }}>{getScoreLabel(analysis.score)}</p>
                     <p className="text-xs text-gray-400 mt-1">{analysis.wordCount} mots • {analysis.criteria.length} critères analysés</p>
