@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { CheckCircle, AlertCircle, Info, AlertTriangle, X } from 'lucide-react';
-import { useEffect } from 'react';
+
 
 type ToastType = 'success' | 'error' | 'info' | 'warning';
 
@@ -51,10 +51,10 @@ export function ToastContainer() {
     };
 
     const colors = {
-        success: 'bg-green-50 border-green-200 text-green-800',
-        error: 'bg-red-50 border-red-200 text-red-800',
-        info: 'bg-blue-50 border-blue-200 text-blue-800',
-        warning: 'bg-amber-50 border-amber-200 text-amber-800',
+        success: 'bg-green-500/10 border-green-500/20 text-green-400 backdrop-blur-md',
+        error: 'bg-red-500/10 border-red-500/20 text-red-400 backdrop-blur-md',
+        info: 'bg-blue-500/10 border-blue-500/20 text-blue-400 backdrop-blur-md',
+        warning: 'bg-amber-500/10 border-amber-500/20 text-amber-400 backdrop-blur-md',
     };
 
     const iconColors = {

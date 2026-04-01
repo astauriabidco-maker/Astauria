@@ -100,12 +100,12 @@ export default function Faq() {
         <div>
             <div className="flex justify-between items-center mb-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">FAQ</h1>
-                    <p className="text-gray-500">Gérez les questions fréquentes</p>
+                    <h1 className="text-2xl font-bold text-white text-glow">FAQ</h1>
+                    <p className="text-gold-400/80">Gérez les questions fréquentes</p>
                 </div>
                 <button
                     onClick={openCreateModal}
-                    className="flex items-center gap-2 px-4 py-2 bg-gold-500 text-white rounded-lg hover:bg-gold-600 transition-colors font-medium"
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 rounded-lg hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all font-bold"
                 >
                     <Plus size={18} />
                     <span>Ajouter une FAQ</span>
@@ -113,50 +113,49 @@ export default function Faq() {
             </div>
 
             {isLoading ? (
-                <div className="text-center py-12 text-gray-500">Chargement...</div>
+                <div className="text-center py-12 text-gold-400">Chargement...</div>
             ) : (
                 <div className="space-y-3">
                     {(faqItems || []).map((item: FaqItem) => (
                         <div
                             key={item.id}
-                            className={`bg-white rounded-xl shadow-sm border transition-all ${item.isActive ? 'border-gray-100' : 'border-gray-200 opacity-60'
-                                }`}
+                            className={`glass-panel rounded-xl transition-all ${item.isActive ? '' : 'opacity-60'}`}
                         >
                             <div className="flex items-center gap-3 p-4">
-                                <button className="text-gray-300 hover:text-gray-400 cursor-grab">
+                                <button className="text-gray-400 hover:text-white cursor-grab">
                                     <GripVertical size={18} />
                                 </button>
                                 <button
                                     onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
-                                    className="flex-1 flex items-center justify-between text-left"
+                                    className="flex-1 flex items-center justify-between text-left group"
                                 >
-                                    <span className="font-medium text-gray-900">{item.question}</span>
+                                    <span className="font-medium text-white group-hover:text-gold-400 transition-colors">{item.question}</span>
                                     {expandedId === item.id ? (
-                                        <ChevronUp size={18} className="text-gray-400" />
+                                        <ChevronUp size={18} className="text-gold-400" />
                                     ) : (
                                         <ChevronDown size={18} className="text-gray-400" />
                                     )}
                                 </button>
                                 <div className="flex items-center gap-2">
                                     {!item.isActive && (
-                                        <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded">Inactif</span>
+                                        <span className="text-xs bg-white/5 border border-white/10 text-gray-400 px-2 py-1 rounded">Inactif</span>
                                     )}
                                     <button
                                         onClick={() => openEditModal(item)}
-                                        className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                                        className="p-2 text-gray-400 hover:text-gold-400 hover:bg-white/10 rounded-lg transition-colors"
                                     >
                                         <Edit2 size={16} />
                                     </button>
                                     <button
                                         onClick={() => setDeleteItem(item)}
-                                        className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                                        className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
                                     >
                                         <Trash2 size={16} />
                                     </button>
                                 </div>
                             </div>
                             {expandedId === item.id && (
-                                <div className="px-4 pb-4 pt-0 ml-10 text-gray-600 text-sm border-t border-gray-50">
+                                <div className="px-4 pb-4 pt-0 ml-10 text-gray-300 text-sm border-t border-white/10">
                                     <p className="pt-3">{item.answer}</p>
                                 </div>
                             )}
@@ -179,22 +178,22 @@ export default function Faq() {
             >
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Question *</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Question *</label>
                         <input
                             type="text"
                             value={formData.question}
                             onChange={(e) => setFormData({ ...formData, question: e.target.value })}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                            className="glass-input w-full px-4 py-2 rounded-lg"
                             placeholder="Ex: Comment fonctionne votre service ?"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Réponse *</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Réponse *</label>
                         <textarea
                             value={formData.answer}
                             onChange={(e) => setFormData({ ...formData, answer: e.target.value })}
                             rows={5}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent resize-none"
+                            className="glass-input w-full px-4 py-2 rounded-lg resize-none"
                             placeholder="Votre réponse détaillée..."
                         />
                     </div>
@@ -204,22 +203,22 @@ export default function Faq() {
                             id="isActive"
                             checked={formData.isActive}
                             onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
-                            className="w-4 h-4 text-gold-500 border-gray-300 rounded focus:ring-gold-500"
+                            className="w-4 h-4 text-gold-500 bg-navy-950 border-white/20 rounded focus:ring-gold-500"
                         />
-                        <label htmlFor="isActive" className="text-sm text-gray-700">Actif (visible sur le site)</label>
+                        <label htmlFor="isActive" className="text-sm text-gray-300">Actif (visible sur le site)</label>
                     </div>
-                    <div className="flex gap-3 justify-end pt-4 border-t">
+                    <div className="flex gap-3 justify-end pt-4 border-t border-white/10">
                         <button
                             type="button"
                             onClick={closeModal}
-                            className="px-4 py-2 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors"
+                            className="px-4 py-2 text-gray-300 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg font-medium transition-colors"
                         >
                             Annuler
                         </button>
                         <button
                             type="submit"
                             disabled={isPending}
-                            className="px-4 py-2 bg-navy-900 text-white rounded-lg font-medium hover:bg-navy-800 transition-colors disabled:opacity-50"
+                            className="px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 rounded-lg font-bold hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all disabled:opacity-50"
                         >
                             {isPending ? 'Enregistrement...' : editingItem ? 'Mettre à jour' : 'Créer'}
                         </button>

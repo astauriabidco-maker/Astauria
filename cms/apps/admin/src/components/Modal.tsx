@@ -6,7 +6,7 @@ interface ModalProps {
     onClose: () => void;
     title: string;
     children: React.ReactNode;
-    size?: 'sm' | 'md' | 'lg' | 'xl';
+    size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
 }
 
 export default function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalProps) {
@@ -27,10 +27,11 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' }:
     if (!isOpen) return null;
 
     const sizeClasses = {
-        sm: 'max-w-md',
-        md: 'max-w-lg',
-        lg: 'max-w-2xl',
-        xl: 'max-w-4xl',
+        sm: 'max-w-md w-full',
+        md: 'max-w-lg w-full',
+        lg: 'max-w-2xl w-full',
+        xl: 'max-w-4xl w-full',
+        full: 'max-w-[96vw] w-full h-[92vh] flex flex-col',
     };
 
     return (
@@ -42,20 +43,20 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' }:
             />
 
             {/* Modal */}
-            <div className={`relative w-full ${sizeClasses[size]} bg-white rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-200`}>
+            <div className={`relative ${sizeClasses[size]} glass-panel rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-200`}>
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-                    <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+                <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 shrink-0">
+                    <h2 className="text-xl font-semibold text-white">{title}</h2>
                     <button
                         onClick={onClose}
-                        className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                        className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                     >
                         <X size={20} />
                     </button>
                 </div>
 
                 {/* Content */}
-                <div className="px-6 py-4 max-h-[70vh] overflow-y-auto">
+                <div className={`p-6 overflow-y-auto ${size === 'full' ? 'flex-1 h-full' : 'max-h-[75vh]'}`}>
                     {children}
                 </div>
             </div>

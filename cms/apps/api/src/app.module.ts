@@ -13,6 +13,8 @@ import { MediaModule } from './media/media.module';
 import { SeoModule } from './seo/seo.module';
 import { GeneratorModule } from './generator/generator.module';
 import { SettingsModule } from './settings/settings.module';
+import { LeadsModule } from './leads/leads.module';
+import { AiModule } from './ai/ai.module';
 
 @Module({
     imports: [
@@ -30,6 +32,8 @@ import { SettingsModule } from './settings/settings.module';
         SeoModule,
         GeneratorModule,
         SettingsModule,
+        LeadsModule,
+        AiModule,
     ],
 })
 export class AppModule { }

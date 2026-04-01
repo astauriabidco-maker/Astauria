@@ -26,4 +26,5 @@ api.interceptors.response.use(
     }
 );
 
+// Export api as default
 export default api;

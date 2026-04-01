@@ -12,4 +12,25 @@ export default defineConfig({
             },
         },
     },
+    build: {
+        chunkSizeWarningLimit: 1200,
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        if (id.includes('lucide-react')) {
+                            return 'vendor-lucide';
+                        }
+                        if (id.includes('@tiptap') || id.includes('prosemirror')) {
+                            return 'vendor-editor';
+                        }
+                        if (id.includes('recharts') || id.includes('framer-motion')) {
+                            return 'vendor-ui';
+                        }
+                        return 'vendor';
+                    }
+                }
+            }
+        }
+    }
 });

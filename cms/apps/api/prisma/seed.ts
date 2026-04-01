@@ -394,6 +394,59 @@ async function main() {
     }
     console.log('✅ Paramètres: 6');
 
+    // ========== LEADS (CRM) ==========
+    const leads = [
+        {
+            id: 'lead-1',
+            name: 'Sophie Martin',
+            email: 'smartin@techcorp.fr',
+            company: 'TechCorp SA',
+            phone: '06 12 34 56 78',
+            message: 'Nous souhaitons automatiser notre processus de facturation.',
+            source: 'website',
+            status: 'NEW',
+            notes: '',
+        },
+        {
+            id: 'lead-2',
+            name: 'Jean Dupont',
+            email: 'jean.dupont@logistiques.com',
+            company: 'Logistiques & Co',
+            phone: '',
+            message: 'Demande d\'audit IA pour la gestion des stocks.',
+            source: 'audit_ia',
+            status: 'DISCOVERY',
+            notes: 'Appel prévu la semaine prochaine.',
+        },
+        {
+            id: 'lead-3',
+            name: 'Marie Lemaire',
+            email: 'marie@startup-innov.io',
+            company: 'Innov IO',
+            phone: '06 98 76 54 32',
+            message: 'Besoin d\'un outil de scraping sur mesure.',
+            source: 'contact_form',
+            status: 'POC',
+            notes: 'POC en cours de réalisation (2 semaines).',
+        },
+        {
+            id: 'lead-4',
+            name: 'Thomas Petit',
+            email: 'thomas.petit@retail-group.fr',
+            company: 'Retail Group',
+            phone: '',
+            message: 'Analyse prédictive des ventes.',
+            source: 'audit_ia',
+            status: 'CLOSED_WON',
+            notes: 'Contrat signé. Facture envoyée.',
+        }
+    ];
+
+    for (const lead of leads) {
+        await prisma.lead.upsert({ where: { id: lead.id }, update: lead, create: lead });
+    }
+    console.log('✅ Leads (CRM): 4 contacts');
+
     // ========== SITE PAGES ==========
     const pages = [
         {

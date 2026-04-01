@@ -3,6 +3,7 @@ import { useAuthStore } from './store/auth';
 import Layout from './components/Layout';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Leads from './pages/Leads';
 import Navigation from './pages/Navigation';
 import Articles from './pages/Articles';
 import Faq from './pages/Faq';
@@ -32,6 +33,7 @@ export default function App() {
                             <Layout>
                                 <Routes>
                                     <Route path="/" element={<Dashboard />} />
+                                    <Route path="/leads" element={<Leads />} />
                                     <Route path="/navigation" element={<Navigation />} />
                                     <Route path="/pages" element={<Pages />} />
                                     <Route path="/articles" element={<Articles />} />

@@ -160,12 +160,12 @@ export default function Pages() {
         <div>
             <div className="flex justify-between items-center mb-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">Pages</h1>
-                    <p className="text-gray-500">Gérez les pages de votre site</p>
+                    <h1 className="text-2xl font-bold text-white text-glow">Pages</h1>
+                    <p className="text-gold-400/80">Gérez les pages de votre site</p>
                 </div>
                 <button
                     onClick={openCreateModal}
-                    className="flex items-center gap-2 px-4 py-2 bg-gold-500 text-white rounded-lg hover:bg-gold-600 transition-colors font-medium"
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 rounded-lg font-bold hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all"
                 >
                     <Plus size={18} />
                     <span>Nouvelle page</span>
@@ -173,55 +173,55 @@ export default function Pages() {
             </div>
 
             {isLoading ? (
-                <div className="text-center py-12 text-gray-500">Chargement...</div>
+                <div className="text-center py-12 text-gold-400">Chargement...</div>
             ) : (
-                <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="glass-panel rounded-xl overflow-hidden border border-white/10">
                     <table className="w-full">
-                        <thead className="bg-gray-50 border-b border-gray-100">
+                        <thead className="bg-black/20 border-b border-white/10">
                             <tr>
-                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Page</th>
-                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Template</th>
-                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Statut</th>
-                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Sections</th>
-                                <th className="text-right px-6 py-3 text-xs font-medium text-gray-500 uppercase">Actions</th>
+                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-400 uppercase">Page</th>
+                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-400 uppercase">Template</th>
+                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-400 uppercase">Statut</th>
+                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-400 uppercase">Sections</th>
+                                <th className="text-right px-6 py-3 text-xs font-medium text-gray-400 uppercase">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-50">
+                        <tbody className="divide-y divide-white/10">
                             {(pages || []).map((item: Page) => (
-                                <tr key={item.id} className="hover:bg-gray-50">
+                                <tr key={item.id} className="hover:bg-white/5 transition-colors">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
-                                            <FileCode className="text-navy-400" size={20} />
+                                            <FileCode className="text-gold-400" size={20} />
                                             <div>
-                                                <p className="font-medium text-gray-900">{item.title}</p>
+                                                <p className="font-medium text-white">{item.title}</p>
                                                 <p className="text-xs text-gray-400">/{item.slug}</p>
                                             </div>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded capitalize">{item.template}</span>
+                                        <span className="text-xs bg-white/5 border border-white/10 text-gray-300 px-2 py-1 rounded capitalize">{item.template}</span>
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.status === 'PUBLISHED' ? (
-                                            <span className="inline-flex items-center gap-1 text-xs text-green-700 bg-green-100 px-2 py-1 rounded">
+                                            <span className="inline-flex items-center gap-1 text-xs text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-1 rounded">
                                                 <Eye size={12} /> Publié
                                             </span>
                                         ) : (
-                                            <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                                            <span className="inline-flex items-center gap-1 text-xs text-gray-400 bg-white/5 border border-white/10 px-2 py-1 rounded">
                                                 <EyeOff size={12} /> Brouillon
                                             </span>
                                         )}
                                     </td>
-                                    <td className="px-6 py-4 text-sm text-gray-500">{item.sections?.length || 0}</td>
+                                    <td className="px-6 py-4 text-sm text-gray-300">{item.sections?.length || 0}</td>
                                     <td className="px-6 py-4">
                                         <div className="flex justify-end gap-1">
-                                            <a href={`/${item.slug}.html`} target="_blank" className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg">
+                                            <a href={`/${item.slug}.html`} target="_blank" className="p-2 text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-colors">
                                                 <ExternalLink size={16} />
                                             </a>
-                                            <button onClick={() => openEditModal(item)} className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg">
+                                            <button onClick={() => openEditModal(item)} className="p-2 text-gray-400 hover:text-gold-400 hover:bg-white/10 rounded-lg transition-colors">
                                                 <Edit2 size={16} />
                                             </button>
-                                            <button onClick={() => setDeleteItem(item)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg">
+                                            <button onClick={() => setDeleteItem(item)} className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors">
                                                 <Trash2 size={16} />
                                             </button>
                                         </div>
@@ -243,47 +243,47 @@ export default function Pages() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Titre *</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-1">Titre *</label>
                             <input type="text" value={formData.title} onChange={(e) => handleTitleChange(e.target.value)}
-                                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500" />
+                                className="glass-input w-full px-4 py-2 rounded-lg" />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Slug (URL) *</label>
-                            <div className="flex items-center gap-1">
+                            <label className="block text-sm font-medium text-gray-300 mb-1">Slug (URL) *</label>
+                            <div className="flex items-center gap-2">
                                 <span className="text-sm text-gray-400">/</span>
                                 <input type="text" value={formData.slug} onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                                    className="flex-1 px-3 py-2 border border-gray-200 rounded-lg font-mono text-sm" />
+                                    className="glass-input flex-1 px-3 py-2 rounded-lg font-mono text-sm" />
                             </div>
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Template</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-1">Template</label>
                             <select value={formData.template} onChange={(e) => setFormData({ ...formData, template: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-200 rounded-lg capitalize">
-                                {TEMPLATES.map(t => <option key={t} value={t} className="capitalize">{t}</option>)}
+                                className="glass-input w-full px-4 py-2 rounded-lg capitalize">
+                                {TEMPLATES.map(t => <option key={t} value={t} className="capitalize bg-navy-950 text-white">{t}</option>)}
                             </select>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Statut</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-1">Statut</label>
                             <select value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-200 rounded-lg">
-                                <option value="DRAFT">Brouillon</option>
-                                <option value="PUBLISHED">Publié</option>
+                                className="glass-input w-full px-4 py-2 rounded-lg">
+                                <option value="DRAFT" className="bg-navy-950 text-white">Brouillon</option>
+                                <option value="PUBLISHED" className="bg-navy-950 text-white">Publié</option>
                             </select>
                         </div>
                     </div>
 
                     {/* Sections */}
-                    <div className="border-t pt-4">
+                    <div className="border-t border-white/10 pt-4">
                         <div className="flex justify-between items-center mb-3">
-                            <label className="text-sm font-medium text-gray-700">Sections</label>
+                            <label className="text-sm font-medium text-gray-300">Sections</label>
                             <div className="relative group">
-                                <button type="button" className="text-sm text-gold-600 hover:text-gold-700 font-medium">+ Ajouter une section</button>
-                                <div className="absolute right-0 top-full mt-1 bg-white border rounded-lg shadow-lg py-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
+                                <button type="button" className="text-sm text-gold-400 hover:text-gold-300 transition-colors font-medium">+ Ajouter une section</button>
+                                <div className="absolute right-0 top-full mt-1 glass-panel border border-white/10 rounded-lg py-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
                                     {SECTION_TYPES.map(st => (
                                         <button key={st.value} type="button" onClick={() => addSection(st.value)}
-                                            className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 flex items-center gap-2">
+                                            className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/5 flex items-center gap-2 transition-colors">
                                             <span>{st.icon}</span> {st.label}
                                         </button>
                                     ))}
@@ -297,13 +297,13 @@ export default function Pages() {
                             {formData.sections.map((section, index) => {
                                 const sectionType = SECTION_TYPES.find(st => st.value === section.type);
                                 return (
-                                    <div key={index} className="border rounded-lg p-4 bg-gray-50">
-                                        <div className="flex items-center justify-between mb-2">
+                                    <div key={index} className="border border-white/10 rounded-xl p-4 bg-white/5">
+                                        <div className="flex items-center justify-between mb-3">
                                             <div className="flex items-center gap-2">
-                                                <GripVertical className="text-gray-300 cursor-grab" size={16} />
-                                                <span className="text-sm font-medium">{sectionType?.icon} {sectionType?.label}</span>
+                                                <GripVertical className="text-gray-400 cursor-grab" size={16} />
+                                                <span className="text-sm font-medium text-white">{sectionType?.icon} {sectionType?.label}</span>
                                             </div>
-                                            <button type="button" onClick={() => removeSection(index)} className="text-gray-400 hover:text-red-500">
+                                            <button type="button" onClick={() => removeSection(index)} className="text-gray-400 hover:text-red-400 transition-colors">
                                                 <Trash2 size={14} />
                                             </button>
                                         </div>
@@ -311,7 +311,7 @@ export default function Pages() {
                                             <RichTextEditor content={section.content} onChange={(c) => updateSectionContent(index, c)} placeholder="Contenu de la section..." />
                                         ) : (
                                             <textarea value={section.content} onChange={(e) => updateSectionContent(index, e.target.value)} rows={3}
-                                                className="w-full px-3 py-2 border rounded-lg text-sm" placeholder="Contenu JSON ou texte..." />
+                                                className="glass-input w-full px-3 py-2 rounded-lg text-sm resize-none" placeholder="Contenu JSON ou texte..." />
                                         )}
                                     </div>
                                 );
@@ -319,9 +319,9 @@ export default function Pages() {
                         </div>
                     </div>
 
-                    <div className="flex gap-3 justify-end pt-4 border-t">
-                        <button type="button" onClick={closeModal} className="px-4 py-2 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium">Annuler</button>
-                        <button type="submit" disabled={isPending} className="px-4 py-2 bg-navy-900 text-white rounded-lg font-medium hover:bg-navy-800 disabled:opacity-50">
+                    <div className="flex gap-3 justify-end pt-4 border-t border-white/10">
+                        <button type="button" onClick={closeModal} className="px-4 py-2 text-gray-300 bg-white/5 border border-white/10 hover:bg-white/10 rounded-lg font-medium transition-colors">Annuler</button>
+                        <button type="submit" disabled={isPending} className="px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 rounded-lg font-bold hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] disabled:opacity-50 transition-all">
                             {isPending ? 'Enregistrement...' : editingItem ? 'Mettre à jour' : 'Créer'}
                         </button>
                     </div>

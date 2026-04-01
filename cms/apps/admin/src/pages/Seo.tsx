@@ -101,13 +101,13 @@ export default function Seo() {
         <div>
             <div className="flex justify-between items-center mb-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">SEO</h1>
-                    <p className="text-gray-500">Optimisation pour les moteurs de recherche</p>
+                    <h1 className="text-2xl font-bold text-white text-glow">SEO</h1>
+                    <p className="text-gold-400/80">Optimisation pour les moteurs de recherche</p>
                 </div>
                 <button
                     onClick={() => generateSitemapMutation.mutate()}
                     disabled={generateSitemapMutation.isPending}
-                    className="flex items-center gap-2 px-4 py-2 bg-gold-500 text-white rounded-lg hover:bg-gold-600 transition-colors font-medium disabled:opacity-50"
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 rounded-lg hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all font-bold disabled:opacity-50"
                 >
                     <RefreshCw size={18} className={generateSitemapMutation.isPending ? 'animate-spin' : ''} />
                     <span>Générer Sitemap</span>
@@ -116,40 +116,40 @@ export default function Seo() {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                <div className="glass-panel rounded-xl p-5">
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-10 h-10 rounded-lg bg-navy-100 flex items-center justify-center">
-                            <FileText className="text-navy-600" size={20} />
+                        <div className="w-10 h-10 rounded-lg bg-gold-500/20 flex items-center justify-center">
+                            <FileText className="text-gold-400" size={20} />
                         </div>
                         <div>
-                            <p className="text-2xl font-bold text-gray-900">{(pages || []).length}</p>
-                            <p className="text-sm text-gray-500">Pages</p>
+                            <p className="text-2xl font-bold text-white">{(pages || []).length}</p>
+                            <p className="text-sm text-gray-400">Pages</p>
                         </div>
                     </div>
                 </div>
-                <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                <div className="glass-panel rounded-xl p-5">
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
-                            <Check className="text-green-600" size={20} />
+                        <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <Check className="text-green-400" size={20} />
                         </div>
                         <div>
-                            <p className="text-2xl font-bold text-gray-900">
+                            <p className="text-2xl font-bold text-white">
                                 {(pages || []).filter((p: PageItem) => getSeoScore(p) >= 80).length}
                             </p>
-                            <p className="text-sm text-gray-500">Optimisé</p>
+                            <p className="text-sm text-gray-400">Optimisé</p>
                         </div>
                     </div>
                 </div>
-                <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                <div className="glass-panel rounded-xl p-5">
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
-                            <AlertCircle className="text-amber-600" size={20} />
+                        <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
+                            <AlertCircle className="text-amber-400" size={20} />
                         </div>
                         <div>
-                            <p className="text-2xl font-bold text-gray-900">
+                            <p className="text-2xl font-bold text-white">
                                 {(pages || []).filter((p: PageItem) => getSeoScore(p) < 50).length}
                             </p>
-                            <p className="text-sm text-gray-500">À améliorer</p>
+                            <p className="text-sm text-gray-400">À améliorer</p>
                         </div>
                     </div>
                 </div>
@@ -157,52 +157,52 @@ export default function Seo() {
 
             {/* Pages List */}
             {isLoading ? (
-                <div className="text-center py-12 text-gray-500">Chargement...</div>
+                <div className="text-center py-12 text-gold-400">Chargement...</div>
             ) : (
-                <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="glass-panel rounded-xl overflow-hidden border border-white/10">
                     <table className="w-full">
-                        <thead className="bg-gray-50 border-b border-gray-100">
+                        <thead className="bg-black/20 border-b border-white/10">
                             <tr>
-                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Page</th>
-                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Meta Title</th>
-                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Meta Desc</th>
-                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Score</th>
-                                <th className="text-right px-6 py-3 text-xs font-medium text-gray-500 uppercase">Actions</th>
+                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-400 uppercase">Page</th>
+                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-400 uppercase">Meta Title</th>
+                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-400 uppercase">Meta Desc</th>
+                                <th className="text-left px-6 py-3 text-xs font-medium text-gray-400 uppercase">Score</th>
+                                <th className="text-right px-6 py-3 text-xs font-medium text-gray-400 uppercase">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-50">
+                        <tbody className="divide-y divide-white/10">
                             {(pages || []).map((page: PageItem) => {
                                 const score = getSeoScore(page);
                                 return (
-                                    <tr key={page.id} className="hover:bg-gray-50">
+                                    <tr key={page.id} className="hover:bg-white/5 transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
                                                 <Globe className="text-gray-400" size={18} />
                                                 <div>
-                                                    <p className="font-medium text-gray-900">{page.title}</p>
+                                                    <p className="font-medium text-white">{page.title}</p>
                                                     <p className="text-xs text-gray-400">/{page.slug}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <p className="text-sm text-gray-600 truncate max-w-[200px]">
-                                                {page.seo?.metaTitle || <span className="text-gray-300">Non défini</span>}
+                                            <p className="text-sm text-gray-300 truncate max-w-[200px]">
+                                                {page.seo?.metaTitle || <span className="text-gray-500">Non défini</span>}
                                             </p>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <p className="text-sm text-gray-600 truncate max-w-[200px]">
-                                                {page.seo?.metaDesc || <span className="text-gray-300">Non défini</span>}
+                                            <p className="text-sm text-gray-300 truncate max-w-[200px]">
+                                                {page.seo?.metaDesc || <span className="text-gray-500">Non défini</span>}
                                             </p>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <span className={`text-xs font-bold px-2 py-1 rounded ${getScoreColor(score)}`}>
+                                            <span className={`text-xs font-bold px-2 py-1 rounded bg-black/20 ` + (score >= 80 ? 'text-green-400' : score >= 50 ? 'text-gold-400' : 'text-red-400')}>
                                                 {score}%
                                             </span>
                                         </td>
-                                        <td className="px-6 py-4">
+                                        <td className="px-6 py-4 text-right">
                                             <button
                                                 onClick={() => openEditModal(page)}
-                                                className="px-3 py-1.5 text-sm text-gold-600 hover:bg-gold-50 rounded-lg font-medium"
+                                                className="px-3 py-1.5 text-sm text-gold-400 hover:bg-gold-500/10 rounded-lg font-medium transition-colors"
                                             >
                                                 Modifier
                                             </button>
@@ -219,46 +219,46 @@ export default function Seo() {
             <Modal isOpen={!!selectedPage} onClose={() => setSelectedPage(null)} title={`SEO - ${selectedPage?.title}`} size="lg">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Meta Title <span className="text-xs text-gray-400">({formData.metaTitle.length}/60 caractères)</span>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Meta Title <span className="text-xs text-gray-500">({formData.metaTitle.length}/60 caractères)</span>
                         </label>
                         <input
                             type="text"
                             value={formData.metaTitle}
                             onChange={(e) => setFormData({ ...formData, metaTitle: e.target.value })}
                             maxLength={60}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500"
+                            className="glass-input w-full px-4 py-2 rounded-lg"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Meta Description <span className="text-xs text-gray-400">({formData.metaDesc.length}/160 caractères)</span>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Meta Description <span className="text-xs text-gray-500">({formData.metaDesc.length}/160 caractères)</span>
                         </label>
                         <textarea
                             value={formData.metaDesc}
                             onChange={(e) => setFormData({ ...formData, metaDesc: e.target.value })}
                             rows={3}
                             maxLength={160}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 resize-none"
+                            className="glass-input w-full px-4 py-2 rounded-lg resize-none"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Image OpenGraph (URL)</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Image OpenGraph (URL)</label>
                         <input
                             type="url"
                             value={formData.ogImage}
                             onChange={(e) => setFormData({ ...formData, ogImage: e.target.value })}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500"
+                            className="glass-input w-full px-4 py-2 rounded-lg"
                             placeholder="https://..."
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">URL Canonique</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">URL Canonique</label>
                         <input
                             type="url"
                             value={formData.canonical}
                             onChange={(e) => setFormData({ ...formData, canonical: e.target.value })}
-                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500"
+                            className="glass-input w-full px-4 py-2 rounded-lg"
                             placeholder="https://www.astauria.com/..."
                         />
                     </div>
@@ -268,26 +268,29 @@ export default function Seo() {
                             id="noIndex"
                             checked={formData.noIndex}
                             onChange={(e) => setFormData({ ...formData, noIndex: e.target.checked })}
-                            className="w-4 h-4 text-gold-500 border-gray-300 rounded"
+                            className="w-4 h-4 text-gold-500 bg-navy-950 border-white/20 rounded focus:ring-gold-500"
                         />
-                        <label htmlFor="noIndex" className="text-sm text-gray-700">Ne pas indexer cette page (noindex)</label>
+                        <label htmlFor="noIndex" className="text-sm text-gray-300">Ne pas indexer cette page (noindex)</label>
                     </div>
 
                     {/* Preview */}
-                    <div className="border-t pt-4">
-                        <p className="text-xs text-gray-500 mb-2">Aperçu Google</p>
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                            <p className="text-blue-800 text-lg font-medium truncate">{formData.metaTitle || 'Titre de la page'}</p>
-                            <p className="text-green-700 text-sm">www.astauria.com/{selectedPage?.slug}</p>
-                            <p className="text-gray-600 text-sm mt-1 line-clamp-2">{formData.metaDesc || 'Description de la page...'}</p>
+                    <div className="border-t border-white/10 pt-4">
+                        <p className="text-xs text-gray-400 mb-2">Aperçu Google</p>
+                        <div className="bg-[#202124] p-4 rounded-lg border border-white/5 shadow-inner">
+                            <p className="text-[#8ab4f8] text-lg font-medium truncate mb-1 leading-tight">{formData.metaTitle || 'Titre de la page'}</p>
+                            <div className="flex items-center gap-2 mb-2">
+                                <Globe size={12} className="text-gray-300" />
+                                <p className="text-[#bdc1c6] text-sm">www.astauria.com › {selectedPage?.slug}</p>
+                            </div>
+                            <p className="text-[#bdc1c6] text-sm mt-1 line-clamp-2 leading-relaxed">{formData.metaDesc || 'Description de la page...'}</p>
                         </div>
                     </div>
 
-                    <div className="flex gap-3 justify-end pt-4 border-t">
-                        <button type="button" onClick={() => setSelectedPage(null)} className="px-4 py-2 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium">
+                    <div className="flex gap-3 justify-end pt-4 border-t border-white/10">
+                        <button type="button" onClick={() => setSelectedPage(null)} className="px-4 py-2 text-gray-300 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg font-medium">
                             Annuler
                         </button>
-                        <button type="submit" disabled={updateSeoMutation.isPending} className="px-4 py-2 bg-navy-900 text-white rounded-lg font-medium hover:bg-navy-800 disabled:opacity-50">
+                        <button type="submit" disabled={updateSeoMutation.isPending} className="px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 rounded-lg font-bold hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all disabled:opacity-50">
                             {updateSeoMutation.isPending ? 'Enregistrement...' : 'Enregistrer'}
                         </button>
                     </div>
