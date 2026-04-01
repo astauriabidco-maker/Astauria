@@ -9,6 +9,7 @@ import Articles from './pages/Articles';
 import Faq from './pages/Faq';
 import Testimonials from './pages/Testimonials';
 import CaseStudies from './pages/CaseStudies';
+import Projects from './pages/Projects';
 import Settings from './pages/Settings';
 import Media from './pages/Media';
 import Pages from './pages/Pages';
@@ -40,6 +41,7 @@ export default function App() {
                                     <Route path="/faq" element={<Faq />} />
                                     <Route path="/testimonials" element={<Testimonials />} />
                                     <Route path="/case-studies" element={<CaseStudies />} />
+                                    <Route path="/projects" element={<Projects />} />
                                     <Route path="/media" element={<Media />} />
                                     <Route path="/seo" element={<Seo />} />
                                     <Route path="/deploy" element={<Deploy />} />

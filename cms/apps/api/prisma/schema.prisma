@@ -249,3 +249,18 @@ model Lead {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+// ========== PROJECTS / PRODUCTS ==========
+
+model Project {
+  id          String   @id @default(cuid())
+  name        String
+  description String   @db.Text
+  icon        String   @default("layout-dashboard")
+  tags        String   // JSON string of tags array
+  url         String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

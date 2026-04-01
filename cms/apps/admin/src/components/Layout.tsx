@@ -13,6 +13,7 @@ import {
     Search,
     Rocket,
     Users,
+    FolderGit2,
 } from 'lucide-react';
 import { useAuthStore } from '../store/auth';
 import { motion } from 'framer-motion';
@@ -26,6 +27,7 @@ const navItems = [
     { to: '/faq', icon: HelpCircle, label: 'FAQ' },
     { to: '/testimonials', icon: MessageSquare, label: 'Témoignages' },
     { to: '/case-studies', icon: BarChart3, label: 'Cas d\'étude' },
+    { to: '/projects', icon: FolderGit2, label: 'Produits' },
     { to: '/media', icon: Image, label: 'Médiathèque' },
     { to: '/seo', icon: Search, label: 'SEO' },
     { to: '/deploy', icon: Rocket, label: 'Déploiement' },

@@ -15,6 +15,7 @@ import { GeneratorModule } from './generator/generator.module';
 import { SettingsModule } from './settings/settings.module';
 import { LeadsModule } from './leads/leads.module';
 import { AiModule } from './ai/ai.module';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
     imports: [
@@ -34,6 +35,7 @@ import { AiModule } from './ai/ai.module';
         SettingsModule,
         LeadsModule,
         AiModule,
+        ProjectsModule,
     ],
 })
 export class AppModule { }

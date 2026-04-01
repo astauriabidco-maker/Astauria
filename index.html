@@ -290,68 +290,65 @@
                     </p>
                 </div>
 
-                <div class="products__grid">
-                    <!-- Polyx -->
-                    <div class="product-card" data-animate>
-                        <div class="product-card__header">
-                            <i data-lucide="layout-dashboard"></i>
-                            <h3>Polyx ERP</h3>
-                        </div>
-                        <p class="product-card__desc">
-                            Suite logicielle de conformité et de gestion augmentée par l'IA dédiée aux organismes de formation (CFA/Qualiopi). Intégration de workflows automatisés et RAG hybride.
-                        </p>
-                        <div class="product-card__tags">
-                            <span>Secteur : Formation</span>
-                            <span>IA Insight Engine</span>
-                        </div>
-                    </div>
-
-                    <!-- Saunya Cosmetics -->
-                    <div class="product-card" data-animate>
-                        <div class="product-card__header">
-                            <i data-lucide="sparkles"></i>
-                            <h3>Saunya Cosmetics</h3>
-                        </div>
-                        <p class="product-card__desc">
-                            Plateforme E-commerce premium. Assistant virtuel (Aya) basé sur l'IA générative pour recommander les produits et réaliser des diagnostics de peau en temps réel.
-                        </p>
-                        <div class="product-card__tags">
-                            <span>Secteur : Beauté / Retail</span>
-                            <span>Chatbot IA Réaliste</span>
-                        </div>
-                    </div>
-
-                    <!-- SimuLegal -->
-                    <div class="product-card" data-animate>
-                        <div class="product-card__header">
-                            <i data-lucide="scale"></i>
-                            <h3>SimuLegal & MAPPERS</h3>
-                        </div>
-                        <p class="product-card__desc">
-                            Solutions LegalTech automatisant la création d'entreprise. Extraction de données OCR, scrapers institutionnels automatiques et intégration WhatsApp IA.
-                        </p>
-                        <div class="product-card__tags">
-                            <span>Secteur : Juridique</span>
-                            <span>Automatisation WhatsApp</span>
-                        </div>
-                    </div>
-
-                    <!-- ArtisanConnect / Helpyx -->
-                    <div class="product-card" data-animate>
-                        <div class="product-card__header">
-                            <i data-lucide="hammer"></i>
-                            <h3>ArtisanConnect & Helpyx</h3>
-                        </div>
-                        <p class="product-card__desc">
-                            Plateformes de mise en relation et de support technique B2B. Gestion omnicanale des tickets, optimisation logistique (SCM) et matching par IA.
-                        </p>
-                        <div class="product-card__tags">
-                            <span>Secteur : Services & Tech</span>
-                            <span>Matching IA Logistique</span>
-                        </div>
-                    </div>
+                <div class="products__grid" id="products-container">
+                    <!-- Les produits seront injectés ici dynamiquement -->
                 </div>
             </div>
+
+            <script>
+                // Chargement dynamique des produits
+                document.addEventListener('DOMContentLoaded', async () => {
+                    const container = document.getElementById('products-container');
+                    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                        ? 'http://localhost:3000/api/projects' 
+                        : '/api/projects';
+
+                    try {
+                        const response = await fetch(API_URL);
+                        const projects = await response.json();
+                        
+                        if (projects && projects.length > 0) {
+                            const activeProjects = projects.filter(p => p.isActive);
+                            container.innerHTML = activeProjects.map(project => {
+                                // Parser les tags s'ils sont en JSON
+                                let tags = [];
+                                try {
+                                    tags = JSON.parse(project.tags);
+                                } catch (e) {
+                                    tags = project.tags.split(',').map(t => t.trim());
+                                }
+                                
+                                const tagsHtml = tags.map(tag => `<span>${tag}</span>`).join('');
+                                
+                                return `
+                                    <div class="product-card" data-animate>
+                                        <div class="product-card__header">
+                                            <i data-lucide="${project.icon || 'layout-dashboard'}"></i>
+                                            <h3>${project.name}</h3>
+                                        </div>
+                                        <p class="product-card__desc">
+                                            ${project.description}
+                                        </p>
+                                        <div class="product-card__tags">
+                                            ${tagsHtml}
+                                        </div>
+                                        ${project.url ? `<a href="${project.url}" target="_blank" class="case-study-card__link" style="margin-top: 1rem; display: inline-block;">Voir le projet <i data-lucide="external-link"></i></a>` : ''}
+                                    </div>
+                                `;
+                            }).join('');
+                            
+                            // Re-init lucide icons for dynamic content
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons();
+                            }
+                        } else {
+                            container.innerHTML = '<p class="text-center" style="color: rgba(255,255,255,0.5);">Aucun projet en production pour le moment.</p>';
+                        }
+                    } catch (err) {
+                        console.error('Erreur lors du chargement des projets:', err);
+                    }
+                });
+            </script>
         </section>
 
         <!-- ========== NOS SOLUTIONS ========== -->
