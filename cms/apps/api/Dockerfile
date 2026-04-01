@@ -17,6 +17,7 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/tsconfig.json ./
 
 # Add a script to run migrations and then start the server
 RUN echo -e '#!/bin/sh\nnpx prisma migrate deploy\nnpx prisma db seed\nnpm run start:prod' > /app/start.sh
