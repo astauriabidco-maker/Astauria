@@ -19,7 +19,7 @@ COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/prisma ./prisma
 
 # Add a script to run migrations and then start the server
-RUN echo -e '#!/bin/sh\nnpx prisma migrate deploy\nnpm run start:prod' > /app/start.sh
+RUN echo -e '#!/bin/sh\nnpx prisma migrate deploy\nnpx prisma db seed\nnpm run start:prod' > /app/start.sh
 RUN chmod +x /app/start.sh
 
 EXPOSE 3001
