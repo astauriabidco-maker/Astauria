@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Globe, FileText, Search, RefreshCw, Check, AlertCircle } from 'lucide-react';
+import { Globe, FileText, RefreshCw, Check, AlertCircle } from 'lucide-react';
 import api from '../services/api';
 import { useState } from 'react';
 import Modal from '../components/Modal';
@@ -41,10 +41,6 @@ export default function Seo() {
         queryFn: async () => (await api.get('/pages?includeSeo=true')).data,
     });
 
-    const { data: articles } = useQuery({
-        queryKey: ['articles-seo'],
-        queryFn: async () => (await api.get('/blog/articles')).data,
-    });
 
     const updateSeoMutation = useMutation({
         mutationFn: async ({ pageId, data }: { pageId: string; data: typeof formData }) =>
@@ -91,11 +87,6 @@ export default function Seo() {
         return score;
     };
 
-    const getScoreColor = (score: number) => {
-        if (score >= 80) return 'text-green-600 bg-green-100';
-        if (score >= 50) return 'text-amber-600 bg-amber-100';
-        return 'text-red-600 bg-red-100';
-    };
 
     return (
         <div>

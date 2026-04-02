@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
@@ -92,96 +92,7 @@
                 </div>
             </div>
 
-            <script>
-                document.addEventListener('DOMContentLoaded', async () => {
-                    const container = document.getElementById('hero-slides-container');
-                    const controls = document.getElementById('hero-controls');
-                    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-                        ? 'http://localhost:3000/api/hero-slides' 
-                        : '/api/hero-slides';
-
-                    try {
-                        const response = await fetch(API_URL);
-                        const allSlides = await response.json();
-                        
-                        // Garder seulement les slides actives
-                        const activeSlides = (allSlides || []).filter(s => s.isActive);
-                        
-                        if (activeSlides.length > 0) {
-                            let currentSlide = 0;
-                            let sliderInterval;
-
-                            const renderSlides = () => {
-                                container.innerHTML = activeSlides.map((slide, index) => `
-                                    <div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
-                                        <div class="container hero__container">
-                                            <div class="hero__content slide-content-anim">
-                                                ${slide.surtitle ? `<span class="hero__badge">${slide.surtitle}</span>` : ''}
-                                                <h1 class="hero__title">${slide.title}</h1>
-                                                ${slide.subtitle ? `<p class="hero__subtitle">${slide.subtitle}</p>` : ''}
-                                                ${slide.buttonText ? `
-                                                <a href="${slide.buttonLink || 'audit-ia.html'}" class="btn btn--primary btn--large hero__cta">
-                                                    <span>${slide.buttonText}</span>
-                                                </a>` : ''}
-                                            </div>
-                                        </div>
-                                    </div>
-                                `).join('');
-
-                                // Génération des puces (bullets)
-                                controls.innerHTML = activeSlides.map((_, index) => `
-                                    <button class="hero-bullet ${index === 0 ? 'active' : ''}" data-index="${index}" aria-label="Slide ${index + 1}"></button>
-                                `).join('');
-                                
-                                bindControls();
-                                startAutoplay();
-                            };
-
-                            const goToSlide = (index) => {
-                                const slides = document.querySelectorAll('.hero-slide');
-                                const bullets = document.querySelectorAll('.hero-bullet');
-                                
-                                slides.forEach(s => s.classList.remove('active'));
-                                bullets.forEach(b => b.classList.remove('active'));
-                                
-                                slides[index].classList.add('active');
-                                bullets[index].classList.add('active');
-                                currentSlide = index;
-                            };
-
-                            const nextSlide = () => {
-                                let nextId = (currentSlide + 1) % activeSlides.length;
-                                goToSlide(nextId);
-                            };
-
-                            const bindControls = () => {
-                                document.querySelectorAll('.hero-bullet').forEach(bullet => {
-                                    bullet.addEventListener('click', (e) => {
-                                        const idx = parseInt(e.target.getAttribute('data-index'));
-                                        goToSlide(idx);
-                                        resetAutoplay();
-                                    });
-                                });
-                            };
-
-                            const startAutoplay = () => {
-                                if(activeSlides.length > 1) {
-                                    sliderInterval = setInterval(nextSlide, 6000); // 6 sec per slide
-                                }
-                            };
-
-                            const resetAutoplay = () => {
-                                clearInterval(sliderInterval);
-                                startAutoplay();
-                            };
-
-                            renderSlides();
-                        }
-                    } catch (e) {
-                        console.error('Impossible de charger le slider métier', e);
-                    }
-                });
-            </script>
+            <script src="assets/js/hero-slider.js"></script>
         </section>
 
         <!-- ========== LES ENJEUX ========== -->
@@ -398,60 +309,7 @@
                 </div>
             </div>
 
-            <script>
-                // Chargement dynamique des produits
-                document.addEventListener('DOMContentLoaded', async () => {
-                    const container = document.getElementById('products-container');
-                    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-                        ? 'http://localhost:3000/api/projects' 
-                        : '/api/projects';
-
-                    try {
-                        const response = await fetch(API_URL);
-                        const projects = await response.json();
-                        
-                        if (projects && projects.length > 0) {
-                            const activeProjects = projects.filter(p => p.isActive);
-                            container.innerHTML = activeProjects.map(project => {
-                                // Parser les tags s'ils sont en JSON
-                                let tags = [];
-                                try {
-                                    tags = JSON.parse(project.tags);
-                                } catch (e) {
-                                    tags = project.tags.split(',').map(t => t.trim());
-                                }
-                                
-                                const tagsHtml = tags.map(tag => `<span>${tag}</span>`).join('');
-                                
-                                return `
-                                    <div class="product-card" data-animate>
-                                        <div class="product-card__header">
-                                            <i data-lucide="${project.icon || 'layout-dashboard'}"></i>
-                                            <h3>${project.name}</h3>
-                                        </div>
-                                        <p class="product-card__desc">
-                                            ${project.description}
-                                        </p>
-                                        <div class="product-card__tags">
-                                            ${tagsHtml}
-                                        </div>
-                                        ${project.url ? `<a href="${project.url}" target="_blank" class="case-study-card__link" style="margin-top: 1rem; display: inline-block;">Voir le projet <i data-lucide="external-link"></i></a>` : ''}
-                                    </div>
-                                `;
-                            }).join('');
-                            
-                            // Re-init lucide icons for dynamic content
-                            if (typeof lucide !== 'undefined') {
-                                lucide.createIcons();
-                            }
-                        } else {
-                            container.innerHTML = '<p class="text-center" style="color: rgba(255,255,255,0.5);">Aucun projet en production pour le moment.</p>';
-                        }
-                    } catch (err) {
-                        console.error('Erreur lors du chargement des projets:', err);
-                    }
-                });
-            </script>
+            <script src="assets/js/projects.js"></script>
         </section>
 
         <!-- ========== NOS SOLUTIONS ========== -->
@@ -975,10 +833,10 @@
         </button>
     </div>
 
-    <script src="script.js"></script>
-    <script src="analytics.js"></script>
-    <script src="newsletter.js"></script>
-    <script src="cookies.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script src="assets/js/newsletter.js"></script>
+    <script src="assets/js/cookies.js"></script>
 </body>
 
 </html>
