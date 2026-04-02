@@ -14,6 +14,7 @@ import {
     Rocket,
     Users,
     FolderGit2,
+    Sliders,
 } from 'lucide-react';
 import { useAuthStore } from '../store/auth';
 import { motion } from 'framer-motion';
@@ -23,6 +24,7 @@ const navItems = [
     { to: '/leads', icon: Users, label: 'Leads CRM' },
     { to: '/navigation', icon: Menu, label: 'Navigation' },
     { to: '/pages', icon: FileCode, label: 'Pages' },
+    { to: '/hero-slides', icon: Sliders, label: 'Hero Slides' },
     { to: '/articles', icon: FileText, label: 'Articles' },
     { to: '/faq', icon: HelpCircle, label: 'FAQ' },
     { to: '/testimonials', icon: MessageSquare, label: 'Témoignages' },

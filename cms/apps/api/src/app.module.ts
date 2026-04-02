@@ -16,6 +16,7 @@ import { SettingsModule } from './settings/settings.module';
 import { LeadsModule } from './leads/leads.module';
 import { AiModule } from './ai/ai.module';
 import { ProjectsModule } from './projects/projects.module';
+import { HeroSlidesModule } from './hero-slides/hero-slides.module';
 
 @Module({
     imports: [
@@ -36,6 +37,7 @@ import { ProjectsModule } from './projects/projects.module';
         LeadsModule,
         AiModule,
         ProjectsModule,
+        HeroSlidesModule,
     ],
 })
 export class AppModule { }
