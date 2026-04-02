@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Save, CheckCircle, AlertCircle, MapPin, Phone, Mail, Globe, Palette, Layout, Code } from 'lucide-react';
+import { Save, CheckCircle, AlertCircle, MapPin, Phone, Mail, Globe, Palette, Layout, Code, MessageCircle } from 'lucide-react';
 import api from '../services/api';
 import { useState, useEffect } from 'react';
 
@@ -48,6 +48,9 @@ export default function Settings() {
         secondary_color: '#d4af37',
         footer_template: 'original',
         custom_css: '',
+        whatsapp_api_token: '',
+        whatsapp_phone_number_id: '',
+        whatsapp_notification_destination: '',
     });
     const [saveResult, setSaveResult] = useState<{ success: boolean; message: string } | null>(null);
 
@@ -303,6 +306,52 @@ export default function Settings() {
                                 onChange={(e) => handleChange('social_twitter', e.target.value)}
                                 className="glass-input w-full px-4 py-3 rounded-xl"
                                 placeholder="https://twitter.com/astauria"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* WhatsApp Integration API */}
+                <div className="glass-panel rounded-xl p-6">
+                    <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center gap-2">
+                            <MessageCircle size={20} className="text-[#25D366]" />
+                            <h2 className="text-lg font-semibold text-white">Intégration WhatsApp (Meta Cloud)</h2>
+                        </div>
+                        <span className="text-xs bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] px-2 py-0.5 rounded-full font-medium">Notifications Lead</span>
+                    </div>
+                    <p className="text-sm text-gray-400 mb-6">
+                        Configurez votre API Meta Cloud pour recevoir les demandes de contact directement sur votre téléphone. (Remplace les variables d'environnement)
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="md:col-span-2">
+                            <label className="block text-sm font-medium text-gray-300 mb-2">Token API d'accès permanent</label>
+                            <input
+                                type="password"
+                                value={formData.whatsapp_api_token || ''}
+                                onChange={(e) => handleChange('whatsapp_api_token', e.target.value)}
+                                className="glass-input w-full px-4 py-3 rounded-xl font-mono text-xs text-gray-300 placeholder-gray-600"
+                                placeholder="EAA..."
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-300 mb-2">ID du numéro de téléphone envoyeur</label>
+                            <input
+                                type="text"
+                                value={formData.whatsapp_phone_number_id || ''}
+                                onChange={(e) => handleChange('whatsapp_phone_number_id', e.target.value)}
+                                className="glass-input w-full px-4 py-3 rounded-xl placeholder-gray-600"
+                                placeholder="ex: 123456789"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-300 mb-2">Numéro de destination (votre tel)</label>
+                            <input
+                                type="text"
+                                value={formData.whatsapp_notification_destination || ''}
+                                onChange={(e) => handleChange('whatsapp_notification_destination', e.target.value)}
+                                className="glass-input w-full px-4 py-3 rounded-xl placeholder-gray-600"
+                                placeholder="ex: 33612345678"
                             />
                         </div>
                     </div>

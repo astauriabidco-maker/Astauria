@@ -28,9 +28,20 @@ export class LeadsService {
   }
 
   private async sendWhatsAppNotification(lead: any) {
-    const token = process.env.WHATSAPP_API_TOKEN;
-    const phoneId = process.env.WHATSAPP_PHONE_NUMBER_ID;
-    const destPhone = process.env.WHATSAPP_NOTIFICATION_DESTINATION;
+    // 1. Fetch DB overrides if present
+    const settingsData = await this.prisma.setting.findMany({
+      where: { key: { in: ['whatsapp_api_token', 'whatsapp_phone_number_id', 'whatsapp_notification_destination'] } }
+    });
+    
+    const settings = settingsData.reduce((acc, s) => {
+      acc[s.key] = s.value;
+      return acc;
+    }, {} as Record<string, string>);
+
+    // 2. Resolve (DB setting takes precedence over process.env)
+    const token = settings['whatsapp_api_token'] || process.env.WHATSAPP_API_TOKEN;
+    const phoneId = settings['whatsapp_phone_number_id'] || process.env.WHATSAPP_PHONE_NUMBER_ID;
+    const destPhone = settings['whatsapp_notification_destination'] || process.env.WHATSAPP_NOTIFICATION_DESTINATION;
 
     if (!token || !phoneId || !destPhone) {
       this.logger.warn('WhatsApp credentials not fully configured. Skipping notification.');
