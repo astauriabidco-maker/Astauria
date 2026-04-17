@@ -415,9 +415,10 @@ section[id] {
     position: relative;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: center;
-    padding: calc(var(--header-height) + var(--space-3xl)) var(--space-lg) var(--space-3xl);
+    padding: calc(var(--header-height) + var(--space-xl)) var(--space-lg) var(--space-3xl);
     overflow: hidden;
     background: linear-gradient(180deg, var(--color-navy) 0%, #0a1520 100%);
 }
@@ -460,10 +461,11 @@ section[id] {
 
 /* Hero Slider */
 .hero-slides-wrapper {
-    position: relative;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    min-height: 450px;
-    z-index: 2;
+    height: 100%;
+    z-index: 1;
 }
 
 .hero-slide {
