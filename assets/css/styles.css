@@ -289,15 +289,20 @@ section[id] {
     left: 0;
     right: 0;
     height: var(--header-height);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
-    transition: box-shadow var(--transition-base);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow var(--transition-base), background-color 0.3s ease;
 }
 
 .header--scrolled {
+    background: rgba(255, 255, 255, 0.80);
     box-shadow: var(--shadow-md);
+}
+
+.header--hidden {
+    transform: translateY(-100%);
 }
 
 .header__container {

@@ -9,13 +9,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ========== HEADER SCROLL EFFECT ==========
     const header = document.getElementById('header');
+    let lastScroll = 0;
 
     const handleScroll = () => {
-        if (window.scrollY > 50) {
+        const currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+        // Apply visual scrolled state (glassmorphism/shadow)
+        if (currentScroll > 50) {
             header.classList.add('header--scrolled');
         } else {
             header.classList.remove('header--scrolled');
         }
+
+        // Hide/show logic mapping reading direction
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scrolling down -> hide header
+            header.classList.add('header--hidden');
+        } else {
+            // Scrolling up -> show header
+            header.classList.remove('header--hidden');
+        }
+
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative scroll in Safari bounce
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
