@@ -48,35 +48,24 @@
     <main>
         <!-- ========== HERO AVEC STATS ========== -->
         <!-- ========== HERO AVEC STATS ========== -->
-        <section class="hero relative" id="hero-section">
+        <section class="hero" id="hero-section">
             <div class="hero__bg"></div>
-            
-            <div id="hero-slides-container" class="hero-slides-wrapper w-full h-full relative">
-                <!-- Fallback / Premier chargement -->
-                <div class="hero-slide active">
-                    <div class="container hero__container">
-                        <div class="hero__content">
-                            <span class="hero__badge">Cabinet IA & Automatisation</span>
-                            <h1 class="hero__title">
-                                L'IA qui résout vos vrais problèmes métiers
-                            </h1>
-                            <p class="hero__subtitle">
-                                Nous déployons des solutions d'intelligence artificielle concrètes pour PME et ETI.
-                            </p>
-                            <a href="audit-ia.html" class="btn btn--primary btn--large hero__cta">
-                                <span>Demander un audit IA gratuit</span>
-                                <span class="btn__badge">Offert si projet lancé</span>
-                            </a>
-                        </div>
-                    </div>
+            <div class="container hero__container">
+                <div class="hero__content" data-animate>
+                    <span class="hero__badge">Cabinet IA & Automatisation</span>
+                    <h1 class="hero__title">
+                        L'IA qui résout vos vrais problèmes métiers
+                    </h1>
+                    <p class="hero__subtitle">
+                        Nous déployons des solutions d'intelligence artificielle concrètes : prédiction, analyse
+                        automatique, détection d'anomalies. Pas de la tech pour la tech, mais des résultats mesurables.
+                    </p>
+                    <a href="audit-ia.html" class="btn btn--primary btn--large hero__cta">
+                        <span>Demander un audit IA gratuit</span>
+                        <span class="btn__badge">Offert si projet lancé</span>
+                    </a>
                 </div>
-            </div>
-
-            <!-- Contrôles du slider -->
-            <div class="hero-slider-controls" id="hero-controls"></div>
-
-            <div class="container hero__container-stats relative z-10">
-                <div class="hero__stats">
+                <div class="hero__stats" data-animate>
                     <div class="hero__stat">
                         <span class="hero__stat-value">15+</span>
                         <span class="hero__stat-label">Projets IA déployés</span>
@@ -91,8 +80,6 @@
                     </div>
                 </div>
             </div>
-
-            <script src="assets/js/hero-slider.js"></script>
         </section>
 
         <!-- ========== LES ENJEUX ========== -->
