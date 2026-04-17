@@ -622,9 +622,7 @@ section[id] {
     font-size: var(--font-size-4xl);
     font-weight: 700;
     margin-bottom: var(--space-lg);
-    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
+    line-height: 1.1;
 }
 
 .hero__subtitle {

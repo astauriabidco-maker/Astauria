@@ -53,19 +53,20 @@
             
             <div id="hero-slides-container" class="hero-slides-wrapper w-full h-full relative">
                 <!-- Fallback / Premier chargement -->
-                <div class="hero-slide active">
-                    <div class="container hero__container">
-                        <div class="hero__content">
+                <div class="hero-slide active" data-index="0">
+                    <div class="hero-slide__bg-image" style="background-image: url('assets/hero-abstract.png'); transform: scale(1);"></div>
+                    <div class="hero-slide__overlay"></div>
+                    <div class="container hero__container relative z-10" style="text-align: left; max-width: 800px; margin: 0;">
+                        <div class="hero__content slide-content-anim glass-panel">
                             <span class="hero__badge">Cabinet IA & Automatisation</span>
-                            <h1 class="hero__title">
+                            <h1 class="hero__title" style="text-align: left; background: linear-gradient(135deg, white 0%, var(--color-gold-light) 100%); -webkit-background-clip: text; color: transparent;">
                                 L'IA qui résout vos vrais problèmes métiers
                             </h1>
-                            <p class="hero__subtitle">
+                            <p class="hero__subtitle" style="text-align: left; color: rgba(255,255,255,0.9); margin-left: 0;">
                                 Nous déployons des solutions d'intelligence artificielle concrètes pour PME et ETI.
                             </p>
-                            <a href="audit-ia.html" class="btn btn--primary btn--large hero__cta">
+                            <a href="audit-ia.html" class="btn btn--primary btn--large hero__cta" style="margin-top: var(--space-md); width: fit-content;">
                                 <span>Demander un audit IA gratuit</span>
-                                <span class="btn__badge">Offert si projet lancé</span>
                             </a>
                         </div>
                     </div>
