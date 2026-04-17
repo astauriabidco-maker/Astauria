@@ -46,53 +46,71 @@
     </header>
 
     <main>
-        <!-- ========== HERO AVEC STATS ========== -->
-        <!-- ========== HERO AVEC STATS ========== -->
-        <section class="hero relative" id="hero-section">
-            <div class="hero__bg"></div>
-            
-            <div id="hero-slides-container" class="hero-slides-wrapper w-full h-full relative">
-                <!-- Fallback / Premier chargement -->
-                <div class="hero-slide active">
-                    <div class="container hero__container">
-                        <div class="hero__content">
-                            <span class="hero__badge">Cabinet IA & Automatisation</span>
-                            <h1 class="hero__title">
-                                L'IA qui résout vos vrais problèmes métiers
-                            </h1>
-                            <p class="hero__subtitle">
-                                Nous déployons des solutions d'intelligence artificielle concrètes pour PME et ETI.
-                            </p>
-                            <a href="audit-ia.html" class="btn btn--primary btn--large hero__cta">
-                                <span>Demander un audit IA gratuit</span>
-                                <span class="btn__badge">Offert si projet lancé</span>
-                            </a>
+        <!-- ========== HERO SPLIT SCREEN ========== -->
+        <section class="hero-split relative" id="hero-section">
+            <div class="hero-split__sticky-wrapper">
+                <div class="hero-split__content">
+                    <span class="hero-split__badge">Expertise & Développement IA</span>
+                    <h1 class="hero__title" style="text-align: left; font-size: var(--font-size-5xl);">
+                        L'IA qui résout vos vrais problèmes
+                    </h1>
+                    <p class="hero__subtitle" style="text-align: left; margin-left: 0; max-width: 90%;">
+                        Plus qu'un cabinet de conseil, nous industrialisons et déployons des solutions d'intelligence artificielle concrètes pour optimiser vos processus métiers.
+                    </p>
+                    <div class="hero-split__actions">
+                        <a href="audit-ia.html" class="btn btn--primary btn--large">
+                            <span>Lancer un projet IA</span>
+                        </a>
+                        <a href="#products" class="btn btn--outline-light btn--large">
+                            <span>Voir nos réalisations</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-split__stats-grid">
+                        <div class="glass-stat-card">
+                            <span class="stat-value hero__stat-value">+15</span>
+                            <span class="stat-label">Projets IA déployés</span>
+                        </div>
+                        <div class="glass-stat-card">
+                            <span class="stat-value hero__stat-value">40%</span>
+                            <span class="stat-label">Gain de productivité moyen</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Contrôles du slider -->
-            <div class="hero-slider-controls" id="hero-controls"></div>
+            <!-- RIGHT SCROLLING SIDEBAR -->
+            <div class="hero-split__scroll-wrapper">
+                <div class="hero-split__gallery">
+                    
+                    <div class="hero-split__card" data-animate>
+                        <img src="assets/hero-abstract.png" alt="Plateforme IA Astauria" class="hero-split__img">
+                        <div class="hero-split__card-info">
+                            <h3>Réseaux de Données Neurales</h3>
+                            <p>Architecture sur-mesure pour PME.</p>
+                        </div>
+                    </div>
 
-            <div class="container hero__container-stats relative z-10">
-                <div class="hero__stats">
-                    <div class="hero__stat">
-                        <span class="hero__stat-value">15+</span>
-                        <span class="hero__stat-label">Projets IA déployés</span>
+                    <div class="hero-split__card" data-animate>
+                        <img src="assets/hero-dashboard.png" alt="Intelligence Artificielle Tableau de bord" class="hero-split__img">
+                        <div class="hero-split__card-info">
+                            <h3>Automation Dashboard</h3>
+                            <p>Monitoring et analytics prédictif en temps réel.</p>
+                        </div>
                     </div>
-                    <div class="hero__stat">
-                        <span class="hero__stat-value">6</span>
-                        <span class="hero__stat-label">Secteurs d'expertise</span>
+
+                    <div class="hero-split__card" data-animate>
+                        <div class="hero-split__img-placeholder">
+                           <i data-lucide="cpu" style="width: 48px; height: 48px; color: var(--color-gold);"></i>
+                        </div>
+                        <div class="hero-split__card-info">
+                            <h3>NLP & Traitement Documentaire</h3>
+                            <p>Analyse sémantique automatisée des contrats.</p>
+                        </div>
                     </div>
-                    <div class="hero__stat">
-                        <span class="hero__stat-value">40%</span>
-                        <span class="hero__stat-label">Gain de temps moyen</span>
-                    </div>
+
                 </div>
             </div>
-
-            <script src="assets/js/hero-slider.js"></script>
         </section>
 
         <!-- ========== LES ENJEUX ========== -->
