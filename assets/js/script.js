@@ -300,4 +300,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const statElements = document.querySelectorAll('.hero__stat-value, .case-study-card__metric-value, .stat-card__number');
     statElements.forEach(el => counterObserver.observe(el));
 
+    // ========== 3D TILT EFFECT ==========
+    const tiltElements = document.querySelectorAll('.challenge-card, .product-card, .case-study-card');
+    
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            // Get position of cursor relative to element
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calculate rotation (max 10 degrees)
+            const xRotation = ((y - rect.height / 2) / rect.height) * -10;
+            const yRotation = ((x - rect.width / 2) / rect.width) * 10;
+            
+            el.style.transform = `perspective(1000px) scale(1.02) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+            el.style.transition = 'transform 0.1s ease-out';
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = 'perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)';
+            el.style.transition = 'transform 0.5s ease-out';
+        });
+    });
+
 });
