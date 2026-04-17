@@ -16,30 +16,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             let currentSlide = 0;
             let sliderInterval;
 
-            const images = ['assets/hero-abstract.png', 'assets/hero-dashboard.png'];
-
             const renderSlides = () => {
-                container.innerHTML = activeSlides.map((slide, index) => {
-                    // Assign fallback images if CMS doesn't provide them
-                    const bgImage = slide.imageUrl || images[index % images.length];
-
-                    return `
+                container.innerHTML = activeSlides.map((slide, index) => `
                     <div class="hero-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
-                        <div class="hero-slide__bg-image" style="background-image: url('${bgImage}');"></div>
-                        <div class="hero-slide__overlay"></div>
-                        <div class="container hero__container relative z-10" style="text-align: left; max-width: 800px; margin: 0;">
-                            <div class="hero__content slide-content-anim glass-panel">
+                        <div class="container hero__container">
+                            <div class="hero__content slide-content-anim">
                                 ${slide.surtitle ? `<span class="hero__badge">${slide.surtitle}</span>` : ''}
-                                <h1 class="hero__title" style="text-align: left; background: linear-gradient(135deg, white 0%, var(--color-gold-light) 100%); -webkit-background-clip: text; color: transparent;">${slide.title}</h1>
-                                ${slide.subtitle ? `<p class="hero__subtitle" style="text-align: left; color: rgba(255,255,255,0.9); margin-left: 0;">${slide.subtitle}</p>` : ''}
+                                <h1 class="hero__title">${slide.title}</h1>
+                                ${slide.subtitle ? `<p class="hero__subtitle">${slide.subtitle}</p>` : ''}
                                 ${slide.buttonText ? `
-                                <a href="${slide.buttonLink || 'audit-ia.html'}" class="btn btn--primary btn--large hero__cta" style="margin-top: var(--space-md); width: fit-content;">
+                                <a href="${slide.buttonLink || 'audit-ia.html'}" class="btn btn--primary btn--large hero__cta">
                                     <span>${slide.buttonText}</span>
                                 </a>` : ''}
                             </div>
                         </div>
                     </div>
-                `}).join('');
+                `).join('');
 
                 // Génération des puces (bullets)
                 controls.innerHTML = activeSlides.map((_, index) => `
