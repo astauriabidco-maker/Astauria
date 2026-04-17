@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide icons
     lucide.createIcons();
 
+    // ========== GLOBAL SCROLL PROGRESS BAR ==========
+    const progressBar = document.createElement('div');
+    progressBar.classList.add('scroll-progress-bar');
+    document.body.prepend(progressBar);
+
     // ========== HEADER SCROLL EFFECT ==========
     const header = document.getElementById('header');
     let lastScroll = 0;
@@ -29,6 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Scrolling up -> show header
             header.classList.remove('header--hidden');
         }
+
+        // Update scroll progress bar
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (currentScroll / docHeight) * 100;
+        progressBar.style.width = `${scrollPercent}%`;
 
         lastScroll = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative scroll in Safari bounce
     };
