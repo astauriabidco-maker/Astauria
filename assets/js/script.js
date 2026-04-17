@@ -7,40 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide icons
     lucide.createIcons();
 
-    // ========== GLOBAL SCROLL PROGRESS BAR ==========
-    const progressBar = document.createElement('div');
-    progressBar.classList.add('scroll-progress-bar');
-    document.body.prepend(progressBar);
-
     // ========== HEADER SCROLL EFFECT ==========
     const header = document.getElementById('header');
-    let lastScroll = 0;
 
     const handleScroll = () => {
-        const currentScroll = window.scrollY || document.documentElement.scrollTop;
-
-        // Apply visual scrolled state (glassmorphism/shadow)
-        if (currentScroll > 50) {
+        if (window.scrollY > 50) {
             header.classList.add('header--scrolled');
         } else {
             header.classList.remove('header--scrolled');
         }
-
-        // Hide/show logic mapping reading direction
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            // Scrolling down -> hide header
-            header.classList.add('header--hidden');
-        } else {
-            // Scrolling up -> show header
-            header.classList.remove('header--hidden');
-        }
-
-        // Update scroll progress bar
-        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = (currentScroll / docHeight) * 100;
-        progressBar.style.width = `${scrollPercent}%`;
-
-        lastScroll = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative scroll in Safari bounce
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -324,29 +299,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const statElements = document.querySelectorAll('.hero__stat-value, .case-study-card__metric-value, .stat-card__number');
     statElements.forEach(el => counterObserver.observe(el));
-
-    // ========== 3D TILT EFFECT ==========
-    const tiltElements = document.querySelectorAll('.challenge-card, .product-card, .case-study-card');
-    
-    tiltElements.forEach(el => {
-        el.addEventListener('mousemove', (e) => {
-            const rect = el.getBoundingClientRect();
-            // Get position of cursor relative to element
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            // Calculate rotation (max 10 degrees)
-            const xRotation = ((y - rect.height / 2) / rect.height) * -10;
-            const yRotation = ((x - rect.width / 2) / rect.width) * 10;
-            
-            el.style.transform = `perspective(1000px) scale(1.02) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
-            el.style.transition = 'transform 0.1s ease-out';
-        });
-
-        el.addEventListener('mouseleave', () => {
-            el.style.transform = 'perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)';
-            el.style.transition = 'transform 0.5s ease-out';
-        });
-    });
 
 });
