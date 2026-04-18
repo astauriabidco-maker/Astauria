@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=5">
+    <link rel="stylesheet" href="assets/css/styles.css?v=6">
 </head>
 
 <body>
@@ -216,6 +216,75 @@
                         </span>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TÉMOIGNAGES CLIENTS (PREMIUM) ========== -->
+        <section class="section section--navy section--testimonials" id="testimonials">
+            <div class="container">
+                <div class="section__header" data-animate>
+                    <span class="section-badge section-badge--light">La voix de nos clients</span>
+                    <h2 class="section-title section__title--light">Ils transforment leur métier avec nous</h2>
+                </div>
+
+                <!-- Logos clients - Défilement infini -->
+                <div class="clients__marquee" data-animate>
+                    <div class="clients__marquee-track">
+                        <div class="clients__logo-item"><img src="assets/clients/green-logistics.png" alt="Logistics" class="clients__logo"></div>
+                        <div class="clients__logo-item"><img src="assets/clients/cekha-labs.png" alt="Labs" class="clients__logo"></div>
+                        <div class="clients__logo-item"><img src="assets/clients/ho-access.png" alt="Access" class="clients__logo"></div>
+                        <div class="clients__logo-item"><img src="assets/clients/integral-btp.png" alt="BTP" class="clients__logo"></div>
+                        <div class="clients__logo-item"><img src="assets/clients/krinch-partners.png" alt="Partners" class="clients__logo"></div>
+                        <div class="clients__logo-item"><img src="assets/clients/saunya-cosmetics.png" alt="Cosmetics" class="clients__logo"></div>
+                        <div class="clients__logo-item"><img src="assets/clients/saucare.png" alt="Saucare" class="clients__logo"></div>
+                        <!-- Duplicate for loop -->
+                        <div class="clients__logo-item"><img src="assets/clients/green-logistics.png" alt="Logistics" class="clients__logo"></div>
+                        <div class="clients__logo-item"><img src="assets/clients/cekha-labs.png" alt="Labs" class="clients__logo"></div>
+                        <div class="clients__logo-item"><img src="assets/clients/ho-access.png" alt="Access" class="clients__logo"></div>
+                    </div>
+                </div>
+
+                <!-- Grille de témoignages stylisée -->
+                <div class="testimonials__grid" data-animate>
+                    <div class="testimonial-card testimonial-card--glass">
+                        <div class="testimonial-card__stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p class="testimonial-card__text">"L'IA prédictive développée par Astauria a permis de réduire nos ruptures de stock de 65%. Un impact direct sur notre CA."</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__info">
+                                <span class="testimonial-card__name">Directeur Commercial</span>
+                                <span class="testimonial-card__company">Saunya Cosmetics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card testimonial-card--glass">
+                        <div class="testimonial-card__stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p class="testimonial-card__text">"Leur capacité à comprendre nos enjeux métiers complexes et à les traduire en solutions automatisées est bluffante."</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__info">
+                                <span class="testimonial-card__name">Responsable R&D</span>
+                                <span class="testimonial-card__company">Cekha Labs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card testimonial-card--glass">
+                        <div class="testimonial-card__stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p class="testimonial-card__text">"Gain de temps massif sur l'analyse documentaire. Ce qui prenait 3 jours prend maintenant 3 minutes."</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__info">
+                                <span class="testimonial-card__name">Directeur Commercial</span>
+                                <span class="testimonial-card__company">H&O Access</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -449,178 +518,7 @@
             </div>
         </section>
 
-        <!-- ========== TÉMOIGNAGES CLIENTS ========== -->
-        <section class="section section--grey" id="testimonials">
-            <div class="container">
-                <div class="section__header" data-animate>
-                    <h2 class="section__title">Ils nous font confiance</h2>
-                    <p class="section__subtitle">Des entreprises de tous secteurs ont transformé leurs opérations avec
-                        nos solutions IA.</p>
-                </div>
 
-                <!-- Logos clients - Défilement infini -->
-                <div class="clients__marquee" data-animate>
-                    <div class="clients__marquee-track">
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/green-logistics.png" alt="Green Logistics" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/cekha-labs.png" alt="Cekha Labs" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/ho-access.png" alt="H&O Access" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/integral-btp.png" alt="Integral BTP" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/krinch-partners.png" alt="Krinch & Partners" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/saunya-cosmetics.png" alt="Saunya Cosmetics" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/saucare.png" alt="Saucare" class="clients__logo">
-                        </div>
-                        <!-- Duplicated for infinite scroll -->
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/green-logistics.png" alt="Green Logistics" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/cekha-labs.png" alt="Cekha Labs" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/ho-access.png" alt="H&O Access" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/integral-btp.png" alt="Integral BTP" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/krinch-partners.png" alt="Krinch & Partners" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/saunya-cosmetics.png" alt="Saunya Cosmetics" class="clients__logo">
-                        </div>
-                        <div class="clients__logo-item">
-                            <img src="assets/clients/saucare.png" alt="Saucare" class="clients__logo">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Carrousel témoignages -->
-                <div class="testimonials__carousel" data-animate>
-                    <button class="carousel__btn carousel__btn--prev" aria-label="Précédent">
-                        <i data-lucide="chevron-left"></i>
-                    </button>
-
-                    <div class="carousel__track-container">
-                        <div class="carousel__track">
-                            <div class="testimonial-card">
-                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
-                                <p class="testimonial-card__text">L'automatisation de notre chaîne d'approvisionnement
-                                    nous a permis de réduire les délais de 40% et d'optimiser nos stocks.</p>
-                                <div class="testimonial-card__author">
-                                    <img src="assets/clients/green-logistics.png" alt="Green Logistics"
-                                        class="testimonial-card__logo">
-                                    <div class="testimonial-card__info">
-                                        <span class="testimonial-card__name">Directeur des Opérations</span>
-                                        <span class="testimonial-card__company">Green Logistics</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-card">
-                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
-                                <p class="testimonial-card__text">Le système de prédiction de la qualité des
-                                    formulations a transformé notre R&D. Nous économisons des semaines de travail.</p>
-                                <div class="testimonial-card__author">
-                                    <img src="assets/clients/cekha-labs.png" alt="Cekha Labs"
-                                        class="testimonial-card__logo">
-                                    <div class="testimonial-card__info">
-                                        <span class="testimonial-card__name">Responsable R&D</span>
-                                        <span class="testimonial-card__company">Cekha Labs</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-card">
-                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
-                                <p class="testimonial-card__text">L'analyse automatique des documents fonciers nous a
-                                    fait gagner un temps précieux. Un vrai avantage concurrentiel.</p>
-                                <div class="testimonial-card__author">
-                                    <img src="assets/clients/ho-access.png" alt="H&O Access"
-                                        class="testimonial-card__logo">
-                                    <div class="testimonial-card__info">
-                                        <span class="testimonial-card__name">Directeur Commercial</span>
-                                        <span class="testimonial-card__company">H&O Access</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-card">
-                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
-                                <p class="testimonial-card__text">Le tableau de bord prédictif pour nos chantiers a
-                                    révolutionné notre gestion de projet avec une précision remarquable.</p>
-                                <div class="testimonial-card__author">
-                                    <img src="assets/clients/integral-btp.png" alt="Integral BTP"
-                                        class="testimonial-card__logo">
-                                    <div class="testimonial-card__info">
-                                        <span class="testimonial-card__name">Directeur Technique</span>
-                                        <span class="testimonial-card__company">Integral BTP</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-card">
-                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
-                                <p class="testimonial-card__text">L'IA a transformé notre processus de recrutement. Nous
-                                    identifions les meilleurs profils 3 fois plus vite.</p>
-                                <div class="testimonial-card__author">
-                                    <img src="assets/clients/krinch-partners.png" alt="Krinch & Partners"
-                                        class="testimonial-card__logo">
-                                    <div class="testimonial-card__info">
-                                        <span class="testimonial-card__name">Directrice Associée</span>
-                                        <span class="testimonial-card__company">Krinch & Partners</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-card">
-                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
-                                <p class="testimonial-card__text">Le système de prédiction des tendances nous a permis
-                                    de réduire nos ruptures de stock de 65%.</p>
-                                <div class="testimonial-card__author">
-                                    <img src="assets/clients/saunya-cosmetics.png" alt="Saunya Cosmetics"
-                                        class="testimonial-card__logo">
-                                    <div class="testimonial-card__info">
-                                        <span class="testimonial-card__name">Directeur Commercial</span>
-                                        <span class="testimonial-card__company">Saunya Cosmetics</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-card">
-                                <div class="testimonial-card__quote"><i data-lucide="quote"></i></div>
-                                <p class="testimonial-card__text">L'automatisation de la prise de rendez-vous a optimisé
-                                    notre planning. Nos instituts fonctionnent à 95% de capacité.</p>
-                                <div class="testimonial-card__author">
-                                    <img src="assets/clients/saucare.png" alt="Saucare" class="testimonial-card__logo">
-                                    <div class="testimonial-card__info">
-                                        <span class="testimonial-card__name">Responsable Réseau</span>
-                                        <span class="testimonial-card__company">Saucare</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="carousel__btn carousel__btn--next" aria-label="Suivant">
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </div>
-
-                <!-- Indicateurs du carrousel -->
-                <div class="carousel__dots" data-animate></div>
 
                 <!-- Partenaires -->
                 <div class="partners" data-animate>
