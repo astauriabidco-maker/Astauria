@@ -25,36 +25,35 @@
     --color-dark-grey: #4A5568;
     --color-text: #2D3748;
 
-    /* Typography */
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-size-xs: 0.75rem;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
+    /* Typography refined */
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-size-xs: 0.7rem;
+    --font-size-sm: 0.8rem;
+    --font-size-base: 0.95rem;
+    --font-size-lg: 1.1rem;
     --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 2rem;
-    --font-size-4xl: 2.5rem;
-    --font-size-5xl: 3.5rem;
+    --font-size-2xl: 1.75rem;
+    --font-size-3xl: 2.25rem;
+    --font-size-4xl: 3rem;
 
-    /* Spacing */
+    /* Spacing Calibrated (Slightly more compact) */
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
+    --space-md: 0.75rem;
+    --space-lg: 1.25rem;
     --space-xl: 2rem;
-    --space-2xl: 3rem;
-    --space-3xl: 4rem;
-    --space-4xl: 6rem;
+    --space-2xl: 3.5rem;
+    --space-3xl: 5rem;
+    --space-4xl: 7rem;
 
-    /* Layout */
-    --container-max: 1200px;
-    --header-height: 100px;
+    /* Layout Calibration */
+    --container-max: 1040px;
+    --header-height: 70px;
 
     /* Effects */
-    --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
     --radius-full: 9999px;
 
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -170,11 +169,12 @@ img {
 }
 
 .section-title {
-    font-size: var(--font-size-3xl);
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--color-navy);
     margin-bottom: var(--space-sm);
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .section-subtitle {
@@ -2649,42 +2649,31 @@ section[id] {
     .ai-card--2 { right: 5%; top: 30%; }
     .ai-card--3 { left: 5%; bottom: 10%; }
 }
+/* ========== CLIENT TESTIMONIALS (REFINED) ========== */
+.section--testimonials {
+    padding: var(--space-3xl) 0;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1a2d3f 0%, #0F1E2E 100%);
+}
 
-/* Client logos marquee */
+.section--testimonials .container {
+    max-width: 900px;
+}
+
 .clients__marquee {
     overflow: hidden;
-    margin-bottom: var(--space-4xl);
-    padding: var(--space-lg) 0;
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-md) 0;
     position: relative;
-    z-index: 1;
-}
-
-.clients__marquee::before,
-.clients__marquee::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 150px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.clients__marquee::before {
-    left: 0;
-    background: linear-gradient(to right, var(--color-navy), transparent);
-}
-
-.clients__marquee::after {
-    right: 0;
-    background: linear-gradient(to left, var(--color-navy), transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .clients__marquee-track {
     display: flex;
-    gap: var(--space-4xl);
-    animation: marquee 40s linear infinite;
+    gap: var(--space-3xl);
+    animation: marquee 30s linear infinite;
     width: max-content;
+    align-items: center;
 }
 
 @keyframes marquee {
@@ -2692,77 +2681,65 @@ section[id] {
     100% { transform: translateX(-50%); }
 }
 
-.clients__logo-item {
-    flex: 0 0 auto;
-    opacity: 0.5;
-    transition: all 0.4s ease;
-    filter: brightness(0) invert(1) grayscale(1);
-}
-
-.clients__logo-item:hover {
-    opacity: 1;
-    filter: brightness(1) invert(0) grayscale(0);
-    transform: scale(1.1);
-}
-
 .clients__logo {
-    max-width: 140px;
-    max-height: 45px;
-    object-fit: contain;
+    max-width: 90px;
+    max-height: 25px;
+    opacity: 0.5;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.3s ease;
 }
 
-/* Testimonials Grid */
+.clients__logo:hover {
+    opacity: 1;
+}
+
 .testimonials__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-xl);
-    position: relative;
-    z-index: 1;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
 }
 
 .testimonial-card--glass {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: var(--space-2xl);
-    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 260px;
+    transition: transform 0.3s ease;
 }
 
 .testimonial-card--glass:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(201, 162, 77, 0.3);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .testimonial-card__stars {
     display: flex;
-    gap: 4px;
-    color: var(--color-gold);
+    gap: 2px;
+    margin-bottom: var(--space-md);
 }
 
 .testimonial-card__stars svg {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     fill: var(--color-gold);
+    color: var(--color-gold);
 }
 
 .testimonial-card__text {
-    font-size: var(--font-size-md);
+    font-size: 0.85rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.8);
     font-style: italic;
     flex-grow: 1;
 }
 
 .testimonial-card__author {
-    margin-top: var(--space-md);
-    padding-top: var(--space-md);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-sm);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -2770,15 +2747,15 @@ section[id] {
     display: block;
     font-weight: 700;
     color: #fff;
-    font-size: var(--font-size-sm);
+    font-size: 0.75rem;
 }
 
 .testimonial-card__company {
     display: block;
-    font-size: var(--font-size-xs);
+    font-size: 0.65rem;
     color: var(--color-gold);
-    font-weight: 500;
-    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* ========== METHODOLOGY SECTION ========== */
