@@ -704,6 +704,13 @@ section[id] {
     box-shadow: 0 8px 24px rgba(201, 162, 77, 0.4);
 }
 
+.roi-slider__hint {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.40);
+    margin-top: var(--space-xs);
+    font-style: italic;
+}
+
 /* ========== BEFORE / AFTER TOGGLE ========== */
 .ba-toggle {
     display: flex;

@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=4">
+    <link rel="stylesheet" href="assets/css/styles.css?v=5">
 </head>
 
 <body>
@@ -70,30 +70,31 @@
                 <div class="roi-simulator" data-animate>
                     <div class="roi-simulator__header">
                         <i data-lucide="calculator"></i>
-                        <span>Simulez votre gain IA en 10 secondes</span>
+                        <span>Estimez vos gains IA en 10 secondes</span>
                     </div>
                     <div class="roi-simulator__slider-group">
                         <label class="roi-simulator__label">
-                            Documents traités par mois :
-                            <strong id="roi-docs-value">1 000</strong>
+                            Heures / semaine en tâches répétitives :
+                            <strong id="roi-hours-value">10 h</strong>
                         </label>
-                        <input type="range" id="roi-docs" min="100" max="50000" step="100" value="1000" class="roi-slider">
+                        <input type="range" id="roi-hours" min="2" max="80" step="1" value="10" class="roi-slider">
+                        <div class="roi-slider__hint">Saisie manuelle, reporting, relances, contrôles...</div>
                     </div>
                     <div class="roi-simulator__slider-group">
                         <label class="roi-simulator__label">
-                            Salaire moyen équipe concernée (€/mois) :
-                            <strong id="roi-salary-value">3 500 €</strong>
+                            Personnes concernées dans l'équipe :
+                            <strong id="roi-team-value">5 pers.</strong>
                         </label>
-                        <input type="range" id="roi-salary" min="2000" max="8000" step="100" value="3500" class="roi-slider">
+                        <input type="range" id="roi-team" min="1" max="100" step="1" value="5" class="roi-slider">
                     </div>
                     <div class="roi-simulator__results">
                         <div class="roi-result">
                             <span class="roi-result__value" id="roi-time">—</span>
-                            <span class="roi-result__label">Heures économisées / mois</span>
+                            <span class="roi-result__label">Heures libérées / mois</span>
                         </div>
                         <div class="roi-result roi-result--gold">
                             <span class="roi-result__value" id="roi-savings">—</span>
-                            <span class="roi-result__label">Économies potentielles / mois</span>
+                            <span class="roi-result__label">Équivalent budget récupéré / mois</span>
                         </div>
                     </div>
                     <a href="audit-ia.html" class="roi-simulator__cta">
@@ -913,31 +914,33 @@
     <script>
     // ===== ROI SIMULATOR =====
     (function() {
-        const docsSlider   = document.getElementById('roi-docs');
-        const salarySlider = document.getElementById('roi-salary');
-        const docsValue    = document.getElementById('roi-docs-value');
-        const salaryValue  = document.getElementById('roi-salary-value');
-        const roiTime      = document.getElementById('roi-time');
-        const roiSavings   = document.getElementById('roi-savings');
-        if (!docsSlider) return;
+        const hoursSlider = document.getElementById('roi-hours');
+        const teamSlider  = document.getElementById('roi-team');
+        const hoursValue  = document.getElementById('roi-hours-value');
+        const teamValue   = document.getElementById('roi-team-value');
+        const roiTime     = document.getElementById('roi-time');
+        const roiSavings  = document.getElementById('roi-savings');
+        if (!hoursSlider) return;
 
         function fmt(n) { return n.toLocaleString('fr-FR'); }
 
         function update() {
-            const docs   = parseInt(docsSlider.value);
-            const salary = parseInt(salarySlider.value);
-            docsValue.textContent   = fmt(docs);
-            salaryValue.textContent = fmt(salary) + ' €';
-            // Assumptions: 3 min/doc saved, avg 25€/h effective cost
-            const minutesSaved = docs * 3 * 0.40; // 40% automation rate
-            const hoursSaved   = Math.round(minutesSaved / 60);
-            const costPerMin   = (salary / 160) / 60;
-            const savings      = Math.round(minutesSaved * costPerMin);
-            roiTime.textContent    = fmt(hoursSaved) + ' h';
-            roiSavings.textContent = fmt(savings) + ' €';
+            const hPerWeek = parseInt(hoursSlider.value);
+            const team     = parseInt(teamSlider.value);
+            hoursValue.textContent = hPerWeek + ' h';
+            teamValue.textContent  = team + ' pers.';
+
+            // Methodology: 40% automation rate, 4.33 weeks/month
+            // Cost/h assumption: 28€/h (avg all-in SME employee cost)
+            const hoursPerMonth  = hPerWeek * 4.33 * team;
+            const hoursFreed     = Math.round(hoursPerMonth * 0.40);
+            const budgetRecovered = Math.round(hoursFreed * 28);
+
+            roiTime.textContent    = fmt(hoursFreed) + ' h';
+            roiSavings.textContent = fmt(budgetRecovered) + ' €';
         }
-        docsSlider.addEventListener('input', update);
-        salarySlider.addEventListener('input', update);
+        hoursSlider.addEventListener('input', update);
+        teamSlider.addEventListener('input', update);
         update();
     })();
 
