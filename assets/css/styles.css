@@ -25,26 +25,26 @@
     --color-dark-grey: #4A5568;
     --color-text: #2D3748;
 
-    /* Typography refined */
+    /* Typography - More conservative scale */
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
     --font-size-xs: 0.7rem;
     --font-size-sm: 0.8rem;
-    --font-size-base: 0.95rem;
-    --font-size-lg: 1.1rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.75rem;
-    --font-size-3xl: 2.25rem;
-    --font-size-4xl: 3rem;
+    --font-size-base: 0.9rem;
+    --font-size-lg: 1rem;
+    --font-size-xl: 1.15rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
 
-    /* Spacing Calibrated (Slightly more compact) */
+    /* Spacing - Tight & Professional */
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 0.75rem;
-    --space-lg: 1.25rem;
-    --space-xl: 2rem;
-    --space-2xl: 3.5rem;
-    --space-3xl: 5rem;
-    --space-4xl: 7rem;
+    --space-lg: 1rem;
+    --space-xl: 1.5rem;
+    --space-2xl: 2.5rem;
+    --space-3xl: 3.5rem;
+    --space-4xl: 5rem;
 
     /* Layout Calibration */
     --container-max: 1040px;
@@ -2695,7 +2695,7 @@ section[id] {
 
 .testimonials__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-md);
 }
 
