@@ -434,23 +434,30 @@ section[id] {
     animation: floatOrb 8s ease-in-out infinite;
 }
 
+@keyframes revealDashboard {
+    from {
+        transform: translateX(-50%) perspective(1200px) rotateX(20deg) translateY(60px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) perspective(1200px) rotateX(4deg) translateY(0);
+        opacity: 1;
+    }
+}
+
 /* SaaS UI Reveal */
 .hero__ui-reveal {
     position: absolute;
     bottom: -60px;
     left: 50%;
-    transform: translateX(-50%) perspective(1200px) rotateX(20deg) translateY(40px);
+    transform: translateX(-50%) perspective(1200px) rotateX(4deg) translateY(0);
     width: 90%;
     max-width: 900px;
-    z-index: 10;
-    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.2s ease-out;
-    opacity: 0;
+    z-index: 1; /* Drop behind text and stats */
     pointer-events: none;
-}
-
-.hero__ui-reveal.visible {
-    transform: translateX(-50%) perspective(1200px) rotateX(4deg) translateY(0);
-    opacity: 1;
+    animation: revealDashboard 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+    opacity: 0; /* Starts hidden until animation */
 }
 
 .hero__ui-reveal-inner {
