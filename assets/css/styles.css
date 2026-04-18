@@ -448,7 +448,7 @@ section[id] {
 /* SaaS UI Reveal */
 .hero__ui-reveal {
     position: absolute;
-    bottom: -60px;
+    bottom: -150px;
     left: 50%;
     transform: translateX(-50%) perspective(1200px) rotateX(4deg) translateY(0);
     width: 90%;
@@ -464,7 +464,7 @@ section[id] {
     position: relative;
     border-radius: 12px 12px 0 0;
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 30px rgba(201, 162, 77, 0.15);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.8), 0 0 40px rgba(201, 162, 77, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: none;
 }
@@ -474,8 +474,15 @@ section[id] {
     height: auto;
     display: block;
     opacity: 0.95;
-    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
+}
+
+.hero__ui-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-navy) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 
@@ -527,16 +534,20 @@ section[id] {
 
 .hero__title {
     font-size: var(--font-size-4xl);
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: var(--space-lg);
-    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #FFFFFF;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(10, 21, 32, 0.8);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    line-height: 1.1;
 }
 
 .hero__subtitle {
     font-size: var(--font-size-lg);
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(10, 21, 32, 0.9);
     margin-bottom: var(--space-2xl);
     max-width: 700px;
     margin-left: auto;
