@@ -25,8 +25,8 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/audit-ia.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=10">
+    <link rel="stylesheet" href="assets/css/diagnostic.css?v=1">
 </head>
 
 <body>
@@ -347,42 +347,160 @@
                         </p>
                     </div>
 
-                    <form class="contact-form" data-animate>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Nom & prénom *</label>
-                                <input type="text" id="name" name="name" required>
+                    <!-- INTERACTIVE DIAGNOSTIC WIZARD -->
+                    <div class="diagnostic-wizard" id="diagnostic-wizard" data-animate>
+                        <div class="wizard-header">
+                            <div class="wizard-steps">
+                                <span class="wizard-step active" data-step="1"></span>
+                                <span class="wizard-step" data-step="2"></span>
+                                <span class="wizard-step" data-step="3"></span>
+                                <span class="wizard-step" data-step="4"></span>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email professionnel *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
+                            <p class="wizard-subtitle">Étape <span id="current-step-num">1</span> sur 4</p>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="company">Entreprise *</label>
-                                <input type="text" id="company" name="company" required>
+
+                        <form id="audit-wizard-form" class="wizard-form">
+                            <!-- Step 1: Industry -->
+                            <div class="step-content active" data-step="1">
+                                <h3 class="step-title">Quel est votre secteur d'activité ?</h3>
+                                <div class="options-grid">
+                                    <label class="option-card">
+                                        <input type="radio" name="sector" value="industry" required>
+                                        <div class="option-card__inner">
+                                            <i data-lucide="factory"></i>
+                                            <span>Industrie & BTP</span>
+                                        </div>
+                                    </label>
+                                    <label class="option-card">
+                                        <input type="radio" name="sector" value="logistics">
+                                        <div class="option-card__inner">
+                                            <i data-lucide="truck"></i>
+                                            <span>Logistique & Transport</span>
+                                        </div>
+                                    </label>
+                                    <label class="option-card">
+                                        <input type="radio" name="sector" value="services">
+                                        <div class="option-card__inner">
+                                            <i data-lucide="briefcase"></i>
+                                            <span>Services & Conseil</span>
+                                        </div>
+                                    </label>
+                                    <label class="option-card">
+                                        <input type="radio" name="sector" value="retail">
+                                        <div class="option-card__inner">
+                                            <i data-lucide="shopping-cart"></i>
+                                            <span>E-commerce & Retail</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="wizard-footer">
+                                    <button type="button" class="btn btn--primary next-step">Continuer <i data-lucide="chevron-right"></i></button>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="country">Pays *</label>
-                                <select id="country" name="country" required>
-                                    <option value="">Sélectionnez</option>
-                                    <option value="france">France</option>
-                                    <option value="cameroon">Cameroun</option>
-                                    <option value="other">Autre</option>
-                                </select>
+
+                            <!-- Step 2: Pain Points -->
+                            <div class="step-content" data-step="2">
+                                <h3 class="step-title">Quelle est votre priorité d'automatisation ?</h3>
+                                <div class="options-list">
+                                    <label class="check-option">
+                                        <input type="checkbox" name="pain_points" value="docs">
+                                        <div class="check-option__inner">
+                                            <i data-lucide="file-search"></i>
+                                            <div>
+                                                <strong>Traitement de documents</strong>
+                                                <span>Factures, contrats, rapports de chantier...</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="check-option">
+                                        <input type="checkbox" name="pain_points" value="hr_payroll">
+                                        <div class="check-option__inner">
+                                            <i data-lucide="users"></i>
+                                            <div>
+                                                <strong>RH & Paie</strong>
+                                                <span>Déclarations sociales, gestion des variables...</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="check-option">
+                                        <input type="checkbox" name="pain_points" value="erp_data">
+                                        <div class="check-option__inner">
+                                            <i data-lucide="database"></i>
+                                            <div>
+                                                <strong>Synchronisation de données</strong>
+                                                <span>Ponts entre ERP, CRM et outils métiers...</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="wizard-footer">
+                                    <button type="button" class="btn btn--outline prev-step"><i data-lucide="chevron-left"></i> Retour</button>
+                                    <button type="button" class="btn btn--primary next-step">Continuer <i data-lucide="chevron-right"></i></button>
+                                </div>
                             </div>
+
+                            <!-- Step 3: Maturity -->
+                            <div class="step-content" data-step="3">
+                                <h3 class="step-title">Utilisez-vous déjà l'IA dans vos processus ?</h3>
+                                <div class="maturity-slider">
+                                    <input type="range" name="maturity" min="1" max="5" value="1" id="maturity-range">
+                                    <div class="maturity-labels">
+                                        <span>Pas du tout</span>
+                                        <span>Expérimentation</span>
+                                        <span>Déployée</span>
+                                    </div>
+                                    <div class="maturity-feedback" id="maturity-feedback">
+                                        "Nous avons beaucoup de marge de progression ensemble."
+                                    </div>
+                                </div>
+                                <div class="wizard-footer">
+                                    <button type="button" class="btn btn--outline prev-step"><i data-lucide="chevron-left"></i> Retour</button>
+                                    <button type="button" class="btn btn--primary next-step">Dernière étape <i data-lucide="chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Contact -->
+                            <div class="step-content" data-step="4">
+                                <h3 class="step-title">Où devons-nous envoyer vos recommandations ?</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Nom Complet</label>
+                                        <input type="text" name="name" placeholder="Ex: Jean Dupont" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email Professionnel</label>
+                                        <input type="email" name="email" placeholder="jean@entreprise.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Téléphone</label>
+                                        <input type="tel" name="phone" placeholder="+33 ...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Entreprise</label>
+                                        <input type="text" name="company" placeholder="Nom de votre société" required>
+                                    </div>
+                                </div>
+                                <div class="wizard-footer">
+                                    <button type="button" class="btn btn--outline prev-step"><i data-lucide="chevron-left"></i> Retour</button>
+                                    <button type="submit" class="btn btn--primary next-step">Lancer mon Diagnostic <i data-lucide="zap"></i></button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Expert Insight Floating Panel -->
+                        <div class="expert-panel" id="expert-insight">
+                            <div class="expert-header">
+                                <img src="assets/team/expert_ai_architect_1776511174419.png" alt="Expert AI">
+                                <div>
+                                    <span class="expert-name">Jean-Marc T.</span>
+                                    <span class="expert-label">Architecte Conseil</span>
+                                </div>
+                            </div>
+                            <p class="expert-text" id="insight-text">
+                                Choisissez votre secteur pour obtenir une prémière recommandation personnalisée.
+                            </p>
                         </div>
-                        <div class="form-group form-group--full">
-                            <label for="problem">Votre problématique principale</label>
-                            <textarea id="problem" name="problem" rows="4"
-                                placeholder="Décrivez brièvement vos enjeux ou les processus que vous souhaitez améliorer..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn--primary btn--large form-submit">
-                            <span>Lancer mon audit IA</span>
-                            <span class="btn__badge">Offert si projet lancé</span>
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -541,6 +659,7 @@
     </div>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/diagnostic.js?v=1"></script>
     <script src="assets/js/analytics.js"></script>
     <script src="assets/js/newsletter.js"></script>
     <script src="assets/js/leads.js"></script>
