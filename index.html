@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="assets/css/styles.css?v=3">
+    <link rel="stylesheet" href="assets/css/styles.css?v=4">
 </head>
 
 <body>
@@ -65,6 +65,42 @@
                         <span class="btn__badge">Offert si projet lancé</span>
                     </a>
                 </div>
+
+                <!-- ROI Simulator -->
+                <div class="roi-simulator" data-animate>
+                    <div class="roi-simulator__header">
+                        <i data-lucide="calculator"></i>
+                        <span>Simulez votre gain IA en 10 secondes</span>
+                    </div>
+                    <div class="roi-simulator__slider-group">
+                        <label class="roi-simulator__label">
+                            Documents traités par mois :
+                            <strong id="roi-docs-value">1 000</strong>
+                        </label>
+                        <input type="range" id="roi-docs" min="100" max="50000" step="100" value="1000" class="roi-slider">
+                    </div>
+                    <div class="roi-simulator__slider-group">
+                        <label class="roi-simulator__label">
+                            Salaire moyen équipe concernée (€/mois) :
+                            <strong id="roi-salary-value">3 500 €</strong>
+                        </label>
+                        <input type="range" id="roi-salary" min="2000" max="8000" step="100" value="3500" class="roi-slider">
+                    </div>
+                    <div class="roi-simulator__results">
+                        <div class="roi-result">
+                            <span class="roi-result__value" id="roi-time">—</span>
+                            <span class="roi-result__label">Heures économisées / mois</span>
+                        </div>
+                        <div class="roi-result roi-result--gold">
+                            <span class="roi-result__value" id="roi-savings">—</span>
+                            <span class="roi-result__label">Économies potentielles / mois</span>
+                        </div>
+                    </div>
+                    <a href="audit-ia.html" class="roi-simulator__cta">
+                        Valider avec un expert Astauria →
+                    </a>
+                </div>
+
                 <div class="hero__stats" data-animate>
                     <div class="hero__stat">
                         <span class="hero__stat-value">15+</span>
@@ -95,48 +131,90 @@
             <div class="container">
                 <div class="section__header" data-animate>
                     <h2 class="section__title">L'IA peut résoudre ces problèmes</h2>
-                    <p class="section__subtitle">Si vous reconnaissez ces situations, l'IA peut vous aider.</p>
+                    <p class="section__subtitle">Faites glisser pour voir la transformation.</p>
                 </div>
 
-                <div class="challenges__grid">
-                    <div class="challenge-card" data-animate>
-                        <div class="challenge-card__icon">
-                            <i data-lucide="search"></i>
-                        </div>
-                        <h3 class="challenge-card__title">Trop de données à analyser</h3>
-                        <p class="challenge-card__text">Des milliers de documents, contrats, tickets... impossibles à
-                            traiter manuellement.</p>
-                        <span class="challenge-card__solution">→ NLP & analyse automatique</span>
+                <!-- Before / After Toggle -->
+                <div class="ba-toggle" data-animate>
+                    <div class="ba-toggle__switch-wrap">
+                        <span class="ba-toggle__label" id="ba-label-before">Sans Astauria</span>
+                        <button class="ba-toggle__switch" id="ba-switch" aria-label="Basculer avant/après" aria-pressed="false">
+                            <span class="ba-toggle__knob"></span>
+                        </button>
+                        <span class="ba-toggle__label ba-toggle__label--after" id="ba-label-after">Avec Astauria</span>
                     </div>
+                </div>
 
-                    <div class="challenge-card" data-animate>
-                        <div class="challenge-card__icon">
-                            <i data-lucide="trending-up"></i>
-                        </div>
-                        <h3 class="challenge-card__title">Prédire l'avenir</h3>
-                        <p class="challenge-card__text">Anticiper les ventes, le churn, les pannes, les réadmissions...
+                <div class="challenges__grid" id="challenges-grid">
+
+                    <div class="challenge-card ba-card" data-animate>
+                        <div class="challenge-card__icon ba-card__icon--before"><i data-lucide="search"></i></div>
+                        <div class="challenge-card__icon ba-card__icon--after" style="display:none;"><i data-lucide="file-check-2"></i></div>
+                        <h3 class="challenge-card__title">
+                            <span class="ba-text-before">Trop de données à analyser</span>
+                            <span class="ba-text-after" style="display:none;">Analyse automatique instantanée</span>
+                        </h3>
+                        <p class="challenge-card__text">
+                            <span class="ba-text-before">Des milliers de documents, contrats, tickets... impossibles à traiter manuellement.</span>
+                            <span class="ba-text-after" style="display:none;">Notre moteur NLP classe, résume et extrait les données critiques en quelques secondes.</span>
                         </p>
-                        <span class="challenge-card__solution">→ Machine Learning prédictif</span>
+                        <span class="challenge-card__solution">
+                            <span class="ba-text-before">→ NLP & analyse automatique</span>
+                            <span class="ba-text-after" style="display:none; color: var(--color-gold);">✓ Gain de 80% du temps de traitement</span>
+                        </span>
                     </div>
 
-                    <div class="challenge-card" data-animate>
-                        <div class="challenge-card__icon">
-                            <i data-lucide="eye"></i>
-                        </div>
-                        <h3 class="challenge-card__title">Détecter l'invisible</h3>
-                        <p class="challenge-card__text">Anomalies, défauts, fraudes... que l'œil humain ne voit pas.</p>
-                        <span class="challenge-card__solution">→ Vision IA & détection</span>
+                    <div class="challenge-card ba-card" data-animate>
+                        <div class="challenge-card__icon ba-card__icon--before"><i data-lucide="trending-up"></i></div>
+                        <div class="challenge-card__icon ba-card__icon--after" style="display:none;"><i data-lucide="chart-no-axes-combined"></i></div>
+                        <h3 class="challenge-card__title">
+                            <span class="ba-text-before">Prédire l'avenir</span>
+                            <span class="ba-text-after" style="display:none;">Prédictions précises à 90%</span>
+                        </h3>
+                        <p class="challenge-card__text">
+                            <span class="ba-text-before">Anticiper les ventes, le churn, les pannes, les réadmissions...</span>
+                            <span class="ba-text-after" style="display:none;">Nos modèles ML prédisent vos métriques clés à J+30, J+60, J+90 avec des alertes proactives.</span>
+                        </p>
+                        <span class="challenge-card__solution">
+                            <span class="ba-text-before">→ Machine Learning prédictif</span>
+                            <span class="ba-text-after" style="display:none; color: var(--color-gold);">✓ 30% de coûts opérationnels évités</span>
+                        </span>
                     </div>
 
-                    <div class="challenge-card" data-animate>
-                        <div class="challenge-card__icon">
-                            <i data-lucide="zap"></i>
-                        </div>
-                        <h3 class="challenge-card__title">Réagir en temps réel</h3>
-                        <p class="challenge-card__text">Alertes, recommandations, priorisation automatique en fonction
-                            du contexte.</p>
-                        <span class="challenge-card__solution">→ IA temps réel</span>
+                    <div class="challenge-card ba-card" data-animate>
+                        <div class="challenge-card__icon ba-card__icon--before"><i data-lucide="eye"></i></div>
+                        <div class="challenge-card__icon ba-card__icon--after" style="display:none;"><i data-lucide="shield-check"></i></div>
+                        <h3 class="challenge-card__title">
+                            <span class="ba-text-before">Détecter l'invisible</span>
+                            <span class="ba-text-after" style="display:none;">Anomalies détectées avant impact</span>
+                        </h3>
+                        <p class="challenge-card__text">
+                            <span class="ba-text-before">Anomalies, défauts, fraudes... que l'œil humain ne voit pas.</span>
+                            <span class="ba-text-after" style="display:none;">Notre IA détecte les signaux faibles en temps réel et vous alerte avant que le problème ne se déclenche.</span>
+                        </p>
+                        <span class="challenge-card__solution">
+                            <span class="ba-text-before">→ Vision IA & détection</span>
+                            <span class="ba-text-after" style="display:none; color: var(--color-gold);">✓ Réduction des sinistres de 45%</span>
+                        </span>
                     </div>
+
+                    <div class="challenge-card ba-card" data-animate>
+                        <div class="challenge-card__icon ba-card__icon--before"><i data-lucide="zap"></i></div>
+                        <div class="challenge-card__icon ba-card__icon--after" style="display:none;"><i data-lucide="rocket"></i></div>
+                        <h3 class="challenge-card__title">
+                            <span class="ba-text-before">Réagir en temps réel</span>
+                            <span class="ba-text-after" style="display:none;">Actions automatisées & alertes instantanées</span>
+                        </h3>
+                        <p class="challenge-card__text">
+                            <span class="ba-text-before">Alertes, recommandations, priorisation automatique en fonction du contexte.</span>
+                            <span class="ba-text-after" style="display:none;">Votre système agit seul : il priorise, alerte, et route les tâches sans intervention humaine.</span>
+                        </p>
+                        <span class="challenge-card__solution">
+                            <span class="ba-text-before">→ IA temps réel</span>
+                            <span class="ba-text-after" style="display:none; color: var(--color-gold);">✓ Temps de réponse divisé par 5</span>
+                        </span>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -832,6 +910,65 @@
     <script src="assets/js/analytics.js"></script>
     <script src="assets/js/newsletter.js"></script>
     <script src="assets/js/cookies.js"></script>
+    <script>
+    // ===== ROI SIMULATOR =====
+    (function() {
+        const docsSlider   = document.getElementById('roi-docs');
+        const salarySlider = document.getElementById('roi-salary');
+        const docsValue    = document.getElementById('roi-docs-value');
+        const salaryValue  = document.getElementById('roi-salary-value');
+        const roiTime      = document.getElementById('roi-time');
+        const roiSavings   = document.getElementById('roi-savings');
+        if (!docsSlider) return;
+
+        function fmt(n) { return n.toLocaleString('fr-FR'); }
+
+        function update() {
+            const docs   = parseInt(docsSlider.value);
+            const salary = parseInt(salarySlider.value);
+            docsValue.textContent   = fmt(docs);
+            salaryValue.textContent = fmt(salary) + ' €';
+            // Assumptions: 3 min/doc saved, avg 25€/h effective cost
+            const minutesSaved = docs * 3 * 0.40; // 40% automation rate
+            const hoursSaved   = Math.round(minutesSaved / 60);
+            const costPerMin   = (salary / 160) / 60;
+            const savings      = Math.round(minutesSaved * costPerMin);
+            roiTime.textContent    = fmt(hoursSaved) + ' h';
+            roiSavings.textContent = fmt(savings) + ' €';
+        }
+        docsSlider.addEventListener('input', update);
+        salarySlider.addEventListener('input', update);
+        update();
+    })();
+
+    // ===== BEFORE / AFTER TOGGLE =====
+    (function() {
+        const btn = document.getElementById('ba-switch');
+        if (!btn) return;
+        let isAfter = false;
+
+        btn.addEventListener('click', function() {
+            isAfter = !isAfter;
+            btn.setAttribute('aria-pressed', isAfter);
+
+            const befores = document.querySelectorAll('.ba-text-before, .ba-card__icon--before');
+            const afters  = document.querySelectorAll('.ba-text-after, .ba-card__icon--after');
+            const cards   = document.querySelectorAll('.ba-card');
+
+            befores.forEach(el => el.style.display = isAfter ? 'none' : '');
+            afters.forEach(el  => el.style.display = isAfter ? ''     : 'none');
+
+            cards.forEach(card => {
+                card.classList.toggle('ba-card--after', isAfter);
+            });
+
+            document.getElementById('ba-label-before').classList.toggle('ba-toggle__label--active', !isAfter);
+            document.getElementById('ba-label-after').classList.toggle('ba-toggle__label--active',  isAfter);
+        });
+        // Default: before is active label
+        document.getElementById('ba-label-before').classList.add('ba-toggle__label--active');
+    })();
+    </script>
 </body>
 
 </html>
