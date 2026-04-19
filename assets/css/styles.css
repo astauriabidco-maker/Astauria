@@ -2741,6 +2741,19 @@ section[id] {
     margin-top: var(--space-lg);
     padding-top: var(--space-sm);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.testimonial-card__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(201, 162, 77, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
 }
 
 .testimonial-card__name {
