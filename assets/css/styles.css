@@ -789,6 +789,10 @@ section[id] {
     color: var(--color-gold) !important;
 }
 
+.ba-card--after .challenge-card__icon svg {
+    filter: drop-shadow(0 2px 4px rgba(201, 162, 77, 0.4));
+}
+
 /* ========== CHALLENGES ========== */
 .challenges {
     background: var(--color-white);
@@ -820,7 +824,9 @@ section[id] {
     justify-content: center;
     width: 56px;
     height: 56px;
-    background: var(--color-white);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+    border: 1px solid rgba(15, 30, 46, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     border-radius: var(--radius-md);
     margin-bottom: var(--space-md);
     color: var(--color-navy);
@@ -829,6 +835,8 @@ section[id] {
 .challenge-card__icon svg {
     width: 28px;
     height: 28px;
+    filter: drop-shadow(0 2px 4px rgba(15, 30, 46, 0.2));
+    transition: filter var(--transition-base);
 }
 
 .challenge-card__title {
@@ -1321,16 +1329,17 @@ section[id] {
     justify-content: center;
     width: 64px;
     height: 64px;
-    background: var(--color-white);
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
     border-radius: var(--radius-md);
     margin-bottom: var(--space-lg);
-    color: var(--color-navy);
-    box-shadow: var(--shadow-sm);
+    color: var(--color-gold);
+    box-shadow: 0 8px 16px rgba(15, 30, 46, 0.15);
 }
 
 .solution-card__icon svg {
     width: 32px;
     height: 32px;
+    filter: drop-shadow(0 2px 4px rgba(201, 162, 77, 0.4));
 }
 
 .solution-card__title {
@@ -2807,8 +2816,10 @@ section[id] {
 .method-card__icon {
     width: 60px;
     height: 60px;
-    background: rgba(201, 162, 77, 0.1);
+    background: linear-gradient(135deg, rgba(201, 162, 77, 0.15) 0%, rgba(201, 162, 77, 0.05) 100%);
     color: var(--color-gold);
+    border: 1px solid rgba(201, 162, 77, 0.2);
+    box-shadow: 0 4px 12px rgba(201, 162, 77, 0.12);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
@@ -2819,6 +2830,7 @@ section[id] {
 .method-card__icon svg {
     width: 28px;
     height: 28px;
+    filter: drop-shadow(0 2px 4px rgba(201, 162, 77, 0.3));
 }
 
 .method-card__title {
