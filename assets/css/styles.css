@@ -554,9 +554,7 @@ section[id] {
     margin-right: auto;
 }
 
-.hero__cta {
-    flex-direction: column;
-}
+
 
 .hero__scroll-indicator {
     position: absolute;
