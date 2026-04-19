@@ -396,6 +396,12 @@ section[id] {
     overflow: hidden; /* Elegantly slice dashboard over bleed */
 }
 
+@media (max-width: 768px) {
+    .hero {
+        padding-bottom: 120px;
+    }
+}
+
 .hero__bg {
     position: absolute;
     inset: 0;
