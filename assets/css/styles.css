@@ -388,11 +388,10 @@ section[id] {
 /* ========== HERO ========== */
 .hero {
     position: relative;
-    min-height: 90vh; /* More compact viewport fit */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: calc(var(--header-height) + var(--space-xl)) var(--space-lg) var(--space-lg);
+    padding: calc(var(--header-height) + 80px) var(--space-lg) 260px;
     background: linear-gradient(180deg, var(--color-navy) 0%, #0a1520 100%);
     overflow: hidden; /* Elegantly slice dashboard over bleed */
 }
