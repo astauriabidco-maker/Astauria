@@ -143,10 +143,7 @@ img {
     background: linear-gradient(180deg, var(--color-navy) 0%, #0a1520 100%);
 }
 
-.section__title--light {
-    color: var(--color-white);
-}
-
+/* Title modifiers will be placed after .section-title to ensure cascade priority */
 /* Section Headers (kebab-case) */
 .section-header {
     text-align: center;
@@ -175,6 +172,10 @@ img {
     margin-bottom: var(--space-sm);
     line-height: 1.15;
     letter-spacing: -0.02em;
+}
+
+.section-title.section__title--light {
+    color: var(--color-white);
 }
 
 .section-subtitle {
@@ -2783,15 +2784,17 @@ section[id] {
 }
 
 .clients__logo {
-    max-width: 90px;
-    max-height: 25px;
-    opacity: 0.5;
-    filter: brightness(0) invert(1);
-    transition: opacity 0.3s ease;
+    max-width: 110px;
+    max-height: 35px;
+    opacity: 0.75;
+    transition: all 0.3s ease;
+    object-fit: contain;
+    /* Removed brightness/invert filter which broke logos with solid backgrounds */
 }
 
 .clients__logo:hover {
     opacity: 1;
+    transform: scale(1.05);
 }
 
 .testimonials__grid {
