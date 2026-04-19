@@ -2796,25 +2796,44 @@ section[id] {
 
 .testimonials__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-md);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    align-items: stretch;
+}
+
+@media (max-width: 992px) {
+    .testimonials__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials__grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .testimonial-card--glass {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(12px);
-    padding: var(--space-lg);
+    padding: var(--space-xl); /* Increased padding for elegance */
     border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
     min-height: 260px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Override 50% max-width set on default testimonial-card */
+    width: 100% !important;
+    min-width: unset !important;
+    max-width: none !important;
 }
 
 .testimonial-card--glass:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .testimonial-card__stars {
@@ -2838,13 +2857,24 @@ section[id] {
     flex-grow: 1;
 }
 
+/* Reset parasitic paddings for glass modifier */
+.testimonial-card--glass .testimonial-card__text {
+    padding-left: 0 !important;
+    margin-bottom: auto;
+    font-size: 0.95rem; /* slightly larger for readability */
+}
+
 .testimonial-card__author {
     margin-top: var(--space-lg);
-    padding-top: var(--space-sm);
+    padding-top: var(--space-md);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     gap: var(--space-md);
+}
+
+.testimonial-card--glass .testimonial-card__author {
+    padding-left: 0 !important;
 }
 
 .testimonial-card__avatar {
