@@ -47,127 +47,90 @@
 
     <main>
         <!-- ========== HERO AVEC STATS ========== -->
-        <!-- ========== HERO AVEC STATS ========== -->
+        <!-- ========== HERO SPLIT LAYOUT ========== -->
         <section class="hero" id="hero-section">
             <div class="hero__bg"></div>
-            <div class="container hero__container" style="padding-bottom: 0; position: relative; z-index: 2;">
-                <div class="hero__content" data-animate>
-                    <span class="hero__badge">Cabinet IA & Automatisation</span>
-                    <h1 class="hero__title">
-                        L'IA qui résout vos vrais problèmes métiers
-                    </h1>
-                    <p class="hero__subtitle">
-                        Nous déployons des solutions d'intelligence artificielle concrètes : prédiction, analyse
-                        automatique, détection d'anomalies. Pas de la tech pour la tech, mais des résultats mesurables.
-                    </p>
-                    <a href="audit-ia.html" class="btn btn--primary btn--large">
-                        Demander un audit IA gratuit
-                    </a>
+            <div class="container hero__container" style="position: relative; z-index: 2;">
+                
+                <div class="hero__grid">
+                    <!-- Colonne de gauche (Message) -->
+                    <div class="hero__content hero__left" data-animate>
+                        <span class="hero__badge">Cabinet IA & Automatisation</span>
+                        <h1 class="hero__title">
+                            L'IA qui résout vos vrais problèmes métiers
+                        </h1>
+                        <p class="hero__subtitle">
+                            Nous déployons des solutions d'intelligence artificielle concrètes : prédiction, analyse automatique, détection d'anomalies. Pas de la tech pour la tech, mais des résultats mesurables.
+                        </p>
+                        <a href="audit-ia.html" class="btn btn--primary btn--large">
+                            Demander un audit IA gratuit
+                        </a>
+                        
+                        <div class="hero__stats hero__stats--split">
+                            <div class="hero__stat">
+                                <span class="hero__stat-value">15+</span>
+                                <span class="hero__stat-label">Projets IA déployés</span>
+                            </div>
+                            <div class="hero__stat">
+                                <span class="hero__stat-value">6</span>
+                                <span class="hero__stat-label">Secteurs d'expertise</span>
+                            </div>
+                            <div class="hero__stat">
+                                <span class="hero__stat-value">40%</span>
+                                <span class="hero__stat-label">Gain de temps moyen</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne de droite (Interactive Panel) -->
+                    <div class="hero__right" data-animate>
+                        <div class="hero__interactive-panel">
+                            <!-- Background Platform Image (subtle) -->
+                            <img src="assets/hero-dashboard.png" alt="Platform Astauria" class="hero__interactive-bg">
+
+                            <!-- Floating AI agent decorators -->
+                            <div class="ai-card ai-card--float-1">
+                                <i data-lucide="brain"></i> Agent Polyx RAG actif
+                            </div>
+
+                            <!-- ROI Simulator directly injected here -->
+                            <div class="roi-simulator roi-simulator--overlay" style="margin-top: 0;">
+                                <div class="roi-simulator__header">
+                                    <i data-lucide="calculator"></i>
+                                    <span>Estimez vos gains IA en 10 secondes</span>
+                                </div>
+                                <div class="roi-simulator__slider-group">
+                                    <label class="roi-simulator__label">
+                                        Heures / sem. (tâches répétitives) :
+                                        <strong id="roi-hours-value">10 h</strong>
+                                    </label>
+                                    <input type="range" id="roi-hours" min="2" max="80" step="1" value="10" class="roi-slider">
+                                </div>
+                                <div class="roi-simulator__slider-group">
+                                    <label class="roi-simulator__label">
+                                        Personnes concernées :
+                                        <strong id="roi-team-value">5 pers.</strong>
+                                    </label>
+                                    <input type="range" id="roi-team" min="1" max="100" step="1" value="5" class="roi-slider">
+                                </div>
+                                <div class="roi-simulator__results">
+                                    <div class="roi-result">
+                                        <span class="roi-result__value" id="roi-time">—</span>
+                                        <span class="roi-result__label">Heures libérées / mois</span>
+                                    </div>
+                                    <div class="roi-result roi-result--gold">
+                                        <span class="roi-result__value" id="roi-savings">—</span>
+                                        <span class="roi-result__label">Équivalent budget récupéré</span>
+                                    </div>
+                                </div>
+                                <a href="audit-ia.html" class="roi-simulator__cta">
+                                    Valider avec un expert →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="hero__stats" data-animate>
-                    <div class="hero__stat">
-                        <span class="hero__stat-value">15+</span>
-                        <span class="hero__stat-label">Projets IA déployés</span>
-                    </div>
-                    <div class="hero__stat">
-                        <span class="hero__stat-value">6</span>
-                        <span class="hero__stat-label">Secteurs d'expertise</span>
-                    </div>
-                    <div class="hero__stat">
-                        <span class="hero__stat-value">40%</span>
-                        <span class="hero__stat-label">Gain de temps moyen</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- SaaS UI Reveal Effect with Live AI Simulation -->
-            <div class="hero__ui-reveal">
-                <div class="hero__ui-reveal-inner">
-                    <img src="assets/hero-dashboard.png" alt="Platereforme Astauria Analytics" class="hero__ui-image">
-                    
-                    <!-- Floating AI Agent Cards -->
-                    <div class="ai-agent-simulation">
-                        <div class="ai-card ai-card--1">
-                            <div class="ai-card__pulse"></div>
-                            <div class="ai-card__header">
-                                <i data-lucide="brain"></i>
-                                <span>Agent Polyx RAG</span>
-                            </div>
-                            <div class="ai-card__body">
-                                <div class="ai-card__typing">Analyse conformité I6...</div>
-                                <div class="ai-card__status">✓ Conforme à 98%</div>
-                            </div>
-                        </div>
-
-                        <div class="ai-card ai-card--2">
-                            <div class="ai-card__pulse"></div>
-                            <div class="ai-card__header">
-                                <i data-lucide="zap"></i>
-                                <span>Moteur kPaie</span>
-                            </div>
-                            <div class="ai-card__body">
-                                <div class="ai-card__typing">Injection variables...</div>
-                                <div class="ai-card__progress"><div class="ai-card__progress-bar"></div></div>
-                            </div>
-                        </div>
-
-                        <div class="ai-card ai-card--3">
-                            <div class="ai-card__pulse"></div>
-                            <div class="ai-card__header">
-                                <i data-lucide="search"></i>
-                                <span>SimuLegal Audit</span>
-                            </div>
-                            <div class="ai-card__body">
-                                <div class="ai-card__typing">Scan documents entrant...</div>
-                                <div class="ai-card__result">ID: #4092 - Classifié</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero__ui-glow"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== SIMULATEUR ROI ========== -->
-        <section class="section" id="roi-section" style="background: #0a1520; padding-top: 120px; padding-bottom: 80px; position: relative;">
-            <div class="container">
-                <!-- ROI Simulator -->
-                <div class="roi-simulator" data-animate style="margin-top: 0;">
-                    <div class="roi-simulator__header">
-                        <i data-lucide="calculator"></i>
-                        <span>Estimez vos gains IA en 10 secondes</span>
-                    </div>
-                    <div class="roi-simulator__slider-group">
-                        <label class="roi-simulator__label">
-                            Heures / semaine en tâches répétitives :
-                            <strong id="roi-hours-value">10 h</strong>
-                        </label>
-                        <input type="range" id="roi-hours" min="2" max="80" step="1" value="10" class="roi-slider">
-                        <div class="roi-slider__hint">Saisie manuelle, reporting, relances, contrôles...</div>
-                    </div>
-                    <div class="roi-simulator__slider-group">
-                        <label class="roi-simulator__label">
-                            Personnes concernées dans l'équipe :
-                            <strong id="roi-team-value">5 pers.</strong>
-                        </label>
-                        <input type="range" id="roi-team" min="1" max="100" step="1" value="5" class="roi-slider">
-                    </div>
-                    <div class="roi-simulator__results">
-                        <div class="roi-result">
-                            <span class="roi-result__value" id="roi-time">—</span>
-                            <span class="roi-result__label">Heures libérées / mois</span>
-                        </div>
-                        <div class="roi-result roi-result--gold">
-                            <span class="roi-result__value" id="roi-savings">—</span>
-                            <span class="roi-result__label">Équivalent budget récupéré / mois</span>
-                        </div>
-                    </div>
-                    <a href="audit-ia.html" class="roi-simulator__cta">
-                        Valider avec un expert Astauria →
-                    </a>
-                </div>
+                
             </div>
         </section>
 
