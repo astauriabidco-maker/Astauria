@@ -66,42 +66,6 @@
                     </a>
                 </div>
 
-                <!-- ROI Simulator -->
-                <div class="roi-simulator" data-animate>
-                    <div class="roi-simulator__header">
-                        <i data-lucide="calculator"></i>
-                        <span>Estimez vos gains IA en 10 secondes</span>
-                    </div>
-                    <div class="roi-simulator__slider-group">
-                        <label class="roi-simulator__label">
-                            Heures / semaine en tâches répétitives :
-                            <strong id="roi-hours-value">10 h</strong>
-                        </label>
-                        <input type="range" id="roi-hours" min="2" max="80" step="1" value="10" class="roi-slider">
-                        <div class="roi-slider__hint">Saisie manuelle, reporting, relances, contrôles...</div>
-                    </div>
-                    <div class="roi-simulator__slider-group">
-                        <label class="roi-simulator__label">
-                            Personnes concernées dans l'équipe :
-                            <strong id="roi-team-value">5 pers.</strong>
-                        </label>
-                        <input type="range" id="roi-team" min="1" max="100" step="1" value="5" class="roi-slider">
-                    </div>
-                    <div class="roi-simulator__results">
-                        <div class="roi-result">
-                            <span class="roi-result__value" id="roi-time">—</span>
-                            <span class="roi-result__label">Heures libérées / mois</span>
-                        </div>
-                        <div class="roi-result roi-result--gold">
-                            <span class="roi-result__value" id="roi-savings">—</span>
-                            <span class="roi-result__label">Équivalent budget récupéré / mois</span>
-                        </div>
-                    </div>
-                    <a href="audit-ia.html" class="roi-simulator__cta">
-                        Valider avec un expert Astauria →
-                    </a>
-                </div>
-
                 <div class="hero__stats" data-animate>
                     <div class="hero__stat">
                         <span class="hero__stat-value">15+</span>
@@ -163,6 +127,47 @@
                     </div>
 
                     <div class="hero__ui-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SIMULATEUR ROI ========== -->
+        <section class="section" id="roi-section" style="background: #0a1520; padding-top: 120px; padding-bottom: 80px; position: relative;">
+            <div class="container">
+                <!-- ROI Simulator -->
+                <div class="roi-simulator" data-animate style="margin-top: 0;">
+                    <div class="roi-simulator__header">
+                        <i data-lucide="calculator"></i>
+                        <span>Estimez vos gains IA en 10 secondes</span>
+                    </div>
+                    <div class="roi-simulator__slider-group">
+                        <label class="roi-simulator__label">
+                            Heures / semaine en tâches répétitives :
+                            <strong id="roi-hours-value">10 h</strong>
+                        </label>
+                        <input type="range" id="roi-hours" min="2" max="80" step="1" value="10" class="roi-slider">
+                        <div class="roi-slider__hint">Saisie manuelle, reporting, relances, contrôles...</div>
+                    </div>
+                    <div class="roi-simulator__slider-group">
+                        <label class="roi-simulator__label">
+                            Personnes concernées dans l'équipe :
+                            <strong id="roi-team-value">5 pers.</strong>
+                        </label>
+                        <input type="range" id="roi-team" min="1" max="100" step="1" value="5" class="roi-slider">
+                    </div>
+                    <div class="roi-simulator__results">
+                        <div class="roi-result">
+                            <span class="roi-result__value" id="roi-time">—</span>
+                            <span class="roi-result__label">Heures libérées / mois</span>
+                        </div>
+                        <div class="roi-result roi-result--gold">
+                            <span class="roi-result__value" id="roi-savings">—</span>
+                            <span class="roi-result__label">Équivalent budget récupéré / mois</span>
+                        </div>
+                    </div>
+                    <a href="audit-ia.html" class="roi-simulator__cta">
+                        Valider avec un expert Astauria →
+                    </a>
                 </div>
             </div>
         </section>
