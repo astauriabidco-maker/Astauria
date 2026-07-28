@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } f
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { FaqService } from './faq.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { CreateFaqDto, UpdateFaqDto } from './dto/faq.dto';
 
 @ApiTags('FAQ')
 @Controller('api/faq')
@@ -11,10 +12,17 @@ export class FaqController {
     @Post()
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
-    create(@Body() dto: any) { return this.service.create(dto); }
+    create(@Body() dto: CreateFaqDto) { return this.service.create(dto); }
 
     @Get()
-    findAll(@Query('active') active?: string) {
+    findAll() {
+        return this.service.findAll(true);
+    }
+
+    @Get('admin/all')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
+    findAllForAdmin(@Query('active') active?: string) {
         return this.service.findAll(active === 'true');
     }
 
@@ -24,7 +32,7 @@ export class FaqController {
     @Patch(':id')
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
-    update(@Param('id') id: string, @Body() dto: any) { return this.service.update(id, dto); }
+    update(@Param('id') id: string, @Body() dto: UpdateFaqDto) { return this.service.update(id, dto); }
 
     @Delete(':id')
     @UseGuards(JwtAuthGuard)

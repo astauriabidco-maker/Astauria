@@ -1,4 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import {
+    BadRequestException,
+    Controller,
+    Delete,
+    ForbiddenException,
+    Get,
+    Param,
+    Patch,
+    Post,
+    Body,
+    Request,
+    UseGuards,
+} from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -30,20 +42,34 @@ export class UsersController {
 
     @Get(':id')
     @ApiOperation({ summary: 'Get user by ID' })
-    findOne(@Param('id') id: string) {
+    findOne(@Param('id') id: string, @Request() request: any) {
+        if (request.user.role !== 'ADMIN' && request.user.sub !== id) {
+            throw new ForbiddenException('Vous ne pouvez consulter que votre propre profil');
+        }
         return this.usersService.findById(id);
     }
 
     @Patch(':id')
     @ApiOperation({ summary: 'Update user' })
-    update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-        return this.usersService.update(id, updateUserDto);
+    update(
+        @Param('id') id: string,
+        @Body() updateUserDto: UpdateUserDto,
+        @Request() request: any,
+    ) {
+        const isAdmin = request.user.role === 'ADMIN';
+        if (!isAdmin && request.user.sub !== id) {
+            throw new ForbiddenException('Vous ne pouvez modifier que votre propre profil');
+        }
+        return this.usersService.update(id, updateUserDto, isAdmin);
     }
 
     @Delete(':id')
     @Roles('ADMIN')
     @ApiOperation({ summary: 'Delete user (Admin only)' })
-    remove(@Param('id') id: string) {
+    remove(@Param('id') id: string, @Request() request: any) {
+        if (request.user.sub === id) {
+            throw new BadRequestException('Vous ne pouvez pas supprimer votre propre compte');
+        }
         return this.usersService.remove(id);
     }
 }

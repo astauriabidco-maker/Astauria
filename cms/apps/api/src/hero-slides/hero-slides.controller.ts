@@ -22,11 +22,21 @@ export class HeroSlidesController {
   @Get()
   @ApiOperation({ summary: 'Get all slides' })
   findAll() {
+    return this.heroSlidesService.findAll(true);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @Get('admin/all')
+  @ApiOperation({ summary: 'Get all slides for administration' })
+  findAllForAdmin() {
     return this.heroSlidesService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @Get(':id')
-  @ApiOperation({ summary: 'Get specific slide' })
+  @ApiOperation({ summary: 'Get specific slide for administration' })
   findOne(@Param('id') id: string) {
     return this.heroSlidesService.findOne(id);
   }

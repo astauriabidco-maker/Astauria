@@ -22,11 +22,21 @@ export class ProjectsController {
   @Get()
   @ApiOperation({ summary: 'Get all projects' })
   findAll() {
+    return this.projectsService.findAll(true);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @Get('admin/all')
+  @ApiOperation({ summary: 'Get all projects for administration' })
+  findAllForAdmin() {
     return this.projectsService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @Get(':id')
-  @ApiOperation({ summary: 'Get specific project' })
+  @ApiOperation({ summary: 'Get specific project for administration' })
   findOne(@Param('id') id: string) {
     return this.projectsService.findOne(id);
   }

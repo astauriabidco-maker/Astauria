@@ -33,7 +33,7 @@ export default function Projects() {
 
     const { data: projects, isLoading } = useQuery({
         queryKey: ['projects'],
-        queryFn: async () => (await api.get('/projects')).data,
+        queryFn: async () => (await api.get('/projects/admin/all')).data,
     });
 
     const createMutation = useMutation({

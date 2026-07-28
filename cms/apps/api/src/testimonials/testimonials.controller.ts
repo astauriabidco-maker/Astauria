@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } f
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { TestimonialsService } from './testimonials.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { CreateTestimonialDto, UpdateTestimonialDto } from './dto/testimonial.dto';
 
 @ApiTags('Testimonials')
 @Controller('api/testimonials')
@@ -11,15 +12,22 @@ export class TestimonialsController {
     @Post()
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
-    create(@Body() dto: any) { return this.service.create(dto); }
+    create(@Body() dto: CreateTestimonialDto) { return this.service.create(dto); }
 
     @Get()
-    findAll(@Query('active') active?: string) { return this.service.findAll(active === 'true'); }
+    findAll() { return this.service.findAll(true); }
+
+    @Get('admin/all')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
+    findAllForAdmin(@Query('active') active?: string) {
+        return this.service.findAll(active === 'true');
+    }
 
     @Patch(':id')
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
-    update(@Param('id') id: string, @Body() dto: any) { return this.service.update(id, dto); }
+    update(@Param('id') id: string, @Body() dto: UpdateTestimonialDto) { return this.service.update(id, dto); }
 
     @Delete(':id')
     @UseGuards(JwtAuthGuard)

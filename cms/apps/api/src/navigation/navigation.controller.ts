@@ -21,10 +21,20 @@ export class NavigationController {
     @Get()
     @ApiOperation({ summary: 'Get all menu items' })
     findAll(@Query('location') location?: string) {
+        return this.service.findAll(location, true);
+    }
+
+    @Get('admin/all')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
+    @ApiOperation({ summary: 'Get all menu items for administration' })
+    findAllForAdmin(@Query('location') location?: string) {
         return this.service.findAll(location);
     }
 
     @Get(':id')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     @ApiOperation({ summary: 'Get menu item by ID' })
     findOne(@Param('id') id: string) {
         return this.service.findOne(id);

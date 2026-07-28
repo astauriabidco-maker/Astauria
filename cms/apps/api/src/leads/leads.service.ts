@@ -11,12 +11,15 @@ export class LeadsService {
   constructor(private prisma: PrismaService) {}
 
   async create(createLeadDto: CreateLeadDto) {
-    if (!createLeadDto.name) {
-      createLeadDto.name = 'Contact Web / Newsletter';
-    }
-    
     const lead = await this.prisma.lead.create({
-      data: createLeadDto as any, // Cast as any or properly map since Prisma expects name as string
+      data: {
+        name: createLeadDto.name || 'Contact Web / Newsletter',
+        email: createLeadDto.email,
+        company: createLeadDto.company,
+        phone: createLeadDto.phone,
+        message: createLeadDto.message,
+        source: createLeadDto.source || 'website',
+      },
     });
 
     // Déclenchement asynchrone de la notification WhatsApp (fire-and-forget pour ne pas bloquer la requête API)
@@ -24,7 +27,12 @@ export class LeadsService {
       this.logger.error(`Failed to send WhatsApp notification: ${e.message}`)
     );
 
-    return lead;
+    // Do not echo contact details back from a public endpoint.
+    return {
+      id: lead.id,
+      status: 'received',
+      createdAt: lead.createdAt,
+    };
   }
 
   private async sendWhatsAppNotification(lead: any) {
@@ -81,8 +89,7 @@ export class LeadsService {
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Meta API Error: ${response.status} - ${errorText}`);
+      throw new Error(`Meta API returned HTTP ${response.status}`);
     }
 
     this.logger.log(`WhatsApp notification successfully sent for lead ${lead.id}`);

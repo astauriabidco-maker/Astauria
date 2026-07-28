@@ -1,57 +1,92 @@
-version: '3.8'
-
 services:
-  # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
     container_name: astauria-cms-db
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: astauria_cms
+      POSTGRES_USER: ${POSTGRES_USER:-astauria}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in cms/.env}
+      POSTGRES_DB: ${POSTGRES_DB:-astauria_cms}
     ports:
-      - "5441:5432"
+      - "${POSTGRES_PORT:-5441}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 5s
       timeout: 5s
-      retries: 5
+      retries: 10
 
-  # NestJS API
+  site:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: astauria-site
+    restart: unless-stopped
+    ports:
+      - "${SITE_PORT:-8080}:80"
+    volumes:
+      - site_content:/usr/share/nginx/html
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/index.html"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
   api:
     build:
       context: ./apps/api
       dockerfile: Dockerfile
     container_name: astauria-cms-api
+    restart: unless-stopped
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/astauria_cms?schema=public
-      JWT_SECRET: ${JWT_SECRET:-astauria-cms-super-secret-change-me}
-      ADMIN_URL: http://localhost:5173
+      NODE_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER:-astauria}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in cms/.env}@postgres:5432/${POSTGRES_DB:-astauria_cms}?schema=public
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in cms/.env}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-8h}
+      ADMIN_URL: ${ADMIN_URL:-http://localhost:5173}
+      PUBLIC_URL: ${PUBLIC_URL:-http://localhost:8080}
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
+      CORS_CREDENTIALS: ${CORS_CREDENTIALS:-false}
+      TRUST_PROXY_HOPS: ${TRUST_PROXY_HOPS:-0}
+      WHATSAPP_API_TOKEN: ${WHATSAPP_API_TOKEN:-}
+      WHATSAPP_PHONE_NUMBER_ID: ${WHATSAPP_PHONE_NUMBER_ID:-}
+      WHATSAPP_NOTIFICATION_DESTINATION: ${WHATSAPP_NOTIFICATION_DESTINATION:-}
+      SITE_OUTPUT_DIR: /var/www/astauria
       PORT: 3001
     ports:
-      - "3001:3001"
+      - "${API_PORT:-3001}:3001"
     depends_on:
       postgres:
         condition: service_healthy
+      site:
+        condition: service_healthy
     volumes:
-      - ./apps/api:/app
-      - /app/node_modules
+      - site_content:/var/www/astauria
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3001/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      retries: 10
 
-  # React Admin (Development)
   admin:
     build:
       context: ./apps/admin
       dockerfile: Dockerfile
+      args:
+        VITE_API_URL: /api
     container_name: astauria-cms-admin
+    restart: unless-stopped
     ports:
-      - "5173:5173"
-    volumes:
-      - ./apps/admin:/app
-      - /app/node_modules
+      - "${ADMIN_PORT:-5173}:80"
     depends_on:
-      - api
+      api:
+        condition: service_healthy
 
 volumes:
   postgres_data:
+  site_content:

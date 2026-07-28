@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards, Re
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { BlogService } from './blog.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { CreateArticleDto, UpdateArticleDto } from './dto/article.dto';
 
 
 @ApiTags('Blog')
@@ -12,11 +13,18 @@ export class BlogController {
     @Post('articles')
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
-    create(@Body() dto: any, @Request() req) {
+    create(@Body() dto: CreateArticleDto, @Request() req) {
         return this.service.create(dto, req.user.sub);
     }
 
     @Get('articles')
+    findPublished() {
+        return this.service.findAll('PUBLISHED');
+    }
+
+    @Get('admin/articles')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
     findAll(@Query('status') status?: string) {
         return this.service.findAll(status);
     }
@@ -29,7 +37,7 @@ export class BlogController {
     @Patch('articles/:id')
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
-    update(@Param('id') id: string, @Body() dto: any) {
+    update(@Param('id') id: string, @Body() dto: UpdateArticleDto) {
         return this.service.update(id, dto);
     }
 

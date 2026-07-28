@@ -1,11 +1,16 @@
 FROM nginx:alpine
 
-# Copier tous les fichiers statiques (HTML, CSS, JS) dans le dossier nginx
-COPY . /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/* \
+    && mkdir -p /opt/astauria/site /usr/share/nginx/html
 
-# Exclure le dossier cms pour éviter d'alourdir l'image inutilement
-RUN rm -rf /usr/share/nginx/html/cms
-RUN rm -f /usr/share/nginx/html/Dockerfile
+# Copy only public assets. Repository metadata, CMS sources and secrets can
+# never become web-accessible, even if the build context changes.
+COPY *.html /opt/astauria/site/
+COPY assets /opt/astauria/site/assets
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker-entrypoint.d/10-initialize-site.sh /docker-entrypoint.d/10-initialize-site.sh
+
+RUN chmod +x /docker-entrypoint.d/10-initialize-site.sh
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

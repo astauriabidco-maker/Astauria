@@ -3,67 +3,70 @@
 
 // GA4 Event tracking functions
 const AstauriaAnalytics = {
+    hasConsent: function () {
+        try {
+            const consent = JSON.parse(localStorage.getItem('astauria_cookie_consent'));
+            return consent?.analytics === true;
+        } catch (_) {
+            return false;
+        }
+    },
+
+    sendEvent: function (eventName, parameters) {
+        if (this.hasConsent() && typeof gtag !== 'undefined') {
+            gtag('event', eventName, parameters);
+        }
+    },
+
     // Track CTA clicks (Audit IA buttons)
     trackCTAClick: function (ctaName, ctaLocation) {
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'cta_click', {
-                'event_category': 'engagement',
-                'event_label': ctaName,
-                'cta_location': ctaLocation
-            });
-        }
+        this.sendEvent('cta_click', {
+            'event_category': 'engagement',
+            'event_label': ctaName,
+            'cta_location': ctaLocation
+        });
     },
 
     // Track form submissions
     trackFormSubmit: function (formName) {
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'form_submit', {
-                'event_category': 'conversion',
-                'event_label': formName
-            });
-        }
+        this.sendEvent('form_submit', {
+            'event_category': 'conversion',
+            'event_label': formName
+        });
     },
 
     // Track contact page visit (high intent)
     trackContactPageView: function () {
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
-                'page_title': 'Contact',
-                'page_location': window.location.href,
-                'content_group': 'conversion_intent'
-            });
-        }
+        this.sendEvent('page_view', {
+            'page_title': 'Contact',
+            'page_location': window.location.href,
+            'content_group': 'conversion_intent'
+        });
     },
 
     // Track blog article reads
     trackArticleRead: function (articleTitle, readPercentage) {
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'article_read', {
-                'event_category': 'engagement',
-                'article_title': articleTitle,
-                'read_percentage': readPercentage
-            });
-        }
+        this.sendEvent('article_read', {
+            'event_category': 'engagement',
+            'article_title': articleTitle,
+            'read_percentage': readPercentage
+        });
     },
 
     // Track case study views
     trackCaseStudyView: function (caseStudyName) {
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'case_study_view', {
-                'event_category': 'engagement',
-                'case_study_name': caseStudyName
-            });
-        }
+        this.sendEvent('case_study_view', {
+            'event_category': 'engagement',
+            'case_study_name': caseStudyName
+        });
     },
 
     // Track audit page conversion (high value)
     trackAuditPageConversion: function () {
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'audit_page_view', {
-                'event_category': 'conversion',
-                'value': 1
-            });
-        }
+        this.sendEvent('audit_page_view', {
+            'event_category': 'conversion',
+            'value': 1
+        });
     }
 };
 
@@ -79,14 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
             AstauriaAnalytics.trackCTAClick(buttonText, sectionId);
         });
     });
-
-    // Track contact form submission
-    const contactForm = document.querySelector('#contact-form, .contact__form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function () {
-            AstauriaAnalytics.trackFormSubmit('contact_form');
-        });
-    }
 
     // Track if on contact page
     if (window.location.pathname.includes('contact')) {

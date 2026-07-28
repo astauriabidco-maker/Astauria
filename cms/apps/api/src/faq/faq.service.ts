@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { CreateFaqDto, UpdateFaqDto } from './dto/faq.dto';
 
 @Injectable()
 export class FaqService {
     constructor(private prisma: PrismaService) { }
 
-    async create(data: { question: string; answer: string; order?: number; isActive?: boolean }) {
+    async create(data: CreateFaqDto) {
         return this.prisma.faqItem.create({ data });
     }
 
@@ -16,7 +17,7 @@ export class FaqService {
         });
     }
 
-    async update(id: string, data: any) {
+    async update(id: string, data: UpdateFaqDto) {
         return this.prisma.faqItem.update({ where: { id }, data });
     }
 

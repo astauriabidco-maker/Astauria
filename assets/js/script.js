@@ -25,25 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('nav');
 
     if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
+        menuToggle.setAttribute('aria-controls', 'nav');
+        menuToggle.setAttribute('aria-expanded', 'false');
 
-            // Toggle icon (Lucide replaces the i tag with svg, so we re-create it)
-            if (nav.classList.contains('active')) {
-                menuToggle.innerHTML = '<i data-lucide="x"></i>';
-            } else {
-                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
-            }
+        const setMenuState = (isOpen) => {
+            nav.classList.toggle('active', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+            menuToggle.innerHTML = isOpen
+                ? '<i data-lucide="x" aria-hidden="true"></i>'
+                : '<i data-lucide="menu" aria-hidden="true"></i>';
             lucide.createIcons({ root: menuToggle });
+        };
+
+        menuToggle.addEventListener('click', () => {
+            setMenuState(!nav.classList.contains('active'));
         });
 
         // Close mobile menu when clicking a link
         const navLinks = document.querySelectorAll('.nav__link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
-                lucide.createIcons({ root: menuToggle });
+                setMenuState(false);
             });
         });
     }

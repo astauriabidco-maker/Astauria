@@ -1,14 +1,25 @@
 import { Controller, Post, Get, Delete, Param, UseInterceptors, UploadedFile, UseGuards, BadRequestException } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import { extname, join } from 'path';
+import { join } from 'path';
+import { mkdirSync } from 'fs';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { MediaService } from './media.service';
 import { v4 as uuidv4 } from 'uuid';
 
-const UPLOAD_PATH = join(process.cwd(), '..', '..', 'assets', 'uploads');
+const SITE_OUTPUT_DIR = process.env.SITE_OUTPUT_DIR || join(process.cwd(), '..', '..', '..');
+const UPLOAD_PATH = join(SITE_OUTPUT_DIR, 'assets', 'uploads');
+mkdirSync(UPLOAD_PATH, { recursive: true });
 
-@Controller('media')
+const MIME_EXTENSIONS: Record<string, string> = {
+    'image/jpeg': '.jpg',
+    'image/png': '.png',
+    'image/gif': '.gif',
+    'image/webp': '.webp',
+    'application/pdf': '.pdf',
+};
+
+@Controller('api/media')
 @UseGuards(JwtAuthGuard)
 export class MediaController {
     constructor(private readonly mediaService: MediaService) { }
@@ -19,13 +30,12 @@ export class MediaController {
             storage: diskStorage({
                 destination: UPLOAD_PATH,
                 filename: (req, file, callback) => {
-                    const uniqueName = `${uuidv4()}${extname(file.originalname)}`;
+                    const uniqueName = `${uuidv4()}${MIME_EXTENSIONS[file.mimetype]}`;
                     callback(null, uniqueName);
                 },
             }),
             fileFilter: (req, file, callback) => {
-                const allowedMimes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml', 'application/pdf'];
-                if (allowedMimes.includes(file.mimetype)) {
+                if (MIME_EXTENSIONS[file.mimetype]) {
                     callback(null, true);
                 } else {
                     callback(new BadRequestException('Type de fichier non autorisé'), false);

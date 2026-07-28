@@ -6,21 +6,24 @@ import { LoginDto } from './dto/login.dto';
 
 @Injectable()
 export class AuthService {
+    private readonly invalidPasswordHash =
+        '$2b$12$vrzW/h57WEcuuV/pzKI0geAMTk1/HYIXqgwc03yWoY9/QeuB2pN1G';
+
     constructor(
         private usersService: UsersService,
         private jwtService: JwtService,
     ) { }
 
     async login(loginDto: LoginDto) {
-        const user = await this.usersService.findByEmail(loginDto.email);
+        const user = await this.usersService.findAuthByEmail(loginDto.email);
+        const isPasswordValid = await bcrypt.compare(
+            loginDto.password,
+            user?.password || this.invalidPasswordHash,
+        );
 
-        if (!user) {
-            throw new UnauthorizedException('Email ou mot de passe incorrect');
-        }
-
-        const isPasswordValid = await bcrypt.compare(loginDto.password, user.password);
-
-        if (!isPasswordValid) {
+        // Always execute bcrypt, including for an unknown email, to reduce account
+        // enumeration through response timing.
+        if (!user || !isPasswordValid) {
             throw new UnauthorizedException('Email ou mot de passe incorrect');
         }
 
@@ -50,7 +53,6 @@ export class AuthService {
         if (!user) {
             throw new UnauthorizedException();
         }
-        const { password, ...result } = user;
-        return result;
+        return user;
     }
 }

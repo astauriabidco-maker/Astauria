@@ -62,7 +62,7 @@ export default function CaseStudies() {
 
     const { data: caseStudies, isLoading } = useQuery({
         queryKey: ['case-studies'],
-        queryFn: async () => (await api.get('/case-studies')).data,
+        queryFn: async () => (await api.get('/case-studies/admin/all')).data,
     });
 
     const createMutation = useMutation({

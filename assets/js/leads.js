@@ -1,13 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contactForms = document.querySelectorAll('.contact-form');
     
-    // API URL based on environment (Coolify will likely serve API on same domain or /api proxy)
-    // If it's a separate domain, this should be an absolute URL like 'https://api.astauria.com/api/leads'
-    // By default we use relative path assuming Nginx proxies /api/
-    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-        ? 'http://localhost:3000/api/leads' 
-        : '/api/leads';
-
     contactForms.forEach(form => {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -21,32 +14,38 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 const formData = new FormData(form);
+                const countrySelect = form.querySelector('[name="country"]');
+                const subjectSelect = form.querySelector('[name="subject"]');
+                const country = countrySelect?.selectedOptions[0]?.textContent.trim() || '';
+                const subject = subjectSelect?.selectedOptions[0]?.textContent.trim() || '';
+                const userMessage = formData.get('problem') || formData.get('message') || '';
                 const data = {
                     name: formData.get('name'),
                     email: formData.get('email'),
                     company: formData.get('company'),
                     phone: formData.get('phone') || '',
-                    message: formData.get('problem') || formData.get('message') || '',
+                    message: [
+                        subject ? `Sujet : ${subject}` : '',
+                        country ? `Pays : ${country}` : '',
+                        userMessage ? `Message : ${userMessage}` : ''
+                    ].filter(Boolean).join('\n'),
                     source: window.location.pathname.includes('audit') ? 'audit_ia' : 'contact_form'
                 };
 
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                if (!response.ok) {
-                    throw new Error('Erreur lors de l\'envoi');
+                if (!window.AstauriaApi) {
+                    throw new Error('API client unavailable');
                 }
+                await window.AstauriaApi.createLead(data);
 
                 // Success
                 submitBtn.innerHTML = '<span>Demande envoyée !</span> <i data-lucide="check-circle" class="text-green-500"></i>';
                 lucide.createIcons({ root: submitBtn });
                 submitBtn.classList.add('btn--success');
                 form.reset();
+
+                if (typeof AstauriaAnalytics !== 'undefined') {
+                    AstauriaAnalytics.trackFormSubmit('contact_form');
+                }
 
                 // Reset button after 3 seconds
                 setTimeout(() => {
@@ -56,8 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     lucide.createIcons({ root: submitBtn });
                 }, 4000);
 
-            } catch (error) {
-                console.error('Erreur API Leads:', error);
+            } catch (_) {
                 submitBtn.innerHTML = '<span>Erreur. Réessayez.</span> <i data-lucide="alert-circle" class="text-red-500"></i>';
                 lucide.createIcons({ root: submitBtn });
                 

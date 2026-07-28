@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } f
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { CaseStudiesService } from './case-studies.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { CreateCaseStudyDto, UpdateCaseStudyDto } from './dto/case-study.dto';
 
 @ApiTags('Case Studies')
 @Controller('api/case-studies')
@@ -11,10 +12,17 @@ export class CaseStudiesController {
     @Post()
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
-    create(@Body() dto: any) { return this.service.create(dto); }
+    create(@Body() dto: CreateCaseStudyDto) { return this.service.create(dto); }
 
     @Get()
-    findAll(@Query('active') active?: string) { return this.service.findAll(active === 'true'); }
+    findAll() { return this.service.findAll(true); }
+
+    @Get('admin/all')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth()
+    findAllForAdmin(@Query('active') active?: string) {
+        return this.service.findAll(active === 'true');
+    }
 
     @Get(':slug')
     findOne(@Param('slug') slug: string) { return this.service.findBySlug(slug); }
@@ -22,7 +30,7 @@ export class CaseStudiesController {
     @Patch(':id')
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
-    update(@Param('id') id: string, @Body() dto: any) { return this.service.update(id, dto); }
+    update(@Param('id') id: string, @Body() dto: UpdateCaseStudyDto) { return this.service.update(id, dto); }
 
     @Delete(':id')
     @UseGuards(JwtAuthGuard)

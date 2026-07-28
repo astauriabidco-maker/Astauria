@@ -4,14 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF5RYSS4V"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-QZF5RYSS4V');
+        gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied'
+        });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/logo-astauria.png">
     <meta name="description"
         content="Solutions IA et automatisation pour PME - Assistant IA & ERP, automatisation des processus, aide à la décision. Astauria accompagne les PME en France et au Cameroun.">
     <title>Nos Solutions — Astauria</title>
@@ -471,11 +475,11 @@
                         <span>contact@astauria.com</span>
                     </div>
                 </a>
-                <a href="tel:+33123456789" class="floating-contact__option">
+                <a href="mailto:contact@astauria.com?subject=Demande%20de%20rappel" class="floating-contact__option">
                     <i data-lucide="phone"></i>
                     <div>
                         <strong>Téléphone</strong>
-                        <span>+33 1 23 45 67 89</span>
+                        <span>Demander un rappel</span>
                     </div>
                 </a>
                 <a href="audit-ia.html" class="floating-contact__option floating-contact__option--primary">

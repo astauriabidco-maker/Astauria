@@ -11,27 +11,27 @@ export default function Dashboard() {
     // Fetch real stats from API
     const { data: navData } = useQuery({
         queryKey: ['navigation'],
-        queryFn: async () => (await api.get('/navigation')).data,
+        queryFn: async () => (await api.get('/navigation/admin/all')).data,
     });
 
     const { data: faqData } = useQuery({
         queryKey: ['faq'],
-        queryFn: async () => (await api.get('/faq')).data,
+        queryFn: async () => (await api.get('/faq/admin/all')).data,
     });
 
     const { data: testimonialData } = useQuery({
         queryKey: ['testimonials'],
-        queryFn: async () => (await api.get('/testimonials')).data,
+        queryFn: async () => (await api.get('/testimonials/admin/all')).data,
     });
 
     const { data: caseStudyData } = useQuery({
         queryKey: ['case-studies'],
-        queryFn: async () => (await api.get('/case-studies')).data,
+        queryFn: async () => (await api.get('/case-studies/admin/all')).data,
     });
 
     const { data: articleData } = useQuery({
         queryKey: ['articles'],
-        queryFn: async () => (await api.get('/blog/articles')).data,
+        queryFn: async () => (await api.get('/blog/admin/articles')).data,
     });
 
     const { data: leadsData } = useQuery({

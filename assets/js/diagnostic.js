@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         steps[currentStep - 1].classList.add('active');
         stepIndicators[currentStep - 1].classList.add('active');
-        currentStepNum.innerText = currentStep;
+        currentStepNum.textContent = currentStep;
 
         // Update Expert Insight based on selection
         if (currentStep === 2) {
             const sector = form.querySelector('input[name="sector"]:checked')?.value;
             if (sector && insights.sector[sector]) {
-                expertInsight.innerText = insights.sector[sector];
+                expertInsight.textContent = insights.sector[sector];
             }
         }
     }
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Sélectionnez au moins une priorité.");
                 return false;
             }
-            expertInsight.innerText = "Excellent choix. Ces points sont les plus porteurs de ROI immédiat.";
+            expertInsight.textContent = "Excellent choix. Ces points sont les plus porteurs de ROI immédiat.";
         }
         return true;
     }
@@ -88,27 +88,100 @@ document.addEventListener('DOMContentLoaded', () => {
     if (maturityRange) {
         maturityRange.addEventListener('input', (e) => {
             const val = parseInt(e.target.value);
-            maturityFeedback.innerText = insights.maturity[val - 1];
+            maturityFeedback.textContent = insights.maturity[val - 1];
         });
     }
 
     // Form Submission
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        if (!form.reportValidity()) return;
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonContent = submitButton.innerHTML;
         const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        console.log('Audit Request Data:', data);
-        
-        // Final UI feedback
-        wizard.innerHTML = `
-            <div class="wizard-completion" style="text-align: center; padding: var(--space-3xl);">
-                <i data-lucide="check-circle" style="width: 80px; height: 80px; color: var(--color-gold); margin-bottom: 20px;"></i>
-                <h2 style="color: #fff; margin-bottom: 10px;">Diagnostic IA Initié !</h2>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 24px;">Merci ${data.name}. Nous analysons vos réponses. Un expert Astauria reviendra vers vous sous 24h avec une pré-analyse.</p>
-                <a href="index.html" class="btn btn--primary">Retour à l'accueil</a>
-            </div>
-        `;
-        lucide.createIcons({ root: wizard });
+        const painPoints = formData.getAll('pain_points');
+        const sectorLabels = {
+            industry: 'Industrie & BTP',
+            logistics: 'Logistique & Transport',
+            services: 'Services & Conseil',
+            retail: 'E-commerce & Retail'
+        };
+        const painPointLabels = {
+            docs: 'Traitement de documents',
+            hr_payroll: 'RH & Paie',
+            erp_data: 'Synchronisation de données'
+        };
+        const sector = formData.get('sector');
+        const maturity = formData.get('maturity');
+        const name = formData.get('name');
+
+        const payload = {
+            name,
+            email: formData.get('email'),
+            company: formData.get('company'),
+            phone: formData.get('phone') || '',
+            source: 'audit_ia_wizard',
+            message: [
+                `Secteur : ${sectorLabels[sector] || sector}`,
+                `Priorités : ${painPoints.map(point => painPointLabels[point] || point).join(', ')}`,
+                `Maturité IA : ${maturity}/5`
+            ].join('\n')
+        };
+
+        let status = form.querySelector('.wizard-submit-status');
+        if (!status) {
+            status = document.createElement('p');
+            status.className = 'wizard-submit-status';
+            status.setAttribute('role', 'status');
+            status.setAttribute('aria-live', 'polite');
+            submitButton.closest('.wizard-footer').insertAdjacentElement('beforebegin', status);
+        }
+
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+        submitButton.textContent = 'Envoi en cours…';
+        status.textContent = '';
+
+        try {
+            if (!window.AstauriaApi) {
+                throw new Error('Le service est momentanément indisponible.');
+            }
+
+            await window.AstauriaApi.createLead(payload);
+
+            if (typeof AstauriaAnalytics !== 'undefined') {
+                AstauriaAnalytics.trackFormSubmit('audit_ia_wizard');
+            }
+
+            wizard.innerHTML = `
+                <div class="wizard-completion" role="status" tabindex="-1" style="text-align: center; padding: var(--space-3xl);">
+                    <i data-lucide="check-circle" aria-hidden="true" style="width: 80px; height: 80px; color: var(--color-gold); margin-bottom: 20px;"></i>
+                    <h2 style="color: #fff; margin-bottom: 10px;">Demande de diagnostic envoyée</h2>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 24px;">Merci ${escapeHtml(String(name))}. Votre demande et vos réponses ont bien été transmises à l’équipe Astauria.</p>
+                    <a href="index.html" class="btn btn--primary">Retour à l'accueil</a>
+                </div>
+            `;
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons({ root: wizard });
+            }
+            wizard.querySelector('.wizard-completion').focus();
+        } catch (_) {
+            status.textContent = 'L’envoi a échoué. Vérifiez votre connexion puis réessayez.';
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+            submitButton.innerHTML = originalButtonContent;
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons({ root: submitButton });
+            }
+        }
     });
+
+    function escapeHtml(value) {
+        const element = document.createElement('span');
+        element.textContent = value;
+        return element.innerHTML;
+    }
 });

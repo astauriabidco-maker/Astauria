@@ -13,8 +13,9 @@ export class ProjectsService {
     });
   }
 
-  findAll() {
+  findAll(onlyActive = false) {
     return this.prisma.project.findMany({
+      where: onlyActive ? { isActive: true } : undefined,
       orderBy: { order: 'asc' },
     });
   }

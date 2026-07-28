@@ -55,7 +55,7 @@ export default function Articles() {
 
     const { data: articles, isLoading } = useQuery({
         queryKey: ['articles'],
-        queryFn: async () => (await api.get('/blog/articles')).data,
+        queryFn: async () => (await api.get('/blog/admin/articles')).data,
     });
 
     const createMutation = useMutation({

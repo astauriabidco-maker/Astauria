@@ -11,10 +11,19 @@ export class NavigationService {
         return this.prisma.menuItem.create({ data: dto });
     }
 
-    async findAll(location?: string) {
+    async findAll(location?: string, onlyActive = false) {
         return this.prisma.menuItem.findMany({
-            where: location ? { location, parentId: null } : { parentId: null },
-            include: { children: { orderBy: { order: 'asc' } } },
+            where: {
+                ...(location ? { location } : {}),
+                parentId: null,
+                ...(onlyActive ? { isActive: true } : {}),
+            },
+            include: {
+                children: {
+                    where: onlyActive ? { isActive: true } : undefined,
+                    orderBy: { order: 'asc' },
+                },
+            },
             orderBy: { order: 'asc' },
         });
     }

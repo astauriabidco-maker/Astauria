@@ -3,7 +3,9 @@
 
 const CookieConsent = {
     STORAGE_KEY: 'astauria_cookie_consent',
+    GA_MEASUREMENT_ID: 'G-QZF5RYSS4V',
     banner: null,
+    analyticsLoaded: false,
 
     init: function () {
         // Check if consent already given
@@ -42,10 +44,10 @@ const CookieConsent = {
 
     createBanner: function () {
         const bannerHTML = `
-            <div class="cookie-banner" id="cookie-banner">
+            <div class="cookie-banner" id="cookie-banner" role="dialog" aria-modal="false" aria-labelledby="cookie-banner-title">
                 <div class="cookie-banner__content">
                     <div class="cookie-banner__text">
-                        <h4 class="cookie-banner__title">
+                        <h4 class="cookie-banner__title" id="cookie-banner-title">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/>
                                 <circle cx="8" cy="9" r="1" fill="currentColor"/>
@@ -62,7 +64,7 @@ const CookieConsent = {
                         </p>
                     </div>
                     <div class="cookie-banner__actions">
-                        <button class="cookie-banner__btn cookie-banner__btn--settings" id="cookie-settings-btn">
+                        <button class="cookie-banner__btn cookie-banner__btn--settings" id="cookie-settings-btn" aria-controls="cookie-settings-panel" aria-expanded="false">
                             Personnaliser
                         </button>
                         <button class="cookie-banner__btn cookie-banner__btn--reject" id="cookie-reject-btn">
@@ -78,7 +80,7 @@ const CookieConsent = {
                 <div class="cookie-banner__settings" id="cookie-settings-panel">
                     <div class="cookie-banner__settings-header">
                         <h4>Paramètres des cookies</h4>
-                        <button class="cookie-banner__settings-close" id="cookie-settings-close">×</button>
+                        <button class="cookie-banner__settings-close" id="cookie-settings-close" aria-label="Fermer les paramètres">×</button>
                     </div>
                     <div class="cookie-banner__settings-body">
                         <div class="cookie-option">
@@ -172,10 +174,12 @@ const CookieConsent = {
 
     showSettings: function () {
         document.getElementById('cookie-settings-panel').classList.add('active');
+        document.getElementById('cookie-settings-btn').setAttribute('aria-expanded', 'true');
     },
 
     hideSettings: function () {
         document.getElementById('cookie-settings-panel').classList.remove('active');
+        document.getElementById('cookie-settings-btn').setAttribute('aria-expanded', 'false');
     },
 
     acceptAll: function () {
@@ -230,12 +234,29 @@ const CookieConsent = {
     },
 
     enableAnalytics: function () {
-        // GA is already loaded, just update consent
-        if (typeof gtag !== 'undefined') {
-            gtag('consent', 'update', {
-                'analytics_storage': 'granted'
-            });
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () {
+            window.dataLayer.push(arguments);
+        };
+
+        window.gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+        });
+
+        if (this.analyticsLoaded || document.querySelector('script[data-astauria-ga]')) {
+            this.analyticsLoaded = true;
+            return;
         }
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${this.GA_MEASUREMENT_ID}`;
+        script.dataset.astauriaGa = 'true';
+        document.head.appendChild(script);
+
+        window.gtag('js', new Date());
+        window.gtag('config', this.GA_MEASUREMENT_ID);
+        this.analyticsLoaded = true;
     },
 
     disableAnalytics: function () {

@@ -35,7 +35,7 @@ export default function Testimonials() {
 
     const { data: testimonials, isLoading } = useQuery({
         queryKey: ['testimonials'],
-        queryFn: async () => (await api.get('/testimonials')).data,
+        queryFn: async () => (await api.get('/testimonials/admin/all')).data,
     });
 
     const createMutation = useMutation({

@@ -13,8 +13,9 @@ export class HeroSlidesService {
     });
   }
 
-  findAll() {
+  findAll(onlyActive = false) {
     return this.prisma.heroSlide.findMany({
+      where: onlyActive ? { isActive: true } : undefined,
       orderBy: { order: 'asc' },
     });
   }

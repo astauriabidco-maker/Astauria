@@ -7,14 +7,29 @@ async function main() {
     console.log('🌱 Seeding Astauria CMS with real website data...');
 
     // ========== ADMIN USER ==========
-    const hashedPassword = await bcrypt.hash('admin123', 10);
+    const adminEmail = process.env.SEED_ADMIN_EMAIL?.trim().toLowerCase();
+    const adminPassword = process.env.SEED_ADMIN_PASSWORD;
+    const adminName = process.env.SEED_ADMIN_NAME?.trim() || 'Administrateur Astauria';
+
+    if (!adminEmail || !adminEmail.includes('@')) {
+        throw new Error('SEED_ADMIN_EMAIL must be set to a valid email address');
+    }
+    if (!adminPassword || adminPassword.length < 12) {
+        throw new Error('SEED_ADMIN_PASSWORD must be set to at least 12 characters');
+    }
+
+    const hashedPassword = await bcrypt.hash(adminPassword, 12);
     const admin = await prisma.user.upsert({
-        where: { email: 'admin@astauria.com' },
-        update: {},
-        create: {
-            email: 'admin@astauria.com',
+        where: { email: adminEmail },
+        update: {
             password: hashedPassword,
-            name: 'Admin Astauria',
+            name: adminName,
+            role: 'ADMIN',
+        },
+        create: {
+            email: adminEmail,
+            password: hashedPassword,
+            name: adminName,
             role: 'ADMIN',
         },
     });
@@ -30,7 +45,7 @@ async function main() {
     ];
 
     for (const item of headerMenuItems) {
-        await prisma.menuItem.upsert({ where: { id: item.id }, update: item, create: item });
+        await prisma.menuItem.upsert({ where: { id: item.id }, update: {}, create: item });
     }
 
     // ========== NAVIGATION - FOOTER ==========
@@ -45,7 +60,7 @@ async function main() {
     ];
 
     for (const item of footerMenuItems) {
-        await prisma.menuItem.upsert({ where: { id: item.id }, update: item, create: item });
+        await prisma.menuItem.upsert({ where: { id: item.id }, update: {}, create: item });
     }
     console.log('✅ Navigation: 12 menu items');
 
@@ -90,7 +105,7 @@ async function main() {
     ];
 
     for (const faq of faqs) {
-        await prisma.faqItem.upsert({ where: { id: faq.id }, update: faq, create: faq });
+        await prisma.faqItem.upsert({ where: { id: faq.id }, update: {}, create: faq });
     }
     console.log('✅ FAQ: 6 questions');
 
@@ -169,7 +184,7 @@ async function main() {
     ];
 
     for (const t of testimonials) {
-        await prisma.testimonial.upsert({ where: { id: t.id }, update: t, create: t });
+        await prisma.testimonial.upsert({ where: { id: t.id }, update: {}, create: t });
     }
     console.log('✅ Témoignages: 7 clients');
 
@@ -274,7 +289,7 @@ async function main() {
     ];
 
     for (const c of caseStudies) {
-        await prisma.caseStudy.upsert({ where: { id: c.id }, update: c, create: c });
+        await prisma.caseStudy.upsert({ where: { id: c.id }, update: {}, create: c });
     }
     console.log('✅ Cas d\'étude: 6 études');
 
@@ -288,7 +303,7 @@ async function main() {
     ];
 
     for (const cat of categories) {
-        await prisma.category.upsert({ where: { id: cat.id }, update: cat, create: cat });
+        await prisma.category.upsert({ where: { id: cat.id }, update: {}, create: cat });
     }
     console.log('✅ Catégories blog: 5');
 
@@ -375,7 +390,7 @@ async function main() {
     ];
 
     for (const art of articles) {
-        await prisma.article.upsert({ where: { id: art.id }, update: art, create: art });
+        await prisma.article.upsert({ where: { id: art.id }, update: {}, create: art });
     }
     console.log('✅ Articles blog: 6');
 
@@ -390,7 +405,7 @@ async function main() {
     ];
 
     for (const s of settings) {
-        await prisma.setting.upsert({ where: { id: s.id }, update: s, create: s });
+        await prisma.setting.upsert({ where: { id: s.id }, update: {}, create: s });
     }
     console.log('✅ Paramètres: 6');
 
@@ -442,10 +457,12 @@ async function main() {
         }
     ];
 
-    for (const lead of leads) {
-        await prisma.lead.upsert({ where: { id: lead.id }, update: lead, create: lead });
+    if (process.env.SEED_DEMO_LEADS === 'true') {
+        for (const lead of leads) {
+            await prisma.lead.upsert({ where: { id: lead.id }, update: {}, create: lead });
+        }
+        console.log('✅ Leads de démonstration: 4 contacts');
     }
-    console.log('✅ Leads (CRM): 4 contacts');
 
     // ========== SITE PAGES ==========
     const pages = [
@@ -541,7 +558,7 @@ async function main() {
             status: 'PUBLISHED',
             sections: [
                 { type: 'hero', order: 0, content: JSON.stringify({ title: "Parlons de votre projet", subtitle: "Une question ? Un projet ? Contactez-nous et discutons de vos besoins en IA et automatisation." }) },
-                { type: 'contact-info', order: 1, content: JSON.stringify({ email: 'contact@astauria.com', phone: '+33 1 23 45 67 89', locations: ['France', 'Cameroun'] }) },
+                { type: 'contact-info', order: 1, content: JSON.stringify({ email: 'contact@astauria.com', locations: ['France', 'Cameroun'] }) },
                 { type: 'form', order: 2, content: JSON.stringify({ title: 'Envoyez-nous un message' }) },
             ],
         },
@@ -549,21 +566,13 @@ async function main() {
 
     for (const pageData of pages) {
         const { sections, ...page } = pageData;
-        const createdPage = await prisma.page.upsert({
-            where: { id: page.id },
-            update: { ...page, publishedAt: new Date() },
-            create: { ...page, publishedAt: new Date() },
-        });
-
-        // Delete existing sections and recreate
-        await prisma.section.deleteMany({ where: { pageId: createdPage.id } });
-        for (const section of sections) {
-            await prisma.section.create({
+        const existingPage = await prisma.page.findUnique({ where: { id: page.id } });
+        if (!existingPage) {
+            await prisma.page.create({
                 data: {
-                    type: section.type,
-                    content: section.content,
-                    order: section.order,
-                    pageId: createdPage.id,
+                    ...page,
+                    publishedAt: new Date(),
+                    sections: { create: sections },
                 },
             });
         }

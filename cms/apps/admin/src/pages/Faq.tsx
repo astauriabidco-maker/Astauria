@@ -24,7 +24,7 @@ export default function Faq() {
 
     const { data: faqItems, isLoading } = useQuery({
         queryKey: ['faq'],
-        queryFn: async () => (await api.get('/faq')).data,
+        queryFn: async () => (await api.get('/faq/admin/all')).data,
     });
 
     const createMutation = useMutation({

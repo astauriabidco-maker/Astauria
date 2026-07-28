@@ -4,6 +4,8 @@ import { CreateLeadDto } from './dto/create-lead.dto';
 import { UpdateLeadStatusDto } from './dto/update-lead-status.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
+import { LeadRateLimitGuard } from '../common/rate-limit.guard';
+import { UpdateLeadNotesDto } from './dto/update-lead-notes.dto';
 
 @ApiTags('Leads')
 @Controller('api/leads')
@@ -12,6 +14,7 @@ export class LeadsController {
 
   // Route PUBLIQUE : Le site vitrine n'a pas besoin de token pour envoyer un lead
   @Post()
+  @UseGuards(LeadRateLimitGuard)
   @ApiOperation({ summary: 'Create a new lead from public site' })
   create(@Body() createLeadDto: CreateLeadDto) {
     return this.leadsService.create(createLeadDto);
@@ -53,7 +56,7 @@ export class LeadsController {
   @ApiBearerAuth()
   @Patch(':id/notes')
   @ApiOperation({ summary: 'Update internal notes for lead' })
-  updateNotes(@Param('id') id: string, @Body() body: { notes: string }) {
+  updateNotes(@Param('id') id: string, @Body() body: UpdateLeadNotesDto) {
     return this.leadsService.updateNotes(id, body.notes);
   }
 

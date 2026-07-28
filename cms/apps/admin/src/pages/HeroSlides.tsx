@@ -34,7 +34,7 @@ export default function HeroSlides() {
 
     const { data: slides, isLoading } = useQuery({
         queryKey: ['hero-slides'],
-        queryFn: async () => (await api.get('/hero-slides')).data,
+        queryFn: async () => (await api.get('/hero-slides/admin/all')).data,
     });
 
     const createMutation = useMutation({

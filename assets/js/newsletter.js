@@ -1,91 +1,79 @@
-// Newsletter Popup Logic
-// Shows after 15 seconds or 50% scroll, with localStorage tracking
-
+// Newsletter forms and guide popup
 const NewsletterPopup = {
     popup: null,
     overlay: null,
     closeBtn: null,
     form: null,
     hasShown: false,
+    lastFocusedElement: null,
+    apiClientPromise: null,
     STORAGE_KEY: 'astauria_newsletter_shown',
-    LEAD_STORAGE_KEY: 'astauria_lead_captured',
+    SUBSCRIBED_KEY: 'astauria_newsletter_subscribed',
 
     init: function () {
         this.popup = document.getElementById('newsletter-popup');
+        this.bindInlineForms();
+
         if (!this.popup) return;
 
         this.overlay = this.popup.querySelector('.newsletter-popup__overlay');
         this.closeBtn = document.getElementById('newsletter-close');
         this.form = document.getElementById('newsletter-form');
+        this.popup.setAttribute('aria-hidden', 'true');
 
-        // Check if already subscribed or recently shown
-        if (this.hasSubscribed() || this.wasRecentlyShown()) {
-            return;
-        }
+        if (this.hasSubscribed() || this.wasRecentlyShown()) return;
 
-        this.bindEvents();
+        this.bindPopupEvents();
         this.startTriggers();
     },
 
     hasSubscribed: function () {
-        return localStorage.getItem(this.LEAD_STORAGE_KEY) === 'true';
+        return localStorage.getItem(this.SUBSCRIBED_KEY) === 'true';
     },
 
     wasRecentlyShown: function () {
         const lastShown = localStorage.getItem(this.STORAGE_KEY);
         if (!lastShown) return false;
 
-        const daysSince = (Date.now() - parseInt(lastShown)) / (1000 * 60 * 60 * 24);
-        return daysSince < 7; // Don't show again for 7 days
+        const daysSince = (Date.now() - Number.parseInt(lastShown, 10)) / (1000 * 60 * 60 * 24);
+        return daysSince < 7;
     },
 
-    bindEvents: function () {
-        // Close button
-        if (this.closeBtn) {
-            this.closeBtn.addEventListener('click', () => this.hide());
-        }
+    bindPopupEvents: function () {
+        this.closeBtn?.addEventListener('click', () => this.hide());
+        this.overlay?.addEventListener('click', () => this.hide());
+        this.form?.addEventListener('submit', event => this.handleSubmit(event, 'newsletter_popup'));
 
-        // Overlay click
-        if (this.overlay) {
-            this.overlay.addEventListener('click', () => this.hide());
-        }
-
-        // ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.isVisible()) {
-                this.hide();
-            }
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && this.isVisible()) this.hide();
         });
+    },
 
-        // Form submit
-        if (this.form) {
-            this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-        }
+    bindInlineForms: function () {
+        document.querySelectorAll('.newsletter-form').forEach(form => {
+            form.addEventListener('submit', event => this.handleSubmit(event, 'newsletter_blog'));
+        });
     },
 
     startTriggers: function () {
-        // Trigger 1: After 15 seconds on page
         setTimeout(() => {
             if (!this.hasShown) this.show();
         }, 15000);
 
-        // Trigger 2: After 50% scroll
         let scrollTriggered = false;
         window.addEventListener('scroll', () => {
             if (scrollTriggered || this.hasShown) return;
 
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 100;
             if (scrollPercent >= 50) {
                 scrollTriggered = true;
                 this.show();
             }
-        });
+        }, { passive: true });
 
-        // Trigger 3: Exit intent (mouse leaves viewport)
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY < 10 && !this.hasShown) {
-                this.show();
-            }
+        document.addEventListener('mouseleave', event => {
+            if (event.clientY < 10 && !this.hasShown) this.show();
         });
     },
 
@@ -93,18 +81,15 @@ const NewsletterPopup = {
         if (this.hasShown || !this.popup) return;
 
         this.hasShown = true;
+        this.lastFocusedElement = document.activeElement;
         this.popup.classList.add('active');
+        this.popup.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-
-        // Re-initialize Lucide icons in popup
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-
-        // Mark as shown
         localStorage.setItem(this.STORAGE_KEY, Date.now().toString());
 
-        // Track in GA
+        if (typeof lucide !== 'undefined') lucide.createIcons({ root: this.popup });
+        this.closeBtn?.focus();
+
         if (typeof AstauriaAnalytics !== 'undefined') {
             AstauriaAnalytics.trackCTAClick('newsletter_popup_shown', 'popup');
         }
@@ -114,98 +99,124 @@ const NewsletterPopup = {
         if (!this.popup) return;
 
         this.popup.classList.remove('active');
+        this.popup.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        this.lastFocusedElement?.focus();
     },
 
     isVisible: function () {
-        return this.popup && this.popup.classList.contains('active');
+        return this.popup?.classList.contains('active');
     },
 
-    handleSubmit: function (e) {
-        e.preventDefault();
+    handleSubmit: async function (event, source) {
+        event.preventDefault();
 
-        const email = this.form.querySelector('input[name="email"]').value;
+        const form = event.currentTarget;
+        const input = form.querySelector('input[type="email"]');
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonContent = submitButton.innerHTML;
+        const email = input.value.trim();
 
-        // Store the lead (in production, send to backend/email service)
-        this.storeLead(email);
-
-        // Track conversion
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'lead_captured', {
-                'event_category': 'conversion',
-                'event_label': 'newsletter_signup',
-                'value': 10
-            });
+        if (!input.checkValidity()) {
+            input.reportValidity();
+            return;
         }
 
-        // Show success state
-        this.showSuccess();
-    },
+        let status = form.querySelector('[data-newsletter-status]');
+        if (!status) {
+            status = document.createElement('p');
+            status.dataset.newsletterStatus = '';
+            status.setAttribute('role', 'status');
+            status.setAttribute('aria-live', 'polite');
+            form.appendChild(status);
+        }
 
-    storeLead: async function (email) {
-        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-            ? 'http://localhost:3000/api/leads' 
-            : '/api/leads';
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+        submitButton.textContent = 'Envoi en cours…';
+        status.textContent = '';
 
         try {
-            await fetch(API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    email, 
-                    source: 'newsletter_popup',
-                    message: 'Inscription Newsletter et demande du guide.'
-                })
-            });
-        } catch (e) {
-            console.error('Erreur Newsletter:', e);
+            await this.storeLead(email, source);
+            localStorage.setItem(this.SUBSCRIBED_KEY, 'true');
+
+            if (typeof AstauriaAnalytics !== 'undefined') {
+                AstauriaAnalytics.trackFormSubmit(source);
+            }
+
+            if (source === 'newsletter_popup') {
+                this.showSuccess();
+            } else {
+                form.reset();
+                status.innerHTML = 'Inscription enregistrée. <a href="assets/guide-7-questions-ia.html">Consulter le guide gratuit</a>.';
+                submitButton.innerHTML = originalButtonContent;
+                submitButton.disabled = false;
+                submitButton.removeAttribute('aria-busy');
+                if (typeof lucide !== 'undefined') lucide.createIcons({ root: submitButton });
+            }
+        } catch (_) {
+            status.textContent = 'L’inscription a échoué. Vérifiez votre connexion puis réessayez.';
+            submitButton.innerHTML = originalButtonContent;
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+            if (typeof lucide !== 'undefined') lucide.createIcons({ root: submitButton });
         }
+    },
 
-        // Store locally
-        localStorage.setItem(this.LEAD_STORAGE_KEY, 'true');
+    storeLead: async function (email, source) {
+        const api = await this.getApiClient();
 
-        // Store email for potential sync
-        const leads = JSON.parse(localStorage.getItem('astauria_leads') || '[]');
-        leads.push({
-            email: email,
-            source: 'newsletter_popup',
-            timestamp: new Date().toISOString(),
-            page: window.location.pathname
+        return api.createLead({
+            email,
+            source,
+            message: source === 'newsletter_popup'
+                ? 'Inscription à la newsletter depuis la fenêtre du guide.'
+                : 'Inscription à la newsletter depuis la page blog.'
         });
-        localStorage.setItem('astauria_leads', JSON.stringify(leads));
+    },
 
-        console.log('Lead captured:', email);
+    getApiClient: function () {
+        if (window.AstauriaApi) return Promise.resolve(window.AstauriaApi);
+        if (this.apiClientPromise) return this.apiClientPromise;
+
+        this.apiClientPromise = new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'assets/js/api-client.js';
+            script.addEventListener('load', () => {
+                if (window.AstauriaApi) {
+                    resolve(window.AstauriaApi);
+                } else {
+                    reject(new Error('API client unavailable'));
+                }
+            });
+            script.addEventListener('error', () => reject(new Error('API client unavailable')));
+            document.head.appendChild(script);
+        });
+
+        return this.apiClientPromise;
     },
 
     showSuccess: function () {
         const content = this.popup.querySelector('.newsletter-popup__content');
         content.innerHTML = `
-            <div class="newsletter-popup__success">
+            <div class="newsletter-popup__success" role="status" tabindex="-1">
                 <div class="newsletter-popup__success-icon">
-                    <i data-lucide="check-circle"></i>
+                    <i data-lucide="check-circle" aria-hidden="true"></i>
                 </div>
-                <h3 class="newsletter-popup__title">Merci !</h3>
+                <h3 class="newsletter-popup__title">Inscription enregistrée</h3>
                 <p class="newsletter-popup__subtitle">
-                    Votre guide est en route vers votre boîte mail. 
-                    <br>Vérifiez vos spams si vous ne le voyez pas.
+                    Merci. Vous pouvez consulter le guide dès maintenant.
                 </p>
-                <a href="assets/guide-7-questions-ia.pdf" download class="btn btn--primary">
-                    <i data-lucide="download"></i>
-                    <span>Télécharger maintenant</span>
+                <a href="assets/guide-7-questions-ia.html" class="btn btn--primary">
+                    <i data-lucide="book-open" aria-hidden="true"></i>
+                    <span>Consulter le guide</span>
                 </a>
             </div>
         `;
 
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-
-        // Auto-close after 5 seconds
-        setTimeout(() => this.hide(), 5000);
+        if (typeof lucide !== 'undefined') lucide.createIcons({ root: content });
+        content.querySelector('.newsletter-popup__success').focus();
     }
 };
 
-// Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', function () {
-    NewsletterPopup.init();
-});
+document.addEventListener('DOMContentLoaded', () => NewsletterPopup.init());
