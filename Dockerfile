@@ -6,6 +6,7 @@ RUN rm -rf /usr/share/nginx/html/* \
 # Copy only public assets. Repository metadata, CMS sources and secrets can
 # never become web-accessible, even if the build context changes.
 COPY *.html /opt/astauria/site/
+COPY robots.txt sitemap.xml /opt/astauria/site/
 COPY assets /opt/astauria/site/assets
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker-entrypoint.d/10-initialize-site.sh /docker-entrypoint.d/10-initialize-site.sh

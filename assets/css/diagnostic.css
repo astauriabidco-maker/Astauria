@@ -18,6 +18,12 @@
     text-align: center;
 }
 
+.wizard-title {
+    color: #fff;
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+}
+
 .wizard-steps {
     display: flex;
     justify-content: center;
@@ -48,10 +54,18 @@
 .step-content {
     display: none;
     animation: fadeIn 0.4s ease;
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
 }
 
 .step-content.active {
     display: block;
+}
+
+.step-content[hidden] {
+    display: none;
 }
 
 @keyframes fadeIn {
@@ -62,7 +76,15 @@
 .step-title {
     color: #fff;
     font-size: var(--font-size-xl);
-    margin-bottom: var(--space-xl);
+    margin: 0 auto var(--space-sm);
+    text-align: center;
+    width: 100%;
+}
+
+.step-help {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--font-size-sm);
+    margin: 0 0 var(--space-lg);
     text-align: center;
 }
 
@@ -76,10 +98,16 @@
 
 .option-card {
     cursor: pointer;
+    position: relative;
 }
 
-.option-card input {
-    display: none;
+.option-card input,
+.check-option input {
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
 }
 
 .option-card__inner {
@@ -113,6 +141,12 @@
     transform: translateY(-5px);
 }
 
+.option-card input:focus-visible + .option-card__inner,
+.check-option input:focus-visible + .check-option__inner {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
 /* Options List (Pain Points) */
 .options-list {
     display: flex;
@@ -121,12 +155,14 @@
     margin-bottom: var(--space-xl);
 }
 
-.check-option {
-    cursor: pointer;
+.options-list--compact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.check-option input {
-    display: none;
+.check-option {
+    cursor: pointer;
+    position: relative;
 }
 
 .check-option__inner {
@@ -138,6 +174,7 @@
     align-items: center;
     gap: var(--space-md);
     transition: all 0.3s ease;
+    height: 100%;
 }
 
 .check-option__inner i {
@@ -152,9 +189,12 @@
     font-size: var(--font-size-md);
 }
 
-.check-option__inner span {
+.check-option__inner small {
+    display: block;
     font-size: var(--font-size-xs);
     color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    margin-top: 2px;
 }
 
 .check-option input:checked + .check-option__inner {
@@ -162,9 +202,17 @@
     background: rgba(201, 162, 77, 0.1);
 }
 
+.step-error {
+    color: #ffb4b4;
+    font-size: var(--font-size-sm);
+    margin: calc(var(--space-md) * -1) 0 var(--space-md);
+    min-height: 1.5em;
+    text-align: center;
+}
+
 /* Maturity Slider */
 .maturity-slider {
-    padding: var(--space-xl) 0;
+    padding: var(--space-md) 0 var(--space-lg);
     text-align: center;
 }
 
@@ -188,6 +236,59 @@
     border-radius: var(--radius-md);
     font-style: italic;
     color: var(--color-gold);
+}
+
+.constraint-title,
+.select-label {
+    color: #fff;
+    display: block;
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    margin: var(--space-sm) 0;
+}
+
+.constraint-title {
+    text-align: center;
+}
+
+.constraint-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.constraint-grid .check-option__inner {
+    justify-content: center;
+    min-height: 52px;
+    padding: var(--space-sm) var(--space-md);
+    text-align: center;
+}
+
+.wizard-form select,
+.wizard-form textarea {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font: inherit;
+    padding: 12px 14px;
+    width: 100%;
+}
+
+.wizard-form select {
+    color-scheme: dark;
+}
+
+.wizard-form textarea {
+    resize: vertical;
+}
+
+.wizard-form select:focus-visible,
+.wizard-form textarea:focus-visible {
+    border-color: var(--color-gold);
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
 }
 
 /* Expert Panel */
@@ -245,6 +346,65 @@
     margin-bottom: var(--space-xl);
 }
 
+.wizard-form .form-group label {
+    color: #fff;
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+}
+
+.wizard-form .form-group input {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font: inherit;
+    padding: 12px 14px;
+    width: 100%;
+}
+
+.wizard-form .form-group input::placeholder,
+.wizard-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.42);
+}
+
+.wizard-form .form-group input:focus-visible {
+    border-color: var(--color-gold);
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+.form-group--full {
+    grid-column: 1 / -1;
+}
+
+.form-group label span {
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 400;
+}
+
+.privacy-consent {
+    align-items: flex-start;
+    color: rgba(255, 255, 255, 0.72);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--font-size-xs);
+    gap: var(--space-sm);
+    line-height: 1.5;
+}
+
+.privacy-consent input {
+    accent-color: var(--color-gold);
+    flex: 0 0 auto;
+    margin-top: 3px;
+}
+
+.privacy-consent a {
+    color: var(--color-gold);
+    text-decoration: underline;
+}
+
 .wizard-footer {
     display: flex;
     justify-content: space-between;
@@ -255,9 +415,62 @@
     padding: 12px 24px;
 }
 
+.wizard-submit-status {
+    color: #ffb4b4;
+    font-size: var(--font-size-sm);
+    margin: var(--space-md) 0 0;
+    text-align: center;
+}
+
+.wizard-completion {
+    padding: var(--space-3xl);
+    text-align: center;
+}
+
+.wizard-completion > i {
+    color: var(--color-gold);
+    height: 80px;
+    margin-bottom: 20px;
+    width: 80px;
+}
+
+.wizard-completion h2 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.wizard-completion p {
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0 auto 24px;
+    max-width: 620px;
+}
+
+.sr-only {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
 @media (max-width: 600px) {
     .form-grid {
         grid-template-columns: 1fr;
+    }
+    .options-list--compact,
+    .constraint-grid {
+        grid-template-columns: 1fr;
+    }
+    .diagnostic-wizard {
+        padding: var(--space-lg);
+    }
+    .wizard-footer {
+        gap: var(--space-sm);
+    }
+    .wizard-footer .btn {
+        padding: 11px 14px;
     }
     .expert-panel {
         flex-direction: column;

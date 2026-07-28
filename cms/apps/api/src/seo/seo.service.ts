@@ -49,7 +49,40 @@ export class SeoService {
             select: { slug: true, updatedAt: true },
             orderBy: { slug: 'asc' },
         });
-        const urls = [
+        const staticRoutes = [
+            '',
+            'solutions.html',
+            'automatisation-processus.html',
+            'integration-systemes.html',
+            'intelligence-artificielle.html',
+            'audit-ia.html',
+            'cas-usage.html',
+            'pourquoi-astauria.html',
+            'blog.html',
+            'contact.html',
+            'article-automatisation.html',
+            'article-cas-reporting.html',
+            'article-donnees-ia.html',
+            'article-guide-audit.html',
+            'article-ia-hospitalier.html',
+            'article-questions-ia.html',
+            'cas-churn-ecommerce.html',
+            'cas-nlp-juridique.html',
+            'cas-readmissions-ia.html',
+            'cas-sentiment-service.html',
+            'cas-urgences-ia.html',
+            'cas-vision-industrie.html',
+            'mentions-legales.html',
+            'politique-confidentialite.html',
+            'cgv.html',
+            'traitement-donnees.html',
+        ];
+        const generatedAt = new Date();
+        const urlsByLocation = new Map(staticRoutes.map(route => {
+            const loc = route ? `${siteUrl}/${route}` : `${siteUrl}/`;
+            return [loc, { loc, lastmod: generatedAt }];
+        }));
+        const dynamicUrls = [
             ...pages.map(page => ({
                 loc: page.slug === 'index' ? `${siteUrl}/` : `${siteUrl}/${page.slug}.html`,
                 lastmod: page.updatedAt,
@@ -59,6 +92,8 @@ export class SeoService {
                 lastmod: article.updatedAt,
             })),
         ];
+        dynamicUrls.forEach(url => urlsByLocation.set(url.loc, url));
+        const urls = Array.from(urlsByLocation.values());
         const escapeXml = (value: string) => value
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
